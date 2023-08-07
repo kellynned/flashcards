@@ -4,16 +4,29 @@
     <div class="container">
       <div class="flashcardsContainer">
         <h2>Flashcards</h2>
+        <input type="text" class="search" />
         <div class="flashcard">Example Flashcard</div>
         <div class="flashcard">Example Flashcard</div>
         <div class="flashcard">Example Flashcard</div>
         <div class="flashcard">Example Flashcard</div>
         <div class="flashcard">Example Flashcard</div>
         <div class="flashcard">Example Flashcard</div>
-        <button class="button" style="vertical-align:middle"><span>Add Card </span></button>
+        <button class="button" style="vertical-align: middle">
+          <span>Add Card </span>
+        </button>
       </div>
       <div class="decksContainer">
         <h2>Decks</h2>
+        <input type="text" class="search" />
+        <div class="deck">Example Deck</div>
+        <div class="deck">Example Deck</div>
+        <div class="deck">Example Deck</div>
+        <div class="deck">Example Deck</div>
+        <div class="deck">Example Deck</div>
+        <div class="deck">Example Deck</div>
+        <button class="button" style="vertical-align: middle">
+          <span>Add Deck </span>
+        </button>
       </div>
     </div>
   </div>
@@ -55,6 +68,7 @@ export default {
   background-color: #89b0ae;
   height: 750px;
   text-align: center;
+  overflow: auto;
 }
 .flashcardsContainer {
   color: #faf9f9;
@@ -77,23 +91,39 @@ export default {
   margin-bottom: 15px;
 }
 
+.deck {
+  border-radius: 25px;
+  background-color: #ffd6ba;
+  width: 90%;
+  height: 15%;
+  position: relative;
+  left: 25px;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+h2 {
+  font-size: 1.75em;
+  margin: 10px;
+  color: #faf9f9;
+}
+
 .overflowScroll {
-    height:250px; 
+  height: 250px;
 }
 
 ::-webkit-scrollbar {
-    width: 10px;
-    
+  width: 10px;
 }
-  
+
 ::-webkit-scrollbar-track {
-   box-shadow: inset 0 0 5px grey;
-   border-radius: 10px;
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
 }
-  
+
 ::-webkit-scrollbar-thumb {
-   background: #B3B3B3;
-   border-radius: 10px;
+  background: #b3b3b3;
+  border-radius: 10px;
 }
 
 .button {
@@ -101,7 +131,7 @@ export default {
   border-radius: 15px;
   background-color: transparent;
   border: none;
-  color: #FFFFFF;
+  color: #ffffff;
   text-align: center;
   font-size: 20px;
   padding: 20px;
@@ -119,7 +149,7 @@ export default {
 }
 
 .button span:after {
-  content: '\002B';
+  content: "\002B";
   position: absolute;
   opacity: 0;
   top: 0;
@@ -134,5 +164,10 @@ export default {
 .button:hover span:after {
   opacity: 1;
   right: 0;
+}
+
+.search {
+  width: 40%;
+  height: 20px;
 }
 </style>
