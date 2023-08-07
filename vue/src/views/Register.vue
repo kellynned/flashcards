@@ -129,6 +129,8 @@ button {
   align-items: center;
   justify-content: center;  
   font-weight: bold;
+  position: relative;
+  left: 55px;
 }
 
 button:hover {
