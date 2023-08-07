@@ -5,12 +5,30 @@
       <div class="flashcardsContainer">
         <h2>Flashcards</h2>
         <input type="text" class="search" />
-        <div class="flashcard">Example Flashcard</div>
-        <div class="flashcard">Example Flashcard</div>
-        <div class="flashcard">Example Flashcard</div>
-        <div class="flashcard">Example Flashcard</div>
-        <div class="flashcard">Example Flashcard</div>
-        <div class="flashcard">Example Flashcard</div>
+        <div class="flashcard">
+          <h3>Example Flashcard</h3>
+          <p>This is a question and this is an answer.</p>
+        </div>
+        <div class="flashcard">
+          <h3>Example Flashcard</h3>
+          <p>This is a question and this is an answer.</p>
+        </div>
+        <div class="flashcard">
+          <h3>Example Flashcard</h3>
+          <p>This is a question and this is an answer.</p>
+        </div>
+        <div class="flashcard">
+          <h3>Example Flashcard</h3>
+          <p>This is a question and this is an answer.</p>
+        </div>
+        <div class="flashcard">
+          <h3>Example Flashcard</h3>
+          <p>This is a question and this is an answer.</p>
+        </div>
+        <div class="flashcard">
+          <h3>Example Flashcard</h3>
+          <p>This is a question and this is an answer.</p>
+        </div>
         <button class="button" style="vertical-align: middle">
           <span>Add Card </span>
         </button>
@@ -18,12 +36,30 @@
       <div class="decksContainer">
         <h2>Decks</h2>
         <input type="text" class="search" />
-        <div class="deck">Example Deck</div>
-        <div class="deck">Example Deck</div>
-        <div class="deck">Example Deck</div>
-        <div class="deck">Example Deck</div>
-        <div class="deck">Example Deck</div>
-        <div class="deck">Example Deck</div>
+        <div class="deck">
+          <h3>Example Deck</h3>
+          <p>This is a deck preview.</p>
+        </div>
+        <div class="deck">
+          <h3>Example Deck</h3>
+          <p>This is a deck preview.</p>
+        </div>
+        <div class="deck">
+          <h3>Example Deck</h3>
+          <p>This is a deck preview.</p>
+        </div>
+        <div class="deck">
+          <h3>Example Deck</h3>
+          <p>This is a deck preview.</p>
+        </div>
+        <div class="deck">
+          <h3>Example Deck</h3>
+          <p>This is a deck preview.</p>
+        </div>
+        <div class="deck">
+          <h3>Example Deck</h3>
+          <p>This is a deck preview.</p>
+        </div>
         <button class="button" style="vertical-align: middle">
           <span>Add Deck </span>
         </button>

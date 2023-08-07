@@ -120,6 +120,8 @@ button {
   justify-content: center;
   margin-top: 30px;
   font-weight: bold;
+  position: relative;
+  left: 45px;
 }
 
 button:hover {
@@ -134,4 +136,5 @@ button:hover {
   justify-content: center;
   color: #faf9f9;
 }
+
 </style>
