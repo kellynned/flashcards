@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }" class="nav-option">Home</router-link>
-      
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" class="nav-option">Logout <i class="fa-solid fa-arrow-right-from-bracket"></i></router-link>
+      <router-link v-bind:to="{ name: 'home' }" class="nav-option">Home <i class="fa-solid fa-house"></i></router-link>
+      <span class="separator">|</span>
+      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" class="nav-option">Logout <i class="fa-solid fa-arrow-right-from-bracket" id="logout-arrow"></i></router-link>
     </div>
     <router-view />
   </div>
@@ -42,5 +42,14 @@
   font-family: "Font Awesome"; /* Include the Font Awesome font family */
   margin-right: 6px;
 }
-
+.separator{
+  margin-right: 20px;
+  color: #fff;
+}
+#logout-arrow{
+  margin-left: 3px;
+}
+.fa-house{
+  margin-left: 3px;
+}
 </style>
