@@ -62,7 +62,7 @@ export default {
 }
 
 .decksContainer {
-  color: #faf9f9;
+  color: #89b0ae;
   border-radius: 25px;
   width: 550px;
   background-color: #89b0ae;
@@ -71,7 +71,7 @@ export default {
   overflow: auto;
 }
 .flashcardsContainer {
-  color: #faf9f9;
+  color: #89b0ae;
   border-radius: 25px;
   width: 550px;
   background-color: #89b0ae;
@@ -82,7 +82,7 @@ export default {
 
 .flashcard {
   border-radius: 25px;
-  background-color: #ffd6ba;
+  background-color: #faf9f9;
   width: 90%;
   height: 15%;
   position: relative;
@@ -93,7 +93,7 @@ export default {
 
 .deck {
   border-radius: 25px;
-  background-color: #ffd6ba;
+  background-color: #faf9f9;
   width: 90%;
   height: 15%;
   position: relative;
