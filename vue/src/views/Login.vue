@@ -1,43 +1,42 @@
 <template >
   <body>
-    <section id="login-area">
-      <div id="login">
-        <form @submit.prevent="login">
-          <h1>Flashcards</h1>
-          <div role="alert" v-if="invalidCredentials">
-            Invalid username and password!
-          </div>
-          <div role="alert" v-if="this.$route.query.registration">
-            Thank you for registering, please sign in.
-          </div>
-          <div class="form-input-group">
-            <label for="username">Username</label>
-            <input
-              type="text"
-              id="username"
-              v-model="user.username"
-              required
-              autofocus
-            />
-          </div>
-          <div class="form-input-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              v-model="user.password"
-              required
-            />
-          </div>
-          <button type="submit">Sign in</button>
-          <p>
-            <router-link :to="{ name: 'register' }"
-              >Need an account? Sign up.</router-link
-            >
-          </p>
-        </form>
-      </div>
-    </section>
+    <div id="login">
+      <form @submit.prevent="login">
+        <h1>Flashcards</h1>
+        <h2>Login</h2>
+        <div role="alert" v-if="invalidCredentials">
+          Invalid username and password!
+        </div>
+        <div role="alert" v-if="this.$route.query.registration">
+          Thank you for registering, please sign in.
+        </div>
+        <div class="form-input-group">
+          <label for="username">Username</label>
+          <input
+            type="text"
+            id="username"
+            v-model="user.username"
+            required
+            autofocus
+          />
+        </div>
+        <div class="form-input-group">
+          <label for="password">Password</label>
+          <input
+            type="password"
+            id="password"
+            v-model="user.password"
+            required
+          />
+        </div>
+        <button type="submit">Login</button>
+        <p>
+          <router-link :to="{ name: 'register' }" class="login-link"
+            >Need an account? Sign up.</router-link
+          >
+        </p>
+      </form>
+    </div>
   </body>
 </template>
 
@@ -82,9 +81,12 @@ export default {
 <style scoped>
 .form-input-group {
   margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
 }
 label {
-  margin-right: 0.5rem;
+  margin-bottom: 0.25rem;
+  text-align: left;
 }
 
 #login {
@@ -94,7 +96,7 @@ label {
   background-color: #555b6e;
   height: 95vh;
   color: #89b0ae;
-  font-size: 1.9em;
+  font-size: 1.5em;
 }
 
 h1 {
@@ -102,23 +104,34 @@ h1 {
   color: #faf9f9;
 }
 
+h2 {
+  font-size: 3.5rem;
+  color: #faf9f9;
+  text-align: center;
+}
+
 button {
-  background-color: #89b0ae;
-  border-radius: 10px;
-  padding: 15px;
-  min-height: 20px;
-  min-width: 200px;
-  color: #555b6e;
-  font-size: 0.8em;
-  border-color: white;
-}
-
-#login-area {
   display: flex;
-  flex-direction: column;
-  width: 45%;
+  border-radius: 4px;
+  background-color: #bee3db;
+  width: 75%;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  font-weight: bold;
 }
 
-body {
+button:hover {
+  box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 4px;
+  background-color: #89b0ae;
+}
+.login-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #faf9f9;
 }
 </style>
