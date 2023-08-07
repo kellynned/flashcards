@@ -5,7 +5,12 @@
       <div class="flashcardsContainer">
         <h2>Flashcards</h2>
         <input type="text" class="search" />
-        <div class="flashcard">Example Flashcard</div>
+        <div class="flashcard">
+          <h3>Example Flashcard</h3>
+          <button>Edit</button>
+
+
+        </div>
         <div class="flashcard">Example Flashcard</div>
         <div class="flashcard">Example Flashcard</div>
         <div class="flashcard">Example Flashcard</div>
