@@ -91,18 +91,18 @@ export default {
 <style scoped>
 .form-input-group {
   display: flex;
-  flex-direction: column; /* Display label and input in a column layout */
+  flex-direction: column; 
   margin-bottom: 1rem;
 }
 
 label {
   text-align: left;
-  margin-bottom: 0.25rem; /* Add spacing between label and input */
+  margin-bottom: 0.25rem; 
 }
 
 input {
   width: 100%;
-  padding: 0.5rem; /* Add some padding for better appearance */
+  padding: 0.5rem; 
 }
 
 #register {
@@ -121,13 +121,13 @@ h1 {
 }
 button {
   display: flex;
+  margin-top: 30px;
   border-radius: 4px;
   background-color: #bee3db;
   width: 75%;
   height: 40px;
   align-items: center;
-  justify-content: center;
-  
+  justify-content: center;  
   font-weight: bold;
 }
 
@@ -141,5 +141,6 @@ button:hover {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #FAF9F9;
 }
 </style>

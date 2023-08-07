@@ -28,7 +28,7 @@ export default {
 <style scoped>
 .home {
   background-color: #555b6e;
-  height: 95vh;
+  height: 95.3vh;
   color: #89b0ae;
   font-size: 1.5em;
 }

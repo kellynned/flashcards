@@ -1,18 +1,47 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
-      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+      <router-link v-bind:to="{ name: 'home' }" class="nav-option">Home</router-link>
+      
+      <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''" class="nav-option">Logout
+        <span>   </span> <i class="fa-solid fa-arrow-right-from-bracket"></i></router-link>
     </div>
     <router-view />
   </div>
 </template>
 
 <style scoped>
-
 #nav {
+  display: flex;
+  align-items: center;
   background-color: #89B0AE;
-  height: 45px;
-  outline: 1px solid white;
+  height: 60px;
+  padding: 0 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+.nav-option {
+  color: #fff;
+  text-decoration: none;
+  margin-right: 20px;
+  padding: 8px 12px;
+  border-radius: 4px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-option:hover {
+  background-color: #70A8A6;
+}
+
+.router-link-exact-active {
+  background-color: #70A8A6;
+}
+
+/* Optional: Add an icon to the Logout link */
+.nav-option.logout::before {
+  content: "\f2f5"; /* Unicode for a logout icon (you can replace with your preferred icon) */
+  font-family: "Font Awesome"; /* Include the Font Awesome font family */
+  margin-right: 6px;
+}
+
 </style>
