@@ -7,3 +7,12 @@
     <router-view />
   </div>
 </template>
+
+<style scoped>
+
+#nav {
+  background-color: #89B0AE;
+  height: 45px;
+  outline: 1px solid white;
+}
+</style>

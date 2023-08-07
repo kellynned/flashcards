@@ -1,7 +1,7 @@
-<template>
+<template >
   <div id="login">
     <form @submit.prevent="login">
-      <h1 >Please Sign In</h1>
+      <h1 >Flashcards</h1>
       <div role="alert" v-if="invalidCredentials">
         Invalid username and password!
       </div>
@@ -68,4 +68,21 @@ export default {
 label {
   margin-right: 0.5rem;
 }
+
+#login {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  background-color: #555B6E;
+  height: 95vh;
+  color: #89B0AE;
+  font-size: 1.5em;
+}
+
+h1 {
+ font-size: 4rem;
+ color: #FAF9F9;
+}
+
+
 </style>
