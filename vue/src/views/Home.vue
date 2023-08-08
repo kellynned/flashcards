@@ -5,30 +5,15 @@
       <div class="flashcardsContainer">
         <h2>Flashcards</h2>
         <input type="text" class="search" />
-        <div class="flashcard">
-          <h3>Example Flashcard</h3>
-          <p>This is a question and this is an answer.</p>
+        <div>
+          <Flashcard
+            class="flashcard"
+            v-for="flashcard in flashcards"
+            :key="flashcard.id"
+            :flashcard="flashcard"
+          />
         </div>
-        <div class="flashcard">
-          <h3>Example Flashcard</h3>
-          <p>This is a question and this is an answer.</p>
-        </div>
-        <div class="flashcard">
-          <h3>Example Flashcard</h3>
-          <p>This is a question and this is an answer.</p>
-        </div>
-        <div class="flashcard">
-          <h3>Example Flashcard</h3>
-          <p>This is a question and this is an answer.</p>
-        </div>
-        <div class="flashcard">
-          <h3>Example Flashcard</h3>
-          <p>This is a question and this is an answer.</p>
-        </div>
-        <div class="flashcard">
-          <h3>Example Flashcard</h3>
-          <p>This is a question and this is an answer.</p>
-        </div>
+
         <button class="button" style="vertical-align: middle">
           <span>Add Card </span>
         </button>
@@ -54,7 +39,10 @@
         </div>
         <div class="deck">
           <h3>Example Deck</h3>
-          <p>This is a deck preview.</p>
+          <p>
+            This is a deck preview. Thiskjlsdjaljfiwe ajhffh dfsl. asdlfjief
+            afjskd lajsdf alsdjf klasjfld jfl sdf sfajls
+          </p>
         </div>
         <div class="deck">
           <h3>Example Deck</h3>
@@ -69,8 +57,18 @@
 </template>
 
 <script>
+import Flashcard from "@/components/Flashcard.vue";
 export default {
   name: "home",
+  components: {
+    Flashcard,
+  },
+  computed: {
+    flashcards() {
+      // Replace this with fetching the flashcards from the store
+      return this.$store.state.flashcards;
+    },
+  },
 };
 </script>
 
@@ -120,7 +118,7 @@ export default {
   border-radius: 25px;
   background-color: #faf9f9;
   width: 90%;
-  height: 15%;
+  height: 112px;
   position: relative;
   left: 25px;
   margin-top: 15px;
