@@ -87,37 +87,43 @@ export default new Vuex.Store({
         subject: "math",
         question: "What is the Pythagorean theorem?",
         answer: "In a right triangle, the square of the length of the hypotenuse is equal to the sum of the squares of the lengths of the other two sides.",
-        deck: "Mathematics"
+        deck: "Mathematics",
+        username: "userid"
       },
       {
         subject: "trivia",
         question: "What is the largest mammal on Earth?",
         answer: "Blue whale",
-        deck: "Animals"
+        deck: "Animals",
+        username: "userid"
       },
       {
         subject: "math",
         question: "What is the quadratic formula?",
         answer: "x = (-b ± √(b^2 - 4ac)) / 2a",
-        deck: "Algebra"
+        deck: "Algebra",
+        username: "userid"
       },
       {
         subject: "math",
         question: "What is the Pythagorean theorem?",
         answer: "In a right triangle, the square of the length of the hypotenuse is equal to the sum of the squares of the lengths of the other two sides.",
-        deck: "Mathematics"
+        deck: "Mathematics",
+        username: "userid"
       },
       {
         subject: "trivia",
         question: "What is the largest mammal on Earth?",
         answer: "Blue whale",
-        deck: "Animals"
+        deck: "Animals",
+        username: "userid"
       },
       {
         subject: "math",
         question: "What is the quadratic formula?",
         answer: "x = (-b ± √(b^2 - 4ac)) / 2a",
-        deck: "Algebra"
+        deck: "Algebra",
+        username: "userid"
       },
     ],
   },

@@ -1,7 +1,7 @@
 <template>
   <div class="decks-page">
     <div class="header"><h1>Flashcards</h1></div>
-    <div class="container"></div>
+
     <div class="decksContainer">
       <h2>Decks</h2>
       <input type="text" class="search" />
@@ -50,24 +50,16 @@ export default {
   color: #faf9f9;
 }
 
-.container {
-  display: flex;
-  gap: 100px;
-  margin: 20px;
-  justify-content: center;
-  align-self: center;
-  height: 100%;
-}
-
 .decksContainer {
   color: #89b0ae;
   border-radius: 25px;
-  margin-right: 80px;
-  margin-left: 80px;
+  margin-right: 25%;
+  margin-left: 25%;
   background-color: #89b0ae;
   height: 100%;
   text-align: center;
   overflow: auto;
+  align-content: center;
 }
 
 .deck {
@@ -75,8 +67,9 @@ export default {
   background-color: #faf9f9;
   width: 90%;
   height: 112px;
+  left: 43px;
   position: relative;
-  left: 25px;
+  align-content: center;
   margin-top: 15px;
   margin-bottom: 15px;
 }
