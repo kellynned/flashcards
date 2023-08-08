@@ -20,7 +20,7 @@ public class FlashcardController {
         this.userDao = userDao;
     }
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(value = "/flaschards", method = RequestMethod.POST)
+    @RequestMapping(value = "/flashcards", method = RequestMethod.POST)
     public void newFlashcard(@RequestBody Flashcard flashcard, Principal principal){
         User creator = userDao.getUserByUsername(principal.getName());
 
