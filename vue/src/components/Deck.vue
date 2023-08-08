@@ -2,9 +2,10 @@
   <div class="deck">
     <h3>
       {{ deck.subject }}
-      <button class="edit-button" @click="editDeck(deck)">
-        <span>Edit </span>
-      </button>
+
+      <router-link v-bind:to="{ name: 'DecksPage' }" class="edit-button"
+        ><i class="fa-solid fa-pen-to-square"></i
+      ></router-link>
     </h3>
     <p>{{ deck.deck }}</p>
   </div>
@@ -37,12 +38,12 @@ export default {
 .edit-button {
   display: inline-block;
   border-radius: 15px;
-  background-color: #fde8da;
+  background-color: transparent;
   border: none;
   color: #555b6e;
   text-align: center;
   font-size: 15px;
-  padding: 20px;
+  padding: 7px;
   width: 70px;
   transition: all 0.5s;
   cursor: pointer;
