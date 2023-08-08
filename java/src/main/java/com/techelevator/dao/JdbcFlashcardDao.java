@@ -16,12 +16,17 @@ public class JdbcFlashcardDao {
 
     public void createFlashcard(Flashcard flashcard){
 
+        String sql = "INSERT INTO flashcards (answer, question, subject, user_id) " +
+                "VALUES (?, ?, ?, ?);";
+
+        jdbcTemplate.update(sql, flashcard.getAnswer(), flashcard.getQuestion(), flashcard.getSubject(),flashcard.getUserId());
 
     }
 
     private Flashcard mapRowToTransaction(SqlRowSet rs){
         Flashcard flashcard = new Flashcard();
-        flashcard.setId(rs.getInt("id"));
+        flashcard.setFlashcardId(rs.getInt("flashcard_id"));
+        flashcard.setUserId(rs.getInt("user_id"));
         flashcard.setAnswer(rs.getString("answer"));
         flashcard.setQuestion(rs.getString("question"));
         flashcard.setSubject(rs.getString("subject"));
