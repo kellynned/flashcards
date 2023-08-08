@@ -1,13 +1,12 @@
 <template>
   <div class="deck">
     <h3>
-      {{ deck.subject }}
-
+      {{ deck.username }} | {{ deck.deck }}
       <router-link v-bind:to="{ name: 'DecksPage' }" class="edit-button"
         ><i class="fa-solid fa-pen-to-square"></i
       ></router-link>
     </h3>
-    <p>{{ deck.deck }}</p>
+    <h1 class="subject">{{ deck.subject }}</h1>
   </div>
 </template>
 
@@ -24,6 +23,21 @@ export default {
 </script>
 
 <style scoped>
+h3 {
+  display: flex;
+  justify-content: space-between;
+  align-self: center;
+  color: #89b0ae;
+  font-size: 1em;
+  padding-left: 12px;
+}
+.subject {
+  display: flex;
+  justify-content: center;
+  align-items: baseline;
+  color: #89b0ae;
+  font-size: 1.5em;
+}
 .deck {
   border-radius: 25px;
   background-color: #faf9f9;
@@ -31,6 +45,7 @@ export default {
   height: 15%;
   position: relative;
   left: 25px;
+  right: 25px;
   margin-top: 15px;
   margin-bottom: 15px;
 }
@@ -44,7 +59,7 @@ export default {
   text-align: center;
   font-size: 15px;
   padding: 7px;
-  width: 70px;
+  width: 40px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
