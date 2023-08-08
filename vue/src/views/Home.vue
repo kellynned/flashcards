@@ -5,7 +5,15 @@
       <div class="flashcardsContainer">
         <h2>Flashcards</h2>
         <input type="text" class="search" />
+        <div>
+          <Flashcard
+            class="flashcard"
+            v-for="flashcard in flashcards"
+            :key="flashcard.id"
+            :flashcard="flashcard"
+          />
         </div>
+
         <button class="button" style="vertical-align: middle">
           <span>Add Card </span>
         </button>
@@ -13,29 +21,16 @@
       <div class="decksContainer">
         <h2>Decks</h2>
         <input type="text" class="search" />
-        <div class="deck">
-          <h3>Example Deck</h3>
-          <p>This is a deck preview.</p>
+
+        <div>
+          <Deck
+            class="deck"
+            v-for="deck in decks"
+            :key="deck.id"
+            :deck="deck"
+          />
         </div>
-        <div class="deck">
-          <h3>Example Deck</h3>
-          <p>This is a deck preview.</p>
-        </div>
-        <div class="deck">
-          <h3>Example Deck</h3>
-          <p>This is a deck preview.</p>
-        </div>
-        <div class="deck">
-          <h3>Example Deck</h3>
-          <p>This is a deck preview.</p>
-        </div>
-        <div class="deck">
-          <h3>Example Deck</h3>
-        </div>
-        <div class="deck">
-          <h3>Example Deck</h3>
-          <p>This is a deck preview.</p>
-        </div>
+
         <button class="button" style="vertical-align: middle">
           <span>Add Deck </span>
         </button>
@@ -45,8 +40,22 @@
 </template>
 
 <script>
+import Flashcard from "@/components/Flashcard.vue";
+import Deck from "@/components/Deck.vue";
 export default {
   name: "home",
+  components: {
+    Flashcard,
+    Deck,
+  },
+  computed: {
+    flashcards() {
+      return this.$store.state.flashcards;
+    },
+    decks() {
+      return this.$store.state.decks;
+    },
+  },
 };
 </script>
 
@@ -107,7 +116,7 @@ export default {
   border-radius: 25px;
   background-color: #faf9f9;
   width: 90%;
-  height: 15%;
+  height: 112px;
   position: relative;
   left: 25px;
   margin-top: 15px;
@@ -143,7 +152,7 @@ h2 {
   border-radius: 15px;
   background-color: transparent;
   border: none;
-  color: #ffffff;
+  color: #faf9f9;
   text-align: center;
   font-size: 20px;
   padding: 20px;
@@ -181,5 +190,20 @@ h2 {
 .search {
   width: 40%;
   height: 20px;
+}
+
+.edit-button {
+  display: inline-block;
+  border-radius: 15px;
+  background-color: #fde8da;
+  border: none;
+  color: #555b6e;
+  text-align: center;
+  font-size: 15px;
+  padding: 20px;
+  width: 70px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
 }
 </style>
