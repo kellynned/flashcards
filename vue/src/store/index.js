@@ -82,6 +82,26 @@ export default new Vuex.Store({
         deck: "Chemistry"
       }
     ],
+    decks: [
+      {
+        subject: "math",
+        question: "What is the Pythagorean theorem?",
+        answer: "In a right triangle, the square of the length of the hypotenuse is equal to the sum of the squares of the lengths of the other two sides.",
+        deck: "Mathematics"
+      },
+      {
+        subject: "trivia",
+        question: "What is the largest mammal on Earth?",
+        answer: "Blue whale",
+        deck: "Animals"
+      },
+      {
+        subject: "math",
+        question: "What is the quadratic formula?",
+        answer: "x = (-b ± √(b^2 - 4ac)) / 2a",
+        deck: "Algebra"
+      },
+    ],
   },
   mutations: {
     SET_AUTH_TOKEN(state, token) {

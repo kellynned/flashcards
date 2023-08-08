@@ -21,33 +21,20 @@
       <div class="decksContainer">
         <h2>Decks</h2>
         <input type="text" class="search" />
-        <div class="deck">
-          <h3>Example Deck</h3>
-          <p>This is a deck preview.</p>
+
+        <div>
+          <Deck
+            class="deck"
+            v-for="deck in decks"
+            :key="deck.id"
+            :deck="deck"
+          />
+
+          <button class="edit-button" @click="editDeck(deck)">
+            <span>Edit </span>
+          </button>
         </div>
-        <div class="deck">
-          <h3>Example Deck</h3>
-          <p>This is a deck preview.</p>
-        </div>
-        <div class="deck">
-          <h3>Example Deck</h3>
-          <p>This is a deck preview.</p>
-        </div>
-        <div class="deck">
-          <h3>Example Deck</h3>
-          <p>This is a deck preview.</p>
-        </div>
-        <div class="deck">
-          <h3>Example Deck</h3>
-          <p>
-            This is a deck preview. Thiskjlsdjaljfiwe ajhffh dfsl. asdlfjief
-            afjskd lajsdf alsdjf klasjfld jfl sdf sfajls
-          </p>
-        </div>
-        <div class="deck">
-          <h3>Example Deck</h3>
-          <p>This is a deck preview.</p>
-        </div>
+
         <button class="button" style="vertical-align: middle">
           <span>Add Deck </span>
         </button>
@@ -58,15 +45,19 @@
 
 <script>
 import Flashcard from "@/components/Flashcard.vue";
+import Deck from "@/components/Deck.vue";
 export default {
   name: "home",
   components: {
     Flashcard,
+    Deck,
   },
   computed: {
     flashcards() {
-      // Replace this with fetching the flashcards from the store
       return this.$store.state.flashcards;
+    },
+    decks() {
+      return this.$store.state.decks;
     },
   },
 };
@@ -129,7 +120,7 @@ export default {
   border-radius: 25px;
   background-color: #faf9f9;
   width: 90%;
-  height: 15%;
+  height: 112px;
   position: relative;
   left: 25px;
   margin-top: 15px;
