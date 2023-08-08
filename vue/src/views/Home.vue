@@ -29,10 +29,6 @@
             :key="deck.id"
             :deck="deck"
           />
-
-          <button class="edit-button" @click="editDeck(deck)">
-            <span>Edit </span>
-          </button>
         </div>
 
         <button class="button" style="vertical-align: middle">
@@ -156,7 +152,7 @@ h2 {
   border-radius: 15px;
   background-color: transparent;
   border: none;
-  color: #ffffff;
+  color: #faf9f9;
   text-align: center;
   font-size: 20px;
   padding: 20px;
@@ -194,5 +190,20 @@ h2 {
 .search {
   width: 40%;
   height: 20px;
+}
+
+.edit-button {
+  display: inline-block;
+  border-radius: 15px;
+  background-color: #fde8da;
+  border: none;
+  color: #555b6e;
+  text-align: center;
+  font-size: 15px;
+  padding: 20px;
+  width: 70px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
 }
 </style>
