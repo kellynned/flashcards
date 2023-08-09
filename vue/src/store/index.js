@@ -20,113 +20,12 @@ export default new Vuex.Store({
   state: {
     token: currentToken || '',
     user: currentUser || {},
-    flashcards: [
-      {
-        subject: "math",
-        question: "What is the Pythagorean theorem?",
-        answer: "In a right triangle, the square of the length of the hypotenuse is equal to the sum of the squares of the lengths of the other two sides.",
-        deck: "Mathematics"
-      },
-      {
-        subject: "science",
-        question: "What is photosynthesis?",
-        answer: "The process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll.",
-        deck: "Biology"
-      },
-      {
-        subject: "history",
-        question: "Who was the first President of the United States?",
-        answer: "George Washington",
-        deck: "American History"
-      },
-      {
-        subject: "trivia",
-        question: "What is the capital of Australia?",
-        answer: "Canberra",
-        deck: "Geography"
-      },
-      {
-        subject: "math",
-        question: "What is the formula for the area of a circle?",
-        answer: "A = πr^2",
-        deck: "Geometry"
-      },
-      {
-        subject: "science",
-        question: "What is Newton's first law of motion?",
-        answer: "An object at rest will stay at rest, and an object in motion will stay in motion unless acted upon by an external force.",
-        deck: "Physics"
-      },
-      {
-        subject: "history",
-        question: "When did World War II end?",
-        answer: "September 2, 1945",
-        deck: "World History"
-      },
-      {
-        subject: "trivia",
-        question: "What is the largest mammal on Earth?",
-        answer: "Blue whale",
-        deck: "Animals"
-      },
-      {
-        subject: "math",
-        question: "What is the quadratic formula?",
-        answer: "x = (-b ± √(b^2 - 4ac)) / 2a",
-        deck: "Algebra"
-      },
-      {
-        subject: "science",
-        question: "What is the chemical symbol for gold?",
-        answer: "Au",
-        deck: "Chemistry"
-      }
-    ],
-    decks: [
-      {
-        subject: "math",
-        question: "What is the Pythagorean theorem?",
-        answer: "In a right triangle, the square of the length of the hypotenuse is equal to the sum of the squares of the lengths of the other two sides.",
-        deck: "Mathematics",
-        username: "userid"
-      },
-      {
-        subject: "trivia",
-        question: "What is the largest mammal on Earth?",
-        answer: "Blue whale",
-        deck: "Animals",
-        username: "userid"
-      },
-      {
-        subject: "math",
-        question: "What is the quadratic formula?",
-        answer: "x = (-b ± √(b^2 - 4ac)) / 2a",
-        deck: "Algebra",
-        username: "userid"
-      },
-      {
-        subject: "math",
-        question: "What is the Pythagorean theorem?",
-        answer: "In a right triangle, the square of the length of the hypotenuse is equal to the sum of the squares of the lengths of the other two sides.",
-        deck: "Mathematics",
-        username: "userid"
-      },
-      {
-        subject: "trivia",
-        question: "What is the largest mammal on Earth?",
-        answer: "Blue whale",
-        deck: "Animals",
-        username: "userid"
-      },
-      {
-        subject: "math",
-        question: "What is the quadratic formula?",
-        answer: "x = (-b ± √(b^2 - 4ac)) / 2a",
-        deck: "Algebra",
-        username: "userid"
-      },
-    ],
+
+    flashcards: [],
+    decks: [],
+
   },
+
   mutations: {
     SET_AUTH_TOKEN(state, token) {
       state.token = token;
@@ -151,8 +50,22 @@ export default new Vuex.Store({
         flashcard.correct = !flashcard.correct;
       }
     },
+    SET_DECKS(state, decks) {
+      state.decks = decks;
+    },
   },
+  // actions: {
+  //   async fetchDecks({ commit }) {
+  //     try {
+  //       const response = await axios.get('/decks');
+  //       const decks = response.data;
+  //       commit('SET_DECKS', decks);
+  //     } catch (error) {
+  //       console.error('Error fetching decks:', error);
+  //     }
+  //   },
 
+  // },
   getters: {
     getFlashcards(state) {
       return state.flashcards;
