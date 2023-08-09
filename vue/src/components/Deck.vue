@@ -23,7 +23,9 @@ export default {
   props: {
     deck: Object,
   },
-  data() {},
+  data() {
+    return {};
+  },
   methods: {},
 };
 </script>

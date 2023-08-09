@@ -17,19 +17,19 @@
         <i class="fa-solid fa-arrow-right-from-bracket" id="logout-arrow"></i
       ></router-link>
     </div>
-    <div v-for="flashcard in flashcards" :key="flashcard.id">
+    <!-- <div v-for="flashcard in flashcards" :key="flashcard.id">
       <Flashcard :flashcard="flashcard" />
-    </div>
+    </div> -->
     <router-view />
   </div>
 </template>
 
 <script>
-import Flashcard from "./components/Flashcard.vue";
+// import Flashcard from "./components/Flashcard.vue";
 
 export default {
   components: {
-    Flashcard,
+    // Flashcard,
   },
   computed: {
     totalCorrect() {
