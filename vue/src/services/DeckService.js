@@ -1,14 +1,18 @@
-import axios from 'axios';
-
-const http = axios.create({
-  baseURL: "http://localhost:9000/"
-});
-
+import http from 'axios';
 export default {
-
-  getDecks() {
-
-    console.log("Starting to Load...");
-    return http.get('/decks');
-  }
+    list() {
+        return http.get('/decks');
+    },
+    get(id) {
+        return http.get(`/decks/${id}`);
+    },
+    create(deck) {
+        return http.post(`/decks`, deck);
+    },
+    update(id, deck) {
+        return http.put(`/decks/${id}`, deck);
+    },
+    delete(id) {
+        return http.delete(`/decks/${id}`);
+    }
 }
