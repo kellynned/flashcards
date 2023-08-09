@@ -7,14 +7,14 @@ public class Flashcard {
     private String question;
     private String answer;
     private String subject;
-    private String deckName;
+    private String deckname;
 
-    public Flashcard(int flashcardId, int userId, String question, String answer, String subject, String deckName) {
+    public Flashcard(int flashcardId, int userId, String question, String answer, String subject, String deckname) {
         this.flashcardId = flashcardId;
         this.question = question;
         this.answer = answer;
         this.subject = subject;
-        this.deckName = deckName;
+        this.deckname = deckname;
         this.userId = userId;
     }
 
@@ -62,11 +62,11 @@ public class Flashcard {
     }
 
     public String getDeckName() {
-        return deckName;
+        return deckname;
     }
 
-    public void setDeckName(String deckName) {
-        this.deckName = deckName;
+    public void setDeckName(String deckname) {
+        this.deckname = deckname;
     }
 
 
