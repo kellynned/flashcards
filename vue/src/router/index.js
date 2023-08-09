@@ -59,7 +59,7 @@ const router = new Router({
       name: "DecksPage",
       component: DecksPage,
       meta: {
-        requiresAuth: false
+        requiresAuth: true
       }
     },
 

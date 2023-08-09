@@ -46,7 +46,7 @@ h3 {
   color: #89b0ae;
   font-size: 1.5em;
   padding-right: 7px;
-  margin-left: 40%;
+  margin-left: 45%;
   margin-top: 1%;
 }
 .deck {
@@ -86,5 +86,6 @@ h3 {
   cursor: pointer;
   margin: 5px;
   outline: solid #555b6e;
+  text-decoration: none;
 }
 </style>
