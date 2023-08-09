@@ -19,17 +19,41 @@
 
 <script>
 import Deck from "@/components/Deck.vue";
+import DeckService from "@/services/DeckService";
+
 export default {
   name: "DecksPage",
   components: {
     Deck,
   },
   computed: {
-    flashcards() {
-      return this.$store.state.flashcards;
-    },
     decks() {
       return this.$store.state.decks;
+    },
+  },
+  mounted() {
+    DeckService.list().then((response) =>
+      this.$store.commit("SET_DECKS", response.data)
+    );
+    // this.$store.dispatch("fetchDecks");
+    // this.fetchDecks();
+  },
+
+  services: {
+    DeckService,
+  },
+  methods: {
+    async fetchDecks() {
+      try {
+        // const response = await DeckService.list();
+        // const decks = response.data;
+        // this.$store.commit("SET_DECKS", decks);
+        // this.deck = decks;
+        await this.$store.dispatch("fetchDecks");
+        // Update your Vuex store or component data with fetched decks
+      } catch (error) {
+        console.error("Error fetching decks:", error);
+      }
     },
   },
 };

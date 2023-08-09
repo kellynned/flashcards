@@ -1,6 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.model.Deck;
+import com.techelevator.model.User;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
@@ -26,7 +27,7 @@ public class JdbcDeckDao {
         jdbcTemplate.update(sql, deck.getDeck_id(), deck.getDeckName(), deck.getUser_id());
     }
 
-        public List<Deck> findAll(Deck deck) {
+        public List<Deck> findAll(User user) {
         List<Deck> decks = new ArrayList<>();
         String sql = "SELECT * \n" +
                 "FROM deck\n" +
@@ -34,10 +35,10 @@ public class JdbcDeckDao {
                 "LEFT JOIN flashcard on flashcard.deck_id = flashcard_deck.deck_id\n" +
                 "WHERE deck.user_id = ?;";
 
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, deck.getUser_id());
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, user.getId());
         while (results.next()) {
-            deck = mapRowToDeck(results);
-            decks.add(deck);
+
+            decks.add(mapRowToDeck(results));
         }
 
         return decks;

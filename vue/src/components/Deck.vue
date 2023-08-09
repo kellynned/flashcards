@@ -1,13 +1,13 @@
 <template>
   <div class="deck">
     <h3>
-      {{ deck.username }} | {{ deck.deck }}
+      {{ deck.user_id }}
       <router-link v-bind:to="{ name: 'DecksPage' }" class="edit-button"
         ><i class="fa-solid fa-pen-to-square"></i
       ></router-link>
     </h3>
     <h1 class="subject">
-      {{ deck.subject }}
+      {{ deck.deckName }}
 
       <router-link class="study-button" v-bind:to="{ name: 'DecksPage' }"
         >Study Deck!</router-link

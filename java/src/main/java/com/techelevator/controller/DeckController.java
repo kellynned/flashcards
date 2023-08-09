@@ -11,6 +11,7 @@ import java.security.Principal;
 import java.util.List;
 
 @RestController
+@CrossOrigin
 public class DeckController {
     private final JdbcDeckDao jdbcDeckDao;
     private final UserDao userDao;
@@ -30,11 +31,11 @@ public class DeckController {
     }
 
     @RequestMapping(value = "/decks", method = RequestMethod.GET)
-    public  List<Deck> getDecks(@RequestBody Deck deck, Principal principal){
+    public  List<Deck> getDecks(Principal principal){
         User creator = userDao.getUserByUsername(principal.getName());
 
-        deck.setUser_id(creator.getId());
-        return jdbcDeckDao.findAll(deck);
+
+        return jdbcDeckDao.findAll(creator);
     }
 
 }
