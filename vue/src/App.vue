@@ -5,16 +5,16 @@
         >Home <i class="fa-solid fa-house"></i
       ></router-link>
       <span class="separator">|</span>
+      <router-link v-bind:to="{ name: 'DecksPage' }" class="nav-option"
+        >Decks <i class="fa-solid fa-layer-group"></i
+      ></router-link>
+      <span class="separator">|</span>
       <router-link
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token != ''"
         class="nav-option"
         >Logout
         <i class="fa-solid fa-arrow-right-from-bracket" id="logout-arrow"></i
-      ></router-link>
-      <span class="separator">|</span>
-      <router-link v-bind:to="{ name: 'DecksPage' }" class="nav-option"
-        >Decks <i class="fa-solid fa-layer-group"></i
       ></router-link>
     </div>
     <div v-for="flashcard in flashcards" :key="flashcard.id">

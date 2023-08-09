@@ -23,7 +23,7 @@ public class JdbcFlashcardDao {
 
     }
 
-    private Flashcard mapRowToTransaction(SqlRowSet rs){
+    private Flashcard mapRowToFlashcard(SqlRowSet rs){
         Flashcard flashcard = new Flashcard();
         flashcard.setFlashcardId(rs.getInt("flashcard_id"));
         flashcard.setUserId(rs.getInt("user_id"));

@@ -89,6 +89,11 @@ label {
   text-align: left;
 }
 
+input {
+  width: 100%;
+  padding: 0.5rem;
+}
+
 #login {
   display: flex;
   justify-content: center;
@@ -136,5 +141,4 @@ button:hover {
   justify-content: center;
   color: #faf9f9;
 }
-
 </style>
