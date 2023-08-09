@@ -38,7 +38,7 @@ export default {
 <style scoped>
 .decks-page {
   background-color: #555b6e;
-  height: 50%;
+  height: 100%;
   color: #89b0ae;
   font-size: 1.5em;
 }
@@ -70,8 +70,6 @@ export default {
   left: 43px;
   position: relative;
   align-content: center;
-  margin-top: 15px;
-  margin-bottom: 15px;
 }
 
 h2 {
