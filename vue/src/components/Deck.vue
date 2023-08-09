@@ -16,6 +16,8 @@
   </div>
 </template>
 
+
+
 <script>
 export default {
   name: "Deck",
@@ -26,6 +28,8 @@ export default {
   data() {},
   methods: {},
 };
+
+
 </script>
 
 <style scoped>
