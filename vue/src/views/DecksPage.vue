@@ -4,7 +4,6 @@
 
     <div class="decksContainer">
       <h2>Decks</h2>
-      <input type="text" class="search" />
 
       <div>
         <Deck class="deck" v-for="deck in decks" :key="deck.id" :deck="deck" />

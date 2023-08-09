@@ -10,10 +10,11 @@
     <h1 class="subjectName">
       {{ deck.deckName }}
     </h1>
-    <router-link class="study-button" v-bind:to="{ name: 'DecksPage' }"
+      <router-link class="study-button" v-bind:to="{ name: 'DecksPage' }"
         >Study Deck!</router-link
       >
       </div>
+      
   </div>
 </template>
 
@@ -95,7 +96,7 @@ h3 {
   text-align: center;
   font-size: 15px;
   padding: 7px;
-  width: 60px;
+  width: 80px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -103,6 +104,6 @@ h3 {
   text-decoration: none;
   position: relative;
   right: 10px;
-
+  top: 5px;
 }
 </style>

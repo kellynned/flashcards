@@ -20,7 +20,6 @@
       </div>
       <div class="decksContainer">
         <h2>Decks</h2>
-        <input type="text" class="search" />
 
         <div>
           <Deck

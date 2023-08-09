@@ -19,7 +19,7 @@ VALUES
   ('trivia', 'What is the tallest mountain in the world?', 'Mount Everest', 2);
 
   insert into deck (deckname, user_id)
-  values ('Grammer', 2);
+  values ('Grammar', 2);
   insert into deck (deckname, user_id)
   values ('Science', 1);
   insert into deck (deckname, user_id)

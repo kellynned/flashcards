@@ -2,8 +2,8 @@
   <body>
     <div id="login">
       <form @submit.prevent="login">
-        <h1>Flashcards</h1>
-        <h2>Login</h2>
+        <h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1>
+        <h2 style ="font-size: 3rem;">Login</h2>
         <div role="alert" v-if="invalidCredentials">
           Invalid username and password!
         </div>
@@ -126,7 +126,7 @@ button {
   margin-top: 30px;
   font-weight: bold;
   position: relative;
-  left: 45px;
+  left: 65px;
 }
 
 button:hover {

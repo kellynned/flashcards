@@ -1,7 +1,8 @@
 <template>
   <div id="register" class="text-center">
     <form @submit.prevent="register">
-      <h1>Create Account</h1>
+     <h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1>
+        <h2 style ="font-size: 3rem; color: #faf9f9;">Create Account</h2>
       <div role="alert" v-if="registrationErrors">
         {{ registrationErrorMsg }}
       </div>
@@ -116,8 +117,14 @@ input {
 }
 
 h1 {
-  font-size: 4rem;
+  font-size: 5rem;
   color: #faf9f9;
+}
+
+h2 {
+  font-size: 3.5rem;
+  color: #faf9f9;
+  text-align: center;
 }
 button {
   display: flex;
