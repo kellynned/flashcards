@@ -6,13 +6,14 @@
         ><i class="fa-solid fa-pen-to-square"></i
       ></router-link>
     </h3>
-    <h1 class="subject">
+    <div id="tester">
+    <h1 class="subjectName">
       {{ deck.deckName }}
-
-      <router-link class="study-button" v-bind:to="{ name: 'DecksPage' }"
+    </h1>
+    <router-link class="study-button" v-bind:to="{ name: 'DecksPage' }"
         >Study Deck!</router-link
       >
-    </h1>
+      </div>
   </div>
 </template>
 
@@ -35,6 +36,10 @@ export default {
 </script>
 
 <style scoped>
+
+#tester {
+  display: flex;
+}
 h3 {
   display: flex;
   justify-content: space-between;
@@ -45,21 +50,24 @@ h3 {
 
   margin-bottom: 0%;
 }
-.subject {
+.subjectName {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: baseline;
   color: #89b0ae;
   font-size: 1.5em;
   padding-right: 7px;
-  margin-left: 45%;
-  margin-top: 1%;
+  margin: auto;
+  position: relative;
+  left: 50px;
+
 }
 .deck {
   border-radius: 25px;
   background-color: #faf9f9;
   width: 90%;
   height: 15%;
+  
   position: relative;
   left: 25px;
   right: 25px;
@@ -93,5 +101,8 @@ h3 {
   margin: 5px;
   outline: solid #555b6e;
   text-decoration: none;
+  position: relative;
+  right: 10px;
+
 }
 </style>
