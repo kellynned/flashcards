@@ -18,4 +18,11 @@ VALUES
   ('math', 'What is the value of π (pi)?', 'Approximately 3.14159', 1),
   ('trivia', 'What is the tallest mountain in the world?', 'Mount Everest', 2);
 
+  insert into deck (deckname, user_id)
+  values ('Grammer', 2)
+  insert into deck (deckname, user_id)
+  values ('Science', 1)
+  insert into deck (deckname, user_id)
+  values ('Math', 1)
+
 COMMIT TRANSACTION;
