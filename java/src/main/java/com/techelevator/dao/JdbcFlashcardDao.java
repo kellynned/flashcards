@@ -5,6 +5,9 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class JdbcFlashcardDao {
 
@@ -21,6 +24,19 @@ public class JdbcFlashcardDao {
 
         jdbcTemplate.update(sql, flashcard.getAnswer(), flashcard.getQuestion(), flashcard.getSubject(),flashcard.getUserId());
 
+    }
+
+    public List<Flashcard> findAll() {
+        List<Flashcard> transfers = new ArrayList<>();
+        String sql = "SELECT * FROM tenmo_transfer";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+        while (results.next()) {
+            Flashcard flashcard = mapRowToFlashcard(results);
+            transfers.add(flashcard);
+        }
+
+        return transfers;
     }
 
     private Flashcard mapRowToFlashcard(SqlRowSet rs){
