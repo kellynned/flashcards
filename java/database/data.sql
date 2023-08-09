@@ -24,5 +24,17 @@ VALUES
   values ('Science', 1);
   insert into deck (deckname, user_id)
   values ('Math', 1);
+  insert into deck (deckname, user_id)
+  values ('Reading', 2);
+  insert into deck (deckname, user_id)
+  values ('Biology', 1);
+  insert into deck (deckname, user_id)
+  values ('Calculus', 1);
+  insert into deck (deckname, user_id)
+  values ('History', 2);
+  insert into deck (deckname, user_id)
+  values ('Psychology', 1);
+  insert into deck (deckname, user_id)
+  values ('Sociology', 1);
 
 COMMIT TRANSACTION;

@@ -8,6 +8,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
+import java.util.List;
 
 @RestController
 public class DeckController {
@@ -27,4 +28,13 @@ public class DeckController {
         deck.setUser_id(creator.getId());
         jdbcDeckDao.createDeck(deck);
     }
+
+    @RequestMapping(value = "/decks", method = RequestMethod.GET)
+    public  List<Deck> getDecks(@RequestBody Deck deck, Principal principal){
+        User creator = userDao.getUserByUsername(principal.getName());
+
+        deck.setUser_id(creator.getId());
+        return jdbcDeckDao.findAll(deck);
+    }
+
 }

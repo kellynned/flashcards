@@ -26,18 +26,22 @@ public class JdbcFlashcardDao {
 
     }
 
-    public List<Flashcard> findAll() {
-        List<Flashcard> transfers = new ArrayList<>();
-        String sql = "SELECT * FROM tenmo_transfer";
-
-        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
-        while (results.next()) {
-            Flashcard flashcard = mapRowToFlashcard(results);
-            transfers.add(flashcard);
-        }
-
-        return transfers;
-    }
+//    public List<Flashcard> findAll() {
+//        List<Flashcard> transfers = new ArrayList<>();
+//        String sql = "SELECT * \n" +
+//                "FROM deck\n" +
+//                "LEFT JOIN flashcard_deck on flashcard_deck.deck_id = deck.deck_id\n" +
+//                "LEFT JOIN flashcard on flashcard.deck_id = flashcard_deck.deck_id\n" +
+//                "WHERE deck.deck_id = 2;";
+//
+//        SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
+//        while (results.next()) {
+//            Flashcard flashcard = mapRowToFlashcard(results);
+//            transfers.add(flashcard);
+//        }
+//
+//        return transfers;
+//    }
 
     private Flashcard mapRowToFlashcard(SqlRowSet rs){
         Flashcard flashcard = new Flashcard();
