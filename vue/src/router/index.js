@@ -6,7 +6,6 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import DecksPage from '../views/DecksPage.vue'
-import FlashcardsPage from '../views/FlashcardsPage.vue'
 
 Vue.use(Router)
 
@@ -63,15 +62,6 @@ const router = new Router({
         requiresAuth: true
       }
     },
-    {
-      path: "/flashcardspage",
-      name: "FlashcardsPage",
-      component: FlashcardsPage,
-      meta: {
-        requiresAuth: true
-      }
-    },
-
   ]
 })
 
