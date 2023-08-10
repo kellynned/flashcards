@@ -64,8 +64,6 @@ const router = new Router({
         requiresAuth: true
       }
     },
-<<<<<<< HEAD
-=======
 
     {
       path: "/createcard",
@@ -77,7 +75,6 @@ const router = new Router({
     },
 
 
->>>>>>> 9169c6e20660cebe4da3f3b5640fe1bed542a584
   ]
 })
 

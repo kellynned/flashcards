@@ -37,7 +37,6 @@ public class JdbcDeckDao {
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, user.getId());
         while (results.next()) {
-
             decks.add(mapRowToDeck(results));
         }
 
