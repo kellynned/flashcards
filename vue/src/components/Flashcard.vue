@@ -5,7 +5,7 @@
     <input
       class="select"
       type="checkbox"
-      @click="toggleSelected(flashcard.id)"
+      @click="deleteFlashcard(flashcard.id)"
     />
   </div>
 </template>

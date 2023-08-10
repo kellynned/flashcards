@@ -9,6 +9,7 @@ export default {
   name: "FlashcardBack",
   props: {
     flashcard: Object,
+    flip: Function,
   },
   methods: {
     markCorrect() {
