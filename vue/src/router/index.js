@@ -7,10 +7,6 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import DecksPage from '../views/DecksPage.vue'
 import CreateCard from '../views/CreateCard.vue'
-<<<<<<< HEAD
-=======
-
->>>>>>> 0d351c57c123086b46a5e4d9c1f1dbade8ba6d2b
 
 Vue.use(Router)
 
@@ -67,17 +63,10 @@ const router = new Router({
         requiresAuth: true
       }
     },
-<<<<<<< HEAD
-=======
 
     {
-<<<<<<< HEAD
-      path: "/createCard",
-      name: "CreateCard",
-=======
       path: "/createcard",
       name: "createcard",
->>>>>>> 0d351c57c123086b46a5e4d9c1f1dbade8ba6d2b
       component: CreateCard,
       meta: {
         requiresAuth: true
@@ -85,7 +74,6 @@ const router = new Router({
     },
 
 
->>>>>>> 9169c6e20660cebe4da3f3b5640fe1bed542a584
   ]
 })
 
