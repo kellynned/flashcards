@@ -8,7 +8,6 @@ import store from '../store/index'
 import DecksPage from '../views/DecksPage.vue'
 import CreateCard from '../views/CreateCard.vue'
 
-
 Vue.use(Router)
 
 /**
