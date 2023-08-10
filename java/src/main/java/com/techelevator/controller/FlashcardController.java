@@ -39,4 +39,9 @@ public class FlashcardController {
         return jdbcFlashcardDao.findAll(creator);
     }
 
+    @RequestMapping(value = "/flashcard/{id}", method = RequestMethod.DELETE)
+    public void deleteFlashcard(@PathVariable int id, Principal principal){
+        jdbcFlashcardDao.deleteFlashcard(id);
+    }
+
 }
