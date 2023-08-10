@@ -6,6 +6,7 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import DecksPage from '../views/DecksPage.vue'
+import CreateCard from '../views/CreateCard.vue'
 
 Vue.use(Router)
 
@@ -64,9 +65,9 @@ const router = new Router({
     },
 
     {
-      path: "/creatCard",
+      path: "/createCard",
       name: "CreateCard",
-      component: "CreateCard",
+      component: CreateCard,
       meta: {
         requiresAuth: false
       }
