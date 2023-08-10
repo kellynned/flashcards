@@ -1,11 +1,11 @@
 <template>
-  <div class="decks-page">
+  <div class="flashcards-page">
     <div class="header"><h1>Flashcards</h1></div>
 
     <div class="decksContainer">
       <h2>Flashcards</h2>
       <input type="text" class="search" />
-      <div>
+      <div class="flashcards-column">
         <Flashcard
           class="flashcard"
           v-for="flashcard in flashcards"
@@ -13,10 +13,16 @@
           :flashcard="flashcard"
         />
       </div>
-
-      <button class="button" style="vertical-align: middle">
-        <span>Add Card </span>
-      </button>
+      <router-link to="/createcard" custom v-slot="{ navigate }">
+        <button
+          class="button"
+          @click="navigate"
+          role="link"
+          style="vertical-align: middle"
+        >
+          <span>Add Card </span>
+        </button>
+      </router-link>
     </div>
   </div>
 </template>
@@ -37,7 +43,7 @@ export default {
   },
   mounted() {
     FlashcardService.list().then((response) =>
-      this.$store.commit("SET_DECKS", response.data)
+      this.$store.commit("SET_FLASHCARDS", response.data)
     );
     // this.$store.dispatch("fetchDecks");
     // this.fetchDecks();
@@ -47,13 +53,13 @@ export default {
     FlashcardService,
   },
   methods: {
-    async fetchDecks() {
+    async fetchFlashcards() {
       try {
         // const response = await DeckService.list();
         // const decks = response.data;
         // this.$store.commit("SET_DECKS", decks);
         // this.deck = decks;
-        await this.$store.dispatch("fetchDecks");
+        await this.$store.dispatch("fetchFlashcards");
         // Update your Vuex store or component data with fetched decks
       } catch (error) {
         console.error("Error fetching flashcards:", error);
@@ -64,7 +70,7 @@ export default {
 </script>
 
 <style scoped>
-.decks-page {
+.flashcards-page {
   background-color: #555b6e;
   height: 95.3vh;
   color: #89b0ae;
@@ -183,5 +189,13 @@ h2 {
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+}
+
+.flashcards-column {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px; /* Adjust the gap between flashcards */
 }
 </style>

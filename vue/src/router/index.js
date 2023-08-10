@@ -7,6 +7,7 @@ import Register from '../views/Register.vue'
 import store from '../store/index'
 import DecksPage from '../views/DecksPage.vue'
 import CreateCard from '../views/CreateCard.vue'
+import FlashcardsPage from '../views/FlashcardsPage.vue'
 
 
 Vue.use(Router)
@@ -64,8 +65,6 @@ const router = new Router({
         requiresAuth: true
       }
     },
-<<<<<<< HEAD
-=======
 
     {
       path: "/createcard",
@@ -75,9 +74,15 @@ const router = new Router({
         requiresAuth: true
       }
     },
+    {
+      path: "/flashcardspage",
+      name: "FlashcardsPage",
+      component: FlashcardsPage,
+      meta: {
+        requiresAuth: true
+      }
+    },
 
-
->>>>>>> 9169c6e20660cebe4da3f3b5640fe1bed542a584
   ]
 })
 
