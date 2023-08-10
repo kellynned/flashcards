@@ -13,6 +13,7 @@
           :flashcard="flashcard"
         />
       </div>
+      
       <router-link to="/createcard" custom v-slot="{ navigate }">
         <button
           class="button"
@@ -21,6 +22,7 @@
           style="vertical-align: middle"
         >
           <span>Add Card </span>
+          
         </button>
       </router-link>
     </div>
