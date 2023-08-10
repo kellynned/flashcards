@@ -1,7 +1,7 @@
 <template>
   <div class="flashcard">
     <FlashcardFront v-if="!flipped" :flashcard="flashcard" :flip="flip" />
-    <FlashcardBack v-else :flashcard="flashcard" />
+    <FlashcardBack v-else :flashcard="flashcard" :flip="flip" />
     <input
       class="select"
       type="checkbox"
