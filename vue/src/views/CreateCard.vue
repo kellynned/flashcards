@@ -1,7 +1,7 @@
 <template >
   <body>
     <div id="login">
-      <form @submit.prevent="login">
+      <form @submit.prevent="create">
         <h1>Create a Flashcard</h1>
         <div class="form-input-group">
           <label for="card-subject">Card Subject</label>
@@ -36,21 +36,24 @@
         </div>
         <div class="form-input-group">
           <label for="deck">Add this card to a deck?</label>
-          <input type="password" id="password" v-model="card.deck_id" />
+
+          <select v-model="card.deck_id" class="dropdown">
+            <option disabled value="">None</option>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
         </div>
         <button type="submit">Add Card!</button>
-        <p>
-          <router-link :to="{ name: 'register' }" class="login-link"
-            >Need an account? Sign up.</router-link
-          >
-        </p>
       </form>
     </div>
   </body>
 </template>
 
 <script>
-import authService from "../services/AuthService";
+import FlashcardService from "../services/FlashcardService.js";
 
 export default {
   name: "createcard",
@@ -63,27 +66,21 @@ export default {
         answer: "",
         deck_id: "",
       },
-      invalidCredentials: false,
     };
   },
   methods: {
-    login() {
-      authService
-        .login(this.user)
-        .then((response) => {
-          if (response.status == 200) {
-            this.$store.commit("SET_AUTH_TOKEN", response.data.token);
-            this.$store.commit("SET_USER", response.data.user);
-            this.$router.push("/");
-          }
-        })
-        .catch((error) => {
-          const response = error.response;
-
-          if (response.status === 401) {
-            this.invalidCredentials = true;
-          }
-        });
+    create() {
+      FlashcardService.create(this.card).then((response) => {
+        if (response.status == 200) {
+          this.$store.commit("SET_FLASHCARDS", response.data.card);
+          this.card = {
+            subject: "",
+            question: "",
+            answer: "",
+            deck_id: "",
+          };
+        }
+      });
     },
   },
 };

@@ -11,6 +11,7 @@ import java.security.Principal;
 
 
 @RestController
+@CrossOrigin
 public class FlashcardController {
     private final JdbcFlashcardDao jdbcFlashcardDao;
     private final UserDao userDao;
