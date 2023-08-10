@@ -27,6 +27,13 @@ public class JdbcFlashcardDao {
 
     }
 
+    public void deleteFlashcard(int id) {
+
+        String sql = "DELETE FROM flashcard WHERE flashcard_id = ?;";
+
+        jdbcTemplate.update(sql, id);
+    }
+
     public List<Flashcard> findAll(User user) {
         List<Flashcard> flashcards = new ArrayList<>();
         String sql = "SELECT * FROM flashcard where user_id = ?";

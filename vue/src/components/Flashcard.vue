@@ -32,6 +32,9 @@ export default {
     flip() {
       this.flipped = !this.flipped;
     },
+    toggleSelected(flashcardId) {
+      this.$emit("toggle-selected", flashcardId);
+    },
   },
 };
 </script>
