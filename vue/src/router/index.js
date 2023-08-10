@@ -63,6 +63,15 @@ const router = new Router({
       }
     },
 
+    {
+      path: "/creatCard",
+      name: "CreateCard",
+      component: "CreateCard",
+      meta: {
+        requiresAuth: false
+      }
+    },
+
 
   ]
 })
