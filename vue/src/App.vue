@@ -91,7 +91,7 @@ export default {
 
 /* Optional: Add an icon to the Logout link */
 .nav-option.logout::before {
-  content: "\f2f5"; /* Unicode for a logout icon (you can replace with your preferred icon) */
+  content: "\f2f5";
   font-family: "Font Awesome"; /* Include the Font Awesome font family */
   margin-right: 6px;
 }

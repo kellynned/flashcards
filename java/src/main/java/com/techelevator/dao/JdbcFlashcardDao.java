@@ -19,7 +19,7 @@ public class JdbcFlashcardDao {
 
     public void createFlashcard(Flashcard flashcard){
 
-        String sql = "INSERT INTO flashcards (answer, question, subject, user_id) " +
+        String sql = "INSERT INTO flashcard (answer, question, subject, user_id) " +
                 "VALUES (?, ?, ?, ?);";
 
         jdbcTemplate.update(sql, flashcard.getAnswer(), flashcard.getQuestion(), flashcard.getSubject(),flashcard.getUserId());

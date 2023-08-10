@@ -6,6 +6,8 @@ import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
 import DecksPage from '../views/DecksPage.vue'
+import CreateCard from '../views/CreateCard.vue'
+
 
 Vue.use(Router)
 
@@ -62,8 +64,20 @@ const router = new Router({
         requiresAuth: true
       }
     },
+<<<<<<< HEAD
+=======
+
+    {
+      path: "/createcard",
+      name: "createcard",
+      component: CreateCard,
+      meta: {
+        requiresAuth: true
+      }
+    },
 
 
+>>>>>>> 9169c6e20660cebe4da3f3b5640fe1bed542a584
   ]
 })
 
