@@ -1,71 +1,70 @@
 <template>
-  <div class="home">
-    <div class="header"><h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1></div>
-    <div class="container">
-      <div class="flashcardsContainer">
-        <h2>Flashcards</h2>
-        <input type="text" class="search" />
-        <div>
-          <Flashcard
-            class="flashcard"
-            v-for="flashcard in flashcards"
-            :key="flashcard.id"
-            :flashcard="flashcard"
-          />
-        </div>
-        <router-link to="/createcard" custom v-slot="{ navigate }">
-          <button
-            class="button"
-            @click="navigate"
-            role="link"
-            style="vertical-align: middle"
-          >
-            <span>Add Card </span>
-          </button>
-        </router-link>
-      </div>
-      <div class="decksContainer">
-        <h2>Decks</h2>
+  <div class="decks-page">
+    <div class="header"><h1>Flashcards</h1></div>
 
-        <div>
-          <Deck
-            class="deck"
-            v-for="deck in decks"
-            :key="deck.id"
-            :deck="deck"
-          />
-        </div>
-
-        <button class="button" style="vertical-align: middle">
-          <span>Add Deck </span>
-        </button>
+    <div class="decksContainer">
+      <h2>Flashcards</h2>
+      <input type="text" class="search" />
+      <div>
+        <Flashcard
+          class="flashcard"
+          v-for="flashcard in flashcards"
+          :key="flashcard.id"
+          :flashcard="flashcard"
+        />
       </div>
+
+      <button class="button" style="vertical-align: middle">
+        <span>Add Card </span>
+      </button>
     </div>
   </div>
 </template>
 
 <script>
 import Flashcard from "@/components/Flashcard.vue";
-import Deck from "@/components/Deck.vue";
+import FlashcardService from "@/services/FlashcardService";
+
 export default {
-  name: "home",
+  name: "FlashcardsPage",
   components: {
     Flashcard,
-    Deck,
   },
   computed: {
     flashcards() {
       return this.$store.state.flashcards;
     },
-    decks() {
-      return this.$store.state.decks;
+  },
+  mounted() {
+    FlashcardService.list().then((response) =>
+      this.$store.commit("SET_DECKS", response.data)
+    );
+    // this.$store.dispatch("fetchDecks");
+    // this.fetchDecks();
+  },
+
+  services: {
+    FlashcardService,
+  },
+  methods: {
+    async fetchDecks() {
+      try {
+        // const response = await DeckService.list();
+        // const decks = response.data;
+        // this.$store.commit("SET_DECKS", decks);
+        // this.deck = decks;
+        await this.$store.dispatch("fetchDecks");
+        // Update your Vuex store or component data with fetched decks
+      } catch (error) {
+        console.error("Error fetching flashcards:", error);
+      }
     },
   },
 };
 </script>
 
 <style scoped>
-.home {
+.decks-page {
   background-color: #555b6e;
   height: 95.3vh;
   color: #89b0ae;
@@ -79,42 +78,17 @@ export default {
   color: #faf9f9;
 }
 
-.container {
-  display: flex;
-  gap: 100px;
-  margin: 20px;
-  justify-content: center;
-  align-self: center;
-}
-
 .decksContainer {
   color: #89b0ae;
   border-radius: 25px;
-  width: 550px;
-  background-color: #89b0ae;
-  height: 750px;
-  text-align: center;
-  overflow: auto;
-}
-.flashcardsContainer {
-  color: #89b0ae;
-  border-radius: 25px;
-  width: 550px;
-  background-color: #89b0ae;
-  height: 750px;
-  text-align: center;
-  overflow: auto;
-}
+  margin-right: 25%;
+  margin-left: 25%;
 
-.flashcard {
-  border-radius: 25px;
-  background-color: #faf9f9;
-  width: 90%;
-  height: 112px;
-  position: relative;
-  left: 25px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  background-color: #89b0ae;
+
+  text-align: center;
+  overflow: auto;
+  align-content: center;
 }
 
 .deck {
@@ -122,10 +96,9 @@ export default {
   background-color: #faf9f9;
   width: 90%;
   height: 112px;
+  left: 43px;
   position: relative;
-  left: 25px;
-  margin-top: 15px;
-  margin-bottom: 15px;
+  align-content: center;
 }
 
 h2 {

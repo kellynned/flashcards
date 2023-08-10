@@ -1,14 +1,41 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link v-bind:to="{ name: 'home' }" class="nav-option"
+      <router-link
+        v-bind:to="{ name: 'home' }"
+        v-if="$store.state.token != ''"
+        class="nav-option"
         >Home <i class="fa-solid fa-house"></i
       ></router-link>
-      <span class="separator">|</span>
-      <router-link v-bind:to="{ name: 'DecksPage' }" class="nav-option"
+      <span
+        v-bind:to="{ name: 'separator' }"
+        v-if="$store.state.token != ''"
+        class="separator"
+        >|</span
+      >
+      <router-link
+        v-bind:to="{ name: 'DecksPage' }"
+        v-if="$store.state.token != ''"
+        class="nav-option"
         >Decks <i class="fa-solid fa-layer-group"></i
       ></router-link>
-      <span class="separator">|</span>
+      <span
+        v-bind:to="{ name: 'separator' }"
+        v-if="$store.state.token != ''"
+        class="separator"
+        >|</span
+      >
+      <router-link
+        v-bind:to="{ name: 'FlashcardsPage' }"
+        v-if="$store.state.token != ''"
+        class="nav-option"
+        >Flashcards <i class="fa-brands fa-pagelines"></i></router-link>
+      <span
+        v-bind:to="{ name: 'separator' }"
+        v-if="$store.state.token != ''"
+        class="separator"
+        >|</span
+      >
       <router-link
         v-bind:to="{ name: 'logout' }"
         v-if="$store.state.token != ''"
@@ -64,7 +91,7 @@ export default {
 
 /* Optional: Add an icon to the Logout link */
 .nav-option.logout::before {
-  content: "\f2f5"; /* Unicode for a logout icon (you can replace with your preferred icon) */
+  content: "\f2f5";
   font-family: "Font Awesome"; /* Include the Font Awesome font family */
   margin-right: 6px;
 }
