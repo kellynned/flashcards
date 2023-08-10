@@ -9,7 +9,6 @@ import DecksPage from '../views/DecksPage.vue'
 import CreateCard from '../views/CreateCard.vue'
 import FlashcardsPage from '../views/FlashcardsPage.vue'
 
-
 Vue.use(Router)
 
 /**
