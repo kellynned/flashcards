@@ -18,7 +18,7 @@ if (currentToken != null) {
 
 
 export default new Vuex.Store({
-  
+
   state: {
     token: currentToken || '',
     user: currentUser || {},
@@ -54,6 +54,9 @@ export default new Vuex.Store({
     },
     SET_DECKS(state, decks) {
       state.decks = decks;
+    },
+    SET_FLASHCARDS(state, flashcards) {
+      state.flashcards = flashcards;
     },
   },
   // actions: {
