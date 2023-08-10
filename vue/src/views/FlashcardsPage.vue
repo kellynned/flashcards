@@ -1,11 +1,11 @@
 <template>
   <div class="flashcards-page">
-    <div class="header"><h1>Flashcards</h1></div>
+    <div class="header"><h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1></div>
 
-    <div class="decksContainer">
+    <div class="flashcardsContainer">
       <h2>Flashcards</h2>
       <input type="text" class="search" />
-      <div class="flashcards-column">
+      <div>
         <Flashcard
           class="flashcard"
           v-for="flashcard in flashcards"
@@ -84,20 +84,19 @@ export default {
   color: #faf9f9;
 }
 
-.decksContainer {
+.flashcardsContainer {
   color: #89b0ae;
   border-radius: 25px;
   margin-right: 25%;
   margin-left: 25%;
-
   background-color: #89b0ae;
-
   text-align: center;
   overflow: auto;
   align-content: center;
+  height: 750px;
 }
 
-.deck {
+.flashcard {
   border-radius: 25px;
   background-color: #faf9f9;
   width: 90%;
@@ -191,11 +190,4 @@ h2 {
   margin: 5px;
 }
 
-.flashcards-column {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 20px; /* Adjust the gap between flashcards */
-}
 </style>

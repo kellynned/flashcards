@@ -1,6 +1,6 @@
 <template>
   <div class="flashcard-front" v-on:click="flip">
-    <h3>{{ flashcard.deck }} | {{ flashcard.subject }}</h3>
+    <h3>{{ flashcard.subject }} </h3>
     <p>{{ flashcard.question }}</p>
   </div>
 </template>
