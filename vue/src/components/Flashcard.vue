@@ -2,6 +2,7 @@
   <div class="flashcard">
     <FlashcardFront v-if="!flipped" :flashcard="flashcard" :flip="flip" />
     <FlashcardBack v-else :flashcard="flashcard" />
+    <input class = "select" type="checkbox" @click="deleteFlashcard(flashcard.id)" />
   </div>
 </template>
 
@@ -41,5 +42,10 @@ export default {
   left: 25px;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.select {
+  position:relative;
+  right: 400px;
 }
 </style>
