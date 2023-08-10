@@ -35,14 +35,14 @@
           />
         </div>
         <div class="form-input-group">
-          <label for="deck_id">Deck</label>
+          <!-- <label for="deck_id">Deck</label>
           <input
             type="number"
             id="deck"
             v-model.number="card.deck_id"
             autofocus
-          />
-          <!-- <label for="deck">Add this card to a deck?</label>
+          /> -->
+          <label for="deck_id">Add this card to a deck?</label>
 
           <select v-model="card.deck_id" class="dropdown">
             <option disabled value="">None</option>
@@ -51,7 +51,7 @@
             <option>3</option>
             <option>4</option>
             <option>5</option>
-          </select> -->
+          </select>
         </div>
         <button type="submit">Add Card!</button>
       </form>
