@@ -1,5 +1,7 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Flashcard {
 
     private int flashcardId;
@@ -7,16 +9,9 @@ public class Flashcard {
     private String question;
     private String answer;
     private String subject;
-    private int deck_id;
 
-    public Flashcard(int flashcardId, int userId, String question, String answer, String subject, int deck_id) {
-        this.flashcardId = flashcardId;
-        this.question = question;
-        this.answer = answer;
-        this.subject = subject;
-        this.deck_id = deck_id;
-        this.userId = userId;
-    }
+    @JsonProperty("deck_id")
+    private int deck_id;
 
     public Flashcard() {
     }
@@ -68,6 +63,4 @@ public class Flashcard {
     public void setDeckId(int deck_id) {
         this.deck_id = deck_id;
     }
-
-
 }
