@@ -1,5 +1,5 @@
 <template>
-  <div class="flashcard-back" v-on:click="flipBack">
+  <div class="flashcard-back" v-on:click="flip">
     <p>{{ flashcard.answer }}</p>
   </div>
 </template>

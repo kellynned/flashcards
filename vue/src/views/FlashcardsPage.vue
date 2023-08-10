@@ -1,10 +1,17 @@
 <template>
   <div class="flashcards-page">
-    <div class="header"><h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1></div>
+    <div class="header">
+      <h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1>
+    </div>
 
     <div class="flashcardsContainer">
       <h2>Flashcards</h2>
       <input type="text" class="search" />
+
+      <button class="button" @click="deleteSelectedFlashcards">
+        Delete <i class="fa-solid fa-trash-can"></i>
+      </button>
+
       <div>
         <Flashcard
           class="flashcard"
@@ -13,7 +20,7 @@
           :flashcard="flashcard"
         />
       </div>
-      
+
       <router-link to="/createcard" custom v-slot="{ navigate }">
         <button
           class="button"
@@ -22,7 +29,6 @@
           style="vertical-align: middle"
         >
           <span>Add Card </span>
-          
         </button>
       </router-link>
     </div>
@@ -34,6 +40,12 @@ import Flashcard from "@/components/Flashcard.vue";
 import FlashcardService from "@/services/FlashcardService";
 
 export default {
+  data() {
+    return {
+      selectedFlashcardIds: [],
+    };
+  },
+
   name: "FlashcardsPage",
   components: {
     Flashcard,
@@ -65,6 +77,40 @@ export default {
         // Update your Vuex store or component data with fetched decks
       } catch (error) {
         console.error("Error fetching flashcards:", error);
+      }
+    },
+    toggleSelectedFlashcard(flashcardId) {
+      if (this.selectedFlashcardIds.includes(flashcardId)) {
+        this.selectedFlashcardIds = this.selectedFlashcardIds.filter(
+          (id) => id !== flashcardId
+        );
+      } else {
+        this.selectedFlashcardIds.push(flashcardId);
+      }
+    },
+
+    // deleteSelectedFlashcards() {
+    //   if (this.selectedFlashcardIds.length > 0) {
+    //     // Perform the deletion here using the selectedFlashcardIds array
+    //     // Clear the selectedFlashcardIds array after deletion
+    //     this.selectedFlashcardIds = [];
+    //   }
+    // },
+
+    async deleteSelectedFlashcards() {
+      if (this.selectedFlashcardIds.length > 0) {
+        try {
+          // Call your API endpoint to delete selected flashcards
+          await FlashcardService.deleteFlashcards(this.selectedFlashcardIds);
+
+          // Clear the selectedFlashcardIds array after successful deletion
+          this.selectedFlashcardIds = [];
+
+          // Fetch updated flashcards from the server or update Vuex store
+          this.fetchFlashcards();
+        } catch (error) {
+          console.error("Error deleting flashcards:", error);
+        }
       }
     },
   },
@@ -191,5 +237,4 @@ h2 {
   cursor: pointer;
   margin: 5px;
 }
-
 </style>
