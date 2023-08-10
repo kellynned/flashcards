@@ -6,6 +6,9 @@
 
     <div class="flashcardsContainer">
       <h2>Flashcards</h2>
+        <button class="button" @click="deleteSelectedFlashcards">
+        Add To Deck <i class="fa-regular fa-square-plus"></i>
+      </button>
       <input type="text" class="search" />
 
       <button class="button" @click="deleteSelectedFlashcards">
@@ -89,19 +92,12 @@ export default {
       }
     },
 
-    // deleteSelectedFlashcards() {
-    //   if (this.selectedFlashcardIds.length > 0) {
-    //     // Perform the deletion here using the selectedFlashcardIds array
-    //     // Clear the selectedFlashcardIds array after deletion
-    //     this.selectedFlashcardIds = [];
-    //   }
-    // },
-
     async deleteSelectedFlashcards() {
+      console.log("WORKING", this.selectedFlashcardIds)
       if (this.selectedFlashcardIds.length > 0) {
         try {
           // Call your API endpoint to delete selected flashcards
-          await FlashcardService.deleteFlashcards(this.selectedFlashcardIds);
+          await FlashcardService.delete(this.selectedFlashcardIds);
 
           // Clear the selectedFlashcardIds array after successful deletion
           this.selectedFlashcardIds = [];
@@ -221,6 +217,7 @@ h2 {
 .search {
   width: 40%;
   height: 20px;
+  
 }
 
 .edit-button {
