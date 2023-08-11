@@ -98,12 +98,6 @@ export default {
   flex-direction: column;
 }
 
-.dropdown {
-  margin-bottom: 1rem;
-  display: flex;
-  flex-direction: column;
-}
-
 label {
   margin-bottom: 0.25rem;
   text-align: left;
