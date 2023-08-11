@@ -28,13 +28,11 @@ Create Table Deck (
 
 Create Table Flashcard (
 	flashcard_id SERIAL,
-	deck_id int,
 	user_id int NOT NULL,
 	subject varchar(100) NOT NULL,
 	question varchar NOT NULL,
 	answer varchar NOT NULL,
 	CONSTRAINT PK_Flashcard PRIMARY KEY (flashcard_id),
-	CONSTRAINT FK_deck_id FOREIGN KEY(deck_id) References Deck(deck_id),
 	CONSTRAINT FK_user_id FOREIGN KEY(user_id) References users(user_id)
 );
 

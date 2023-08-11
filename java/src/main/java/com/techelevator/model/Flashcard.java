@@ -10,8 +10,6 @@ public class Flashcard {
     private String answer;
     private String subject;
 
-    @JsonProperty("deck_id")
-    private int deck_id;
 
     public Flashcard() {
     }
@@ -56,11 +54,4 @@ public class Flashcard {
         this.subject = subject;
     }
 
-    public int getDeckId() {
-        return deck_id;
-    }
-
-    public void setDeckId(int deck_id) {
-        this.deck_id = deck_id;
-    }
 }
