@@ -5,7 +5,6 @@
     <input
       class="select"
       type="checkbox"
-      :id="flashcardId" v-model="selectedFlashcardIds" :value="flashcardId"
     />
   </div>
 </template>

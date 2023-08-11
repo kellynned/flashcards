@@ -6,16 +6,15 @@
 
     <div class="flashcardsContainer">
       <h2>Flashcards</h2>
-        <label for="deck-names">Choose a deck:</label> 
-    <select name="deck-names" id="deck-names"> 
-        <option value="placeholder">Math</option>
-        <option value="placeholder">Science</option>
-        <option value="placeholder">Grammar</option>
-        <option value="placeholder">Yeet</option>
-    </select>
+      <label for="deck-names">Choose a deck:</label>
+      <select name="deck-names" id="deck-names" v-model="selectedDeck">
+        <option v-for="deck in decks" :key="deck.deck_id" :deck="deck">
+          {{ deck.deckName }}
+        </option>
+      </select>
       <input type="text" class="search" />
 
-      <button class="button" @click="deleteSelectedFlashcards">
+      <button class="button">
         Save <i class="fa-solid fa-floppy-disk"></i>
       </button>
 
@@ -43,13 +42,15 @@
 </template>
 
 <script>
+import DeckService from "@/services/DeckService";
 import Flashcard from "@/components/Flashcard.vue";
 import FlashcardService from "@/services/FlashcardService";
 
 export default {
   data() {
     return {
-      selectedFlashcardIds: [],
+      decks: [],
+      selectedDeck: null,
     };
   },
 
@@ -66,12 +67,15 @@ export default {
     FlashcardService.list().then((response) =>
       this.$store.commit("SET_FLASHCARDS", response.data)
     );
-    // this.$store.dispatch("fetchDecks");
-    // this.fetchDecks();
+    // DeckService.list().then((response) =>
+    //   this.deck = response.data,
+    //   this.selectedDeck = this.decks[0].deck_id
+    // );
   },
 
   services: {
     FlashcardService,
+    DeckService
   },
   methods: {
     async fetchFlashcards() {
@@ -84,33 +88,6 @@ export default {
         // Update your Vuex store or component data with fetched decks
       } catch (error) {
         console.error("Error fetching flashcards:", error);
-      }
-    },
-    toggleSelectedFlashcard(flashcardId) {
-      if (this.selectedFlashcardIds.includes(flashcardId)) {
-        this.selectedFlashcardIds = this.selectedFlashcardIds.filter(
-          (id) => id !== flashcardId
-        );
-      } else {
-        this.selectedFlashcardIds.push(flashcardId);
-      }
-    },
-
-    async deleteSelectedFlashcards() {
-      console.log("WORKING", this.selectedFlashcardIds)
-      if (this.selectedFlashcardIds.length > 0) {
-        try {
-          // Call your API endpoint to delete selected flashcards
-          await FlashcardService.delete(this.selectedFlashcardIds);
-
-          // Clear the selectedFlashcardIds array after successful deletion
-          this.selectedFlashcardIds = [];
-
-          // Fetch updated flashcards from the server or update Vuex store
-          this.fetchFlashcards();
-        } catch (error) {
-          console.error("Error deleting flashcards:", error);
-        }
       }
     },
   },
@@ -221,7 +198,6 @@ h2 {
 .search {
   width: 40%;
   height: 20px;
-  
 }
 
 .edit-button {
