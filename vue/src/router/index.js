@@ -9,6 +9,7 @@ import DecksPage from '../views/DecksPage.vue'
 import CreateCard from '../views/CreateCard.vue'
 import FlashcardsPage from '../views/FlashcardsPage.vue'
 import StudySession from '../views/StudySession.vue'
+import CreateDeck from '../views/CreateDeck.vue'
 
 Vue.use(Router)
 
@@ -90,6 +91,16 @@ const router = new Router({
         requiresAuth: true
       }
     },
+    {
+      path: "/createdeck",
+      name: "createdeck",
+      component: CreateDeck,
+      meta: {
+        requiresAuth: true
+      }
+    },
+
+
 
   ]
 })

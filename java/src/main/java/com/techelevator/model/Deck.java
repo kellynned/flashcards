@@ -1,8 +1,11 @@
 package com.techelevator.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class Deck {
     
     private int deck_id;
+    @JsonProperty("deckname")
     private String deckName;
     private int user_id;
 

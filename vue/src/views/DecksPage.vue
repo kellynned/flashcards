@@ -78,7 +78,8 @@ export default {
   border-radius: 25px;
   margin-right: 25%;
   margin-left: 25%;
-
+  height: 750px;
+  overflow: auto;
   background-color: #89b0ae;
 
   text-align: center;

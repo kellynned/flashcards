@@ -22,9 +22,9 @@ public class JdbcDeckDao {
 
     public void createDeck(Deck deck) {
 
-        String sql = "INSERT INTO deck (deck_id, deckname, user_id) " +
-                "VALUES (?, ?, ?);";
-        jdbcTemplate.update(sql, deck.getDeck_id(), deck.getDeckName(), deck.getUser_id());
+        String sql = "INSERT INTO deck (deckname, user_id) " +
+                "VALUES (?, ?);";
+        jdbcTemplate.update(sql, deck.getDeckName(), deck.getUser_id());
     }
 
         public List<Deck> findAll(User user) {
