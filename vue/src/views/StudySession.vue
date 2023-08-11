@@ -43,6 +43,7 @@
 </template>
 
 <script>
+import DeckService from "@/services/DeckService";
 import Flashcard from "@/components/Flashcard.vue";
 import FlashcardService from "@/services/FlashcardService";
 
@@ -68,13 +69,14 @@ export default {
     },
   },
   mounted() {
-    FlashcardService.list().then((response) =>
+    DeckService.get(this.$route.params.deckId).then((response) =>
       this.$store.commit("SET_FLASHCARDS", response.data)
     );
   },
 
   services: {
     FlashcardService,
+    DeckService
   },
   methods: {
     async fetchFlashcards() {

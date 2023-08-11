@@ -8,11 +8,11 @@
     </h3>
     <div id="tester">
       <h1 class="subjectName">
-        {{ deck.deckName }}
+        {{ deck.deckname }}
       </h1>
-      <router-link class="study-button" v-bind:to="{ name: 'StudySession' }"
-        >Study Deck!</router-link
-      >
+      <router-link class="study-button" :to="{ name: 'StudySession', params: { deckId: deck.deck_id } }">
+  Study Deck!
+</router-link>
     </div>
   </div>
 </template>
