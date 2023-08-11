@@ -54,5 +54,6 @@ export default {
 .select {
   position: relative;
   right: 400px;
+  
 }
 </style>
