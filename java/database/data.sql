@@ -18,23 +18,28 @@ VALUES
   ('math', 'What is the value of π (pi)?', 'Approximately 3.14159', 1),
   ('trivia', 'What is the tallest mountain in the world?', 'Mount Everest', 2);
 
-  insert into deck (deckname, user_id)
-  values ('Grammar', 2);
+ 
   insert into deck (deckname, user_id)
   values ('Science', 1);
   insert into deck (deckname, user_id)
   values ('Math', 1);
   insert into deck (deckname, user_id)
-  values ('Reading', 2);
-  insert into deck (deckname, user_id)
-  values ('Biology', 1);
-  insert into deck (deckname, user_id)
-  values ('Calculus', 1);
-  insert into deck (deckname, user_id)
   values ('History', 2);
   insert into deck (deckname, user_id)
-  values ('Psychology', 1);
-  insert into deck (deckname, user_id)
-  values ('Sociology', 1);
+  values ('Trivia', 2);
+
+insert into flashcard_deck (flashcard_id, deck_id) values (1, 2);
+insert into flashcard_deck (flashcard_id, deck_id) values (2, 1);
+insert into flashcard_deck (flashcard_id, deck_id) values (3, 3);
+insert into flashcard_deck (flashcard_id, deck_id) values (4, 4);
+insert into flashcard_deck (flashcard_id, deck_id) values (5, 2);
+insert into flashcard_deck (flashcard_id, deck_id) values (6, 1);
+insert into flashcard_deck (flashcard_id, deck_id) values (7, 2);
+insert into flashcard_deck (flashcard_id, deck_id) values (8, 1);
+insert into flashcard_deck (flashcard_id, deck_id) values (9, 3);
+insert into flashcard_deck (flashcard_id, deck_id) values (10, 4);
+insert into flashcard_deck (flashcard_id, deck_id) values (11, 2);
+insert into flashcard_deck (flashcard_id, deck_id) values (12, 4);
+
 
 COMMIT TRANSACTION;
