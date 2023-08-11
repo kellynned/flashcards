@@ -6,13 +6,17 @@
 
     <div class="flashcardsContainer">
       <h2>Flashcards</h2>
-        <button class="button" @click="deleteSelectedFlashcards">
-        Add To Deck <i class="fa-regular fa-square-plus"></i>
-      </button>
+        <label for="deck-names">Choose a deck:</label> 
+    <select name="deck-names" id="deck-names"> 
+        <option value="placeholder">Math</option>
+        <option value="placeholder">Science</option>
+        <option value="placeholder">Grammar</option>
+        <option value="placeholder">Yeet</option>
+    </select>
       <input type="text" class="search" />
 
       <button class="button" @click="deleteSelectedFlashcards">
-        Delete <i class="fa-solid fa-trash-can"></i>
+        Save <i class="fa-solid fa-floppy-disk"></i>
       </button>
 
       <div>
@@ -233,5 +237,12 @@ h2 {
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+}
+
+#deck-names {
+  position: relative;
+  right: 100px;
+  height: 30px;
+  width: 100px;
 }
 </style>
