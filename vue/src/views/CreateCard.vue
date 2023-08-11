@@ -97,6 +97,7 @@ export default {
   display: flex;
   flex-direction: column;
 }
+
 label {
   margin-bottom: 0.25rem;
   text-align: left;

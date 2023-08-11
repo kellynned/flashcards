@@ -36,9 +36,16 @@
           />
         </div>
 
-        <button class="button" style="vertical-align: middle">
-          <span>Add Deck </span>
-        </button>
+        <router-link to="/createdeck" custom v-slot="{ navigate }">
+          <button
+            class="button"
+            @click="navigate"
+            role="link"
+            style="vertical-align: middle"
+          >
+            <span>Add Deck</span>
+          </button>
+        </router-link>
       </div>
     </div>
   </div>
