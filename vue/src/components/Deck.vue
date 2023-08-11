@@ -1,7 +1,7 @@
 <template>
   <div class="deck">
-    <h3>
-      {{ deck.user_id }}
+    <h3 style = "color:#faf9f9">
+      .
       <router-link v-bind:to="{ name: 'DecksPage' }" class="edit-button"
         ><i class="fa-solid fa-pen-to-square"></i
       ></router-link>
@@ -10,9 +10,9 @@
       <h1 class="subjectName">
         {{ deck.deckname }}
       </h1>
-      <router-link class="study-button" v-bind:to="{ name: 'StudySession' }"
-        >Study Deck!</router-link
-      >
+      <router-link class="study-button" :to="{ name: 'StudySession', params: { deckId: deck.deck_id } }">
+  Study Deck!
+</router-link>
     </div>
   </div>
 </template>

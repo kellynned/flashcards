@@ -3,6 +3,7 @@ package com.techelevator.controller;
 import com.techelevator.dao.JdbcDeckDao;
 import com.techelevator.dao.UserDao;
 import com.techelevator.model.Deck;
+import com.techelevator.model.Flashcard;
 import com.techelevator.model.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -37,5 +38,4 @@ public class DeckController {
 
         return jdbcDeckDao.findAll(creator);
     }
-
 }

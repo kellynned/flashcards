@@ -1,9 +1,7 @@
 <template>
   <div class="flashcard-back" @click="flip()">
     <p>{{ flashcard.answer }}</p>
-    <button class="button correct-button" @click="markCorrect">
-      Mark Correct
-    </button>
+    
   </div>
 </template>
 
@@ -15,9 +13,6 @@ export default {
     flip: Function,
   },
   methods: {
-    markCorrect() {
-      this.$emit("mark-correct");
-    },
   },
 };
 </script>

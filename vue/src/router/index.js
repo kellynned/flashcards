@@ -84,7 +84,7 @@ const router = new Router({
       }
     },
     {
-      path: "/studysession",
+      path: "/studysession/:deckId",
       name: "StudySession",
       component: StudySession,
       meta: {
