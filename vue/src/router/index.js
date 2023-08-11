@@ -8,6 +8,7 @@ import store from '../store/index'
 import DecksPage from '../views/DecksPage.vue'
 import CreateCard from '../views/CreateCard.vue'
 import FlashcardsPage from '../views/FlashcardsPage.vue'
+import StudySession from '../views/StudySession.vue'
 
 Vue.use(Router)
 
@@ -77,6 +78,14 @@ const router = new Router({
       path: "/flashcardspage",
       name: "FlashcardsPage",
       component: FlashcardsPage,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/studysession",
+      name: "StudySession",
+      component: StudySession,
       meta: {
         requiresAuth: true
       }

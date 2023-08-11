@@ -7,14 +7,13 @@
       ></router-link>
     </h3>
     <div id="tester">
-    <h1 class="subjectName">
-      {{ deck.deckName }}
-    </h1>
-      <router-link class="study-button" v-bind:to="{ name: 'DecksPage' }"
+      <h1 class="subjectName">
+        {{ deck.deckName }}
+      </h1>
+      <router-link class="study-button" v-bind:to="{ name: 'StudySession' }"
         >Study Deck!</router-link
       >
-      </div>
-      
+    </div>
   </div>
 </template>
 
@@ -32,12 +31,9 @@ export default {
   },
   methods: {},
 };
-
-
 </script>
 
 <style scoped>
-
 #tester {
   display: flex;
 }
@@ -61,14 +57,13 @@ h3 {
   margin: auto;
   position: relative;
   left: 50px;
-
 }
 .deck {
   border-radius: 25px;
   background-color: #faf9f9;
   width: 90%;
   height: 15%;
-  
+
   position: relative;
   left: 25px;
   right: 25px;
