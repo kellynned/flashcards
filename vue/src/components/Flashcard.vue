@@ -1,11 +1,11 @@
 <template>
   <div class="flashcard">
     <FlashcardFront v-if="!flipped" :flashcard="flashcard" :flip="flip" />
-    <FlashcardBack v-else :flashcard="flashcard" />
+    <FlashcardBack v-else :flashcard="flashcard" :flip="flip" />
     <input
       class="select"
       type="checkbox"
-      @click="deleteFlashcard(flashcard.id)"
+      :id="flashcardId" v-model="selectedFlashcardIds" :value="flashcardId"
     />
   </div>
 </template>
@@ -31,6 +31,9 @@ export default {
   methods: {
     flip() {
       this.flipped = !this.flipped;
+    },
+    toggleSelected(flashcardId) {
+      this.$emit("toggle-selected", flashcardId);
     },
   },
 };
