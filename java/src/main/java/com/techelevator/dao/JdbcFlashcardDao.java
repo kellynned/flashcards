@@ -20,16 +20,15 @@ public class JdbcFlashcardDao {
 
     public void createFlashcard(Flashcard flashcard){
 
-        String sql = "INSERT INTO flashcard (answer, question, subject, deck_id, user_id) " +
-                "VALUES (?, ?, ?, ?, ?);";
+        String sql = "INSERT INTO flashcard (answer, question, subject, user_id) " +
+                "VALUES (?, ?, ?, ?);";
 
-        jdbcTemplate.update(sql, flashcard.getAnswer(), flashcard.getQuestion(), flashcard.getSubject(), flashcard.getDeckId(), flashcard.getUserId());
+        jdbcTemplate.update(sql, flashcard.getAnswer(), flashcard.getQuestion(), flashcard.getSubject(), flashcard.getUserId());
 
     }
 
     public void removeFlashcardFromDeck(int id) {
         String sql = "update flashcard \n" +
-                "set deck_id = NULL\n" +
                 "where flashcard_id = ?;";
 
         jdbcTemplate.update(sql, id);
@@ -65,7 +64,6 @@ public class JdbcFlashcardDao {
     private Flashcard mapRowToFlashcard(SqlRowSet rs){
         Flashcard flashcard = new Flashcard();
         flashcard.setFlashcardId(rs.getInt("flashcard_id"));
-        flashcard.setDeckId(rs.getInt("deck_id"));
         flashcard.setUserId(rs.getInt("user_id"));
         flashcard.setSubject(rs.getString("subject"));
         flashcard.setQuestion(rs.getString("question"));

@@ -1,6 +1,8 @@
 <template>
   <div class="decks-page">
-    <div class="header"><h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1></div>
+    <div class="header">
+      <h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1>
+    </div>
 
     <div class="decksContainer">
       <h2>Decks</h2>
@@ -8,10 +10,11 @@
       <div>
         <Deck class="deck" v-for="deck in decks" :key="deck.id" :deck="deck" />
       </div>
-
-      <button class="button" style="vertical-align: middle">
-        <span>Add Deck </span>
-      </button>
+      <router-link to="/createdeck">
+        <button class="button" style="vertical-align: middle">
+          <span>Add Deck </span>
+        </button>
+      </router-link>
     </div>
   </div>
 </template>
