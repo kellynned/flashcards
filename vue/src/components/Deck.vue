@@ -8,7 +8,7 @@
     </h3>
     <div id="tester">
       <h1 class="subjectName">
-        {{ deck.deckName }}
+        {{ deck.deckname }}
       </h1>
       <router-link class="study-button" v-bind:to="{ name: 'StudySession' }"
         >Study Deck!</router-link
