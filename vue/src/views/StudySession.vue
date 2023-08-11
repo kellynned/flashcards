@@ -26,6 +26,10 @@
         <span>Next </span>
       </button>
 
+      <button class="button" @click="markCorrect">
+        Mark Correct 
+      </button>
+
       <button
         class="button"
         @click="completeSession"
@@ -39,6 +43,7 @@
 </template>
 
 <script>
+import DeckService from "@/services/DeckService";
 import Flashcard from "@/components/Flashcard.vue";
 import FlashcardService from "@/services/FlashcardService";
 
@@ -64,13 +69,14 @@ export default {
     },
   },
   mounted() {
-    FlashcardService.list().then((response) =>
+    DeckService.get(this.$route.params.deckId).then((response) =>
       this.$store.commit("SET_FLASHCARDS", response.data)
     );
   },
 
   services: {
     FlashcardService,
+    DeckService
   },
   methods: {
     async fetchFlashcards() {
@@ -89,8 +95,17 @@ export default {
       }
     },
     markCorrect() {
-      this.correctCount++;
-      this.userMarkedCorrect = true;
+      const totalFlashcards = this.flashcards.length;
+      if (this.correctCount < this.flashcards.length) {
+        this.correctCount++;
+      }
+      console.log("Working" + this.correctCount);
+      if (this.currentIndex < this.flashcards.length - 1) {
+        this.currentIndex++;
+      } else {
+        const completionMessage = `You answered ${this.correctCount} questions correctly out of ${totalFlashcards}.`;
+        alert(completionMessage);
+      }
     },
 
     completeSession() {
@@ -118,6 +133,7 @@ export default {
 }
 
 .flashcardsContainer {
+  margin-top: 50px;
   color: #89b0ae;
   border-radius: 25px;
   margin-right: 25%;
@@ -126,7 +142,7 @@ export default {
   text-align: center;
   overflow: auto;
   align-content: center;
-  height: 750px;
+  height: 500px;
 }
 
 .flashcard {
@@ -134,7 +150,7 @@ export default {
   border-radius: 25px;
   background-color: #faf9f9;
   width: 90%;
-  height: 312px;
+  height: 200px;
   left: 43px;
   position: relative;
   align-content: center;

@@ -47,6 +47,21 @@ public class JdbcFlashcardDao {
         return flashcards;
     }
 
+    public List<Flashcard> findAllByDeck(int id) {
+        List<Flashcard> flashcards = new ArrayList<>();
+        String sql = "select * from flashcard \n" +
+                "join flashcard_deck as fd on flashcard.flashcard_id = fd.flashcard_id\n" +
+                "join deck on deck.deck_id = fd.deck_id\n" +
+                "where fd.deck_id = ?";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, id);
+        while (results.next()) {
+            flashcards.add(mapRowToFlashcard(results));
+        }
+
+        return flashcards;
+    }
+
     private Flashcard mapRowToFlashcard(SqlRowSet rs){
         Flashcard flashcard = new Flashcard();
         flashcard.setFlashcardId(rs.getInt("flashcard_id"));
