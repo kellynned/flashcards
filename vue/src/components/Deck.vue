@@ -1,7 +1,7 @@
 <template>
   <div class="deck">
-    <h3>
-      {{ deck.user_id }}
+    <h3 style = "color:#faf9f9">
+      .
       <router-link v-bind:to="{ name: 'DecksPage' }" class="edit-button"
         ><i class="fa-solid fa-pen-to-square"></i
       ></router-link>
