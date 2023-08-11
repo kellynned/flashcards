@@ -1,6 +1,9 @@
 <template>
   <div class="flashcard-back" @click="flip()">
     <p>{{ flashcard.answer }}</p>
+    <button class="button correct-button" @click="markCorrect">
+      Mark Correct
+    </button>
   </div>
 </template>
 
@@ -13,7 +16,7 @@ export default {
   },
   methods: {
     markCorrect() {
-      this.$store.commit("markCorrect", this.flashcard.id);
+      this.$emit("mark-correct");
     },
   },
 };

@@ -2,11 +2,11 @@
   <div class="flashcard">
     <FlashcardFront v-if="!flipped" :flashcard="flashcard" :flip="flip" />
     <FlashcardBack v-else :flashcard="flashcard" :flip="flip" />
-    <input
+    <!-- <input
       class="select"
       type="checkbox"
       :id="flashcardId" v-model="selectedFlashcardIds" :value="flashcardId"
-    />
+    /> -->
   </div>
 </template>
 

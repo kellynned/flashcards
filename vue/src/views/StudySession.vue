@@ -10,7 +10,11 @@
         Card {{ currentFlashcardNumber }} / {{ flashcards.length }}
       </p>
       <div>
-        <Flashcard class="flashcard" :flashcard="flashcards[currentIndex]" />
+        <Flashcard
+          class="flashcard"
+          :flashcard="flashcards[currentIndex]"
+          @mark-correct="markCorrect"
+        />
       </div>
 
       <button
@@ -22,18 +26,15 @@
         <span>Next </span>
       </button>
 
-      <router-link to="/createcard" custom v-slot="{ navigate }">
-        <button
-          class="button"
-          @click="navigate"
-          role="link"
-          style="vertical-align: middle"
-        >
-          <span>Complete Session </span>
-        </button>
-      </router-link>
+      <button
+        class="button"
+        @click="completeSession"
+        role="link"
+        style="vertical-align: middle"
+      >
+        <span>Complete Session </span>
+      </button>
     </div>
-    <p></p>
   </div>
 </template>
 
@@ -46,10 +47,11 @@ export default {
     return {
       selectedFlashcardIds: [],
       currentIndex: 0,
+      correctCount: 0,
     };
   },
 
-  name: "FlashcardsPage",
+  name: "StudySession",
   components: {
     Flashcard,
   },
@@ -86,6 +88,16 @@ export default {
         // You can display a message or implement a wrap-around behavior.
       }
     },
+    markCorrect() {
+      this.correctCount++;
+      this.userMarkedCorrect = true;
+    },
+
+    completeSession() {
+      const totalFlashcards = this.flashcards.length;
+      const completionMessage = `You answered ${this.correctCount} questions correctly out of ${totalFlashcards}.`;
+      alert(completionMessage);
+    },
   },
 };
 </script>
@@ -118,10 +130,11 @@ export default {
 }
 
 .flashcard {
+  display: flex;
   border-radius: 25px;
   background-color: #faf9f9;
   width: 90%;
-  height: 112px;
+  height: 312px;
   left: 43px;
   position: relative;
   align-content: center;
