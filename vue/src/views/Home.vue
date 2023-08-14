@@ -1,14 +1,13 @@
 <template>
   <div class="home">
     <div class="header">
-      <p>{{ searchInput }}</p>
-      <h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1>
+      <h1>Flashcards <i class="fa-brands fa-pagelines"> </i></h1>
     </div>
     <div class="container">
       <div class="flashcardsContainer">
-        <h2>Flashcards</h2>
+        <h2>Flashcards </h2>
         <div class="form-input-group">
-          <label for="search">Search</label>
+          <label for="search">Search For {{ searchInput }}</label>
           <input
             type="text"
             id="search"
