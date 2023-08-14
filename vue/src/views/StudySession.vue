@@ -4,7 +4,7 @@
       <h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1>
     </div>
 
-    <div class="flashcardsContainer">
+    <div class="flashcardsContainer" v-if="isComplete == false">
       <h2>Study Time!</h2>
       <p class="counter">
         Card {{ currentFlashcardNumber }} / {{ flashcards.length }}
@@ -30,9 +30,12 @@
         <span class="rightanswer">Correct </span>
       </button>
 
-      <button class="button" role="link" style="vertical-align: middle">
+      <button class="button" role="link" @click="isComplete = true">
         <span>Complete Session </span>
       </button>
+    </div>
+    <div v-else class="flashcardsContainer">
+      <h1>Is complete is true</h1>
     </div>
   </div>
 </template>
@@ -48,6 +51,7 @@ export default {
       selectedFlashcardIds: [],
       currentIndex: 0,
       correctCount: 0,
+      isComplete: false,
     };
   },
 
