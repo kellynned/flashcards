@@ -115,6 +115,7 @@ export default {
   height: 750px;
   text-align: center;
   overflow: auto;
+  border: 4px solid #64949283;
 }
 .flashcardsContainer {
   color: #89b0ae;
