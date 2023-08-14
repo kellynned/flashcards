@@ -7,7 +7,7 @@
     <div class="flashcardsContainer" v-if="isComplete == false">
       <h2>Study Time!</h2>
       <p class="counter">
-        Card {{ currentFlashcardNumber }} / {{ flashcards.length }}
+        Card {{ currentIndex }} / {{ flashcards.length }}
       </p>
       <div>
         <Flashcard
@@ -105,16 +105,18 @@ export default {
       }
     },
     nextFlashcard() {
-      if (this.currentIndex < this.flashcards.length - 1) {
+      if (this.currentIndex <= this.flashcards.length - 1) {
         this.currentIndex++;
       } else {
-        // Handle the case when the user reaches the end of the flashcards.
-        // You can display a message or implement a wrap-around behavior.
+        //  this.currentIndex++;
       }
     },
     isCompleted() {
-      if (this.correctCount > this.currentIndex || this.correctCount == 0) {
+      if (this.correctCount > this.currentIndex) {
         this.currentIndex++;
+      }
+      if(this.correctCount == 0) {
+        this.currentIndex == this.currentIndex;
       }
       this.isComplete = true;
     },
@@ -126,11 +128,8 @@ export default {
       );
     },
     markCorrect() {
-      if (this.correctCount < this.flashcards.length) {
+      if (this.correctCount < this.flashcards.length && this.currentIndex <= this.flashcards.length - 1) {
         this.correctCount++;
-      }
-      console.log("Working" + this.correctCount);
-      if (this.currentIndex < this.flashcards.length - 1) {
         this.currentIndex++;
       }
     },
