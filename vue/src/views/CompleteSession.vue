@@ -1,68 +1,31 @@
 <template>
-  <div class="decks-page">
+  <div class="complete-page">
     <div class="header">
       <h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1>
     </div>
 
     <div class="decksContainer">
-      <h2>Decks</h2>
-
-      <div>
-        <Deck class="deck" v-for="deck in decks" :key="deck.id" :deck="deck" />
-      </div>
-      <router-link to="/createdeck">
-        <button class="button" style="vertical-align: middle">
-          <span>Add Deck </span>
-        </button>
-      </router-link>
+      <h2>Nice Job!</h2>
+      <h3>
+        You answered ${this.correctCount} questions correctly out of
+        ${totalFlashcards}
+      </h3>
     </div>
   </div>
 </template>
 
+
 <script>
-import Deck from "@/components/Deck.vue";
-import DeckService from "@/services/DeckService";
+import StudySession from "./StudySession.vue";
 
 export default {
-  name: "DecksPage",
-  components: {
-    Deck,
-  },
-  computed: {
-    decks() {
-      return this.$store.state.decks;
-    },
-  },
-  mounted() {
-    DeckService.list().then((response) =>
-      this.$store.commit("SET_DECKS", response.data)
-    );
-    // this.$store.dispatch("fetchDecks");
-    // this.fetchDecks();
-  },
-
-  services: {
-    DeckService,
-  },
-  methods: {
-    async fetchDecks() {
-      try {
-        // const response = await DeckService.list();
-        // const decks = response.data;
-        // this.$store.commit("SET_DECKS", decks);
-        // this.deck = decks;
-        await this.$store.dispatch("fetchDecks");
-        // Update your Vuex store or component data with fetched decks
-      } catch (error) {
-        console.error("Error fetching decks:", error);
-      }
-    },
-  },
+  name: "sessioncomplete",
+  components: StudySession,
 };
 </script>
 
 <style scoped>
-.decks-page {
+.complete-page {
   background-image: linear-gradient(to bottom, #555b6e, #faf9f9);
   height: 95.3vh;
   color: #89b0ae;
@@ -84,7 +47,7 @@ export default {
   height: 750px;
   overflow: auto;
   background-color: #89b0ae;
-border: 4px solid #64949283;
+  border: 4px solid #64949283;
   text-align: center;
   overflow: auto;
   align-content: center;
@@ -105,7 +68,11 @@ h2 {
   margin: 10px;
   color: #faf9f9;
 }
-
+h3 {
+  font-size: 1.25em;
+  margin: 10px;
+  color: #faf9f9;
+}
 .overflowScroll {
   height: 250px;
 }
