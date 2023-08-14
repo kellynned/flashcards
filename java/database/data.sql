@@ -29,16 +29,16 @@ VALUES
   values ('Trivia', 2);
 
 insert into flashcard_deck (flashcard_id, deck_id) values (1, 2);
-insert into flashcard_deck (flashcard_id, deck_id) values (2, 1);
-insert into flashcard_deck (flashcard_id, deck_id) values (3, 3);
-insert into flashcard_deck (flashcard_id, deck_id) values (4, 4);
-insert into flashcard_deck (flashcard_id, deck_id) values (5, 2);
+insert into flashcard_deck (flashcard_id, deck_id) values (2, 2);
+insert into flashcard_deck (flashcard_id, deck_id) values (3, 2);
+insert into flashcard_deck (flashcard_id, deck_id) values (4, 2);
+insert into flashcard_deck (flashcard_id, deck_id) values (5, 1);
 insert into flashcard_deck (flashcard_id, deck_id) values (6, 1);
-insert into flashcard_deck (flashcard_id, deck_id) values (7, 2);
-insert into flashcard_deck (flashcard_id, deck_id) values (8, 1);
+insert into flashcard_deck (flashcard_id, deck_id) values (7, 1);
+insert into flashcard_deck (flashcard_id, deck_id) values (8, 3);
 insert into flashcard_deck (flashcard_id, deck_id) values (9, 3);
 insert into flashcard_deck (flashcard_id, deck_id) values (10, 4);
-insert into flashcard_deck (flashcard_id, deck_id) values (11, 2);
+insert into flashcard_deck (flashcard_id, deck_id) values (11, 4);
 insert into flashcard_deck (flashcard_id, deck_id) values (12, 4);
 
 

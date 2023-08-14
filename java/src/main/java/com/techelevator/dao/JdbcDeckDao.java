@@ -30,10 +30,10 @@ public class JdbcDeckDao {
 
         public List<Deck> findAll(User user) {
         List<Deck> decks = new ArrayList<>();
-        String sql = "SELECT *\n" +
+        String sql = "SELECT distinct deck.deck_id, deckname, deck.user_id\n" +
                 "FROM deck\n" +
                 "LEFT JOIN flashcard_deck on flashcard_deck.deck_id =  deck.deck_id\n" +
-                "LEFT JOIN flashcard on flashcard.flashcard_id = flashcard_deck.flashcard_id \n" +
+                "LEFT JOIN flashcard on flashcard.flashcard_id = flashcard_deck.flashcard_id\n" +
                 "WHERE deck.user_id = ?";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, user.getId());
