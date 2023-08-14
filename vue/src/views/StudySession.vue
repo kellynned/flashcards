@@ -29,15 +29,16 @@
       <button class="correct" @click="markCorrect" role="link">
         <span class="rightanswer">Correct </span>
       </button>
-
-      <button
-        class="button"
-        @click="completeSession"
-        role="link"
-        style="vertical-align: middle"
-      >
-        <span>Complete Session </span>
-      </button>
+      <router-link to="/sessioncomplete" custom v-slot="{ navigate }">
+        <button
+          class="button"
+          @click="navigate"
+          role="link"
+          style="vertical-align: middle"
+        >
+          <span>Complete Session </span>
+        </button>
+      </router-link>
     </div>
   </div>
 </template>
