@@ -18,15 +18,17 @@
       </div>
 
       <button
-        class="button"
+        class="incorrect"
         @click="nextFlashcard"
         role="link"
         style="vertical-align: middle"
       >
-        <span>Correct </span>
+        <span class="wrong-span">Incorrect </span>
       </button>
 
-      <button class="button" @click="markCorrect">Incorrect </button>
+      <button class="correct" @click="markCorrect" role="link">
+        <span class="rightanswer">Correct </span>
+      </button>
 
       <button
         class="button"
@@ -196,7 +198,7 @@ h2 {
   text-align: center;
   font-size: 20px;
   padding: 20px;
-  width: 200px;
+  width: 300px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -210,7 +212,7 @@ h2 {
 }
 
 .button span:after {
-  content: "\002B";
+  content: "\21E5";
   position: absolute;
   opacity: 0;
   top: 0;
@@ -226,7 +228,85 @@ h2 {
   opacity: 1;
   right: 0;
 }
+.correct {
+  display: inline-block;
+  border-radius: 15px;
+  background-color: transparent;
+  border: none;
+  color: #faf9f9;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
 
+.correct span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.correct span:after {
+  content: "\2713";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -30px;
+  transition: 0.5s;
+  transform: translateY(-20%);
+}
+
+.correct:hover span {
+  padding-right: 25px;
+}
+
+.correct:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+.incorrect {
+  display: inline-block;
+  border-radius: 15px;
+  background-color: transparent;
+  border: none;
+  color: #faf9f9;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.incorrect span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.incorrect span:after {
+  content: "\0058";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -30px;
+  transition: 0.5s;
+}
+
+.incorrect:hover span {
+  padding-right: 25px;
+}
+
+.incorrect:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 .search {
   width: 40%;
   height: 20px;
