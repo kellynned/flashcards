@@ -7,8 +7,8 @@
     <div class="decksContainer">
       <h2>Nice Job!</h2>
       <h3>
-        You answered ${this.correctCount} questions correctly out of
-        ${totalFlashcards}
+        You answered {{this.correctCount}} questions correctly out of
+        {{totalFlashcards}}
       </h3>
     </div>
   </div>
