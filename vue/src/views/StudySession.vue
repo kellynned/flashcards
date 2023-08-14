@@ -119,7 +119,7 @@ export default {
 
 <style scoped>
 .studysession {
-  background-color: #555b6e;
+background-image: linear-gradient(to bottom, #555b6e, #faf9f9);
   height: 95.3vh;
   color: #89b0ae;
   font-size: 1.5em;

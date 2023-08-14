@@ -63,7 +63,7 @@ export default {
 
 <style scoped>
 .decks-page {
-  background-color: #555b6e;
+  background-image: linear-gradient(to bottom, #555b6e, #faf9f9);
   height: 95.3vh;
   color: #89b0ae;
   font-size: 1.5em;
@@ -78,13 +78,13 @@ export default {
 
 .decksContainer {
   color: #89b0ae;
-  border-radius: 25px;
+  border-radius: 10px;
   margin-right: 25%;
   margin-left: 25%;
   height: 750px;
   overflow: auto;
   background-color: #89b0ae;
-
+border: 4px solid #64949283;
   text-align: center;
   overflow: auto;
   align-content: center;
