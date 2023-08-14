@@ -1,7 +1,6 @@
 <template>
   <div class="home">
     <div class="header">
-      <p>{{ searchInput }}</p>
       <h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1>
     </div>
     <div class="container">
@@ -21,7 +20,7 @@
         <div>
           <Flashcard
             class="flashcard"
-            v-for="flashcard in flashcards"
+            v-for="flashcard in $store.state.filteredList"
             :key="flashcard.id"
             :flashcard="flashcard"
           />
@@ -101,7 +100,7 @@ export default {
   methods: {
     getFilteredFlashcards() {
       FlashcardService.getFiltered(this.searchInput).then((response) =>
-        this.$store.commit("SET_FILTERED_LIST", response.data)
+        this.$store.commit("SET_FILTERED_FLASHCARDS", response.data)
       );
     },
   },
