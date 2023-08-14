@@ -1,6 +1,8 @@
 <template>
   <div class="home">
-    <div class="header"><h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1></div>
+    <div class="header">
+      <h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1>
+    </div>
     <div class="container">
       <div class="flashcardsContainer">
         <h2>Flashcards</h2>
@@ -54,6 +56,9 @@
 <script>
 import Flashcard from "@/components/Flashcard.vue";
 import Deck from "@/components/Deck.vue";
+import FlashcardService from "@/services/FlashcardService";
+import DeckService from "@/services/DeckService";
+
 export default {
   name: "home",
   components: {
@@ -68,12 +73,20 @@ export default {
       return this.$store.state.decks;
     },
   },
+  mounted() {
+    DeckService.list().then((response) =>
+      this.$store.commit("SET_DECKS", response.data)
+    );
+    FlashcardService.list().then((response) =>
+      this.$store.commit("SET_FLASHCARDS", response.data)
+    );
+  },
 };
 </script>
 
 <style scoped>
 .home {
-  background-color: #555b6e;
+  background-image: linear-gradient(to bottom, #555b6e, #faf9f9);
   height: 95.3vh;
   color: #89b0ae;
   font-size: 1.5em;
@@ -96,7 +109,7 @@ export default {
 
 .decksContainer {
   color: #89b0ae;
-  border-radius: 25px;
+  border-radius: 10px;
   width: 550px;
   background-color: #89b0ae;
   height: 750px;
@@ -105,12 +118,13 @@ export default {
 }
 .flashcardsContainer {
   color: #89b0ae;
-  border-radius: 25px;
+  border-radius: 10px;
   width: 550px;
   background-color: #89b0ae;
   height: 750px;
   text-align: center;
   overflow: auto;
+  border: 4px solid #64949283;
 }
 
 .flashcard {
