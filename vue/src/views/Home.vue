@@ -5,9 +5,9 @@
     </div>
     <div class="container">
       <div class="flashcardsContainer">
-        <h2>Flashcards</h2>
+        <h2>Flashcards </h2>
         <div class="form-input-group">
-          <label for="search">Search</label>
+          <label for="search">Search For {{ searchInput }}</label>
           <input
             type="text"
             id="search"
