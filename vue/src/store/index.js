@@ -24,6 +24,7 @@ export default new Vuex.Store({
     user: currentUser || {},
 
     flashcards: [],
+    fliteredList: [],
     decks: [],
     selectedFlashcardIds: [],
     currentIndex: 0,
@@ -44,6 +45,9 @@ export default new Vuex.Store({
     SET_USER(state, user) {
       state.user = user;
       localStorage.setItem('user', JSON.stringify(user));
+    },
+    SET_FILTERED_FLASHCARDS(state, flashcards) {
+      state.fliteredList = flashcards;
     },
     LOGOUT(state) {
       localStorage.removeItem('token');

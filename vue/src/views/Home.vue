@@ -18,18 +18,10 @@
             @keypress.enter="getFilteredFlashcards"
           />
         </div>
-        <div v-if="(this.searchInput = '')">
+        <div>
           <Flashcard
             class="flashcard"
             v-for="flashcard in flashcards"
-            :key="flashcard.id"
-            :flashcard="flashcard"
-          />
-        </div>
-        <div v-else>
-          <Flashcard
-            class="flashcard"
-            v-for="flashcard in this.$store.filteredList"
             :key="flashcard.id"
             :flashcard="flashcard"
           />
@@ -87,6 +79,7 @@ export default {
   data() {
     return {
       searchInput: "",
+      fliteredList: [],
     };
   },
   computed: {
