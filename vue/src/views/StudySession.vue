@@ -29,16 +29,10 @@
       <button class="correct" @click="markCorrect" role="link">
         <span class="rightanswer">Correct </span>
       </button>
-      <router-link to="/sessioncomplete" custom v-slot="{ navigate }">
-        <button
-          class="button"
-          @click="navigate"
-          role="link"
-          style="vertical-align: middle"
-        >
-          <span>Complete Session </span>
-        </button>
-      </router-link>
+
+      <button class="button" role="link" style="vertical-align: middle">
+        <span>Complete Session </span>
+      </button>
     </div>
   </div>
 </template>
@@ -95,6 +89,13 @@ export default {
         // You can display a message or implement a wrap-around behavior.
       }
     },
+    sendData() {
+      this.$store.commit(
+        "SET_DATA_STUDY",
+        this.currentIndex,
+        this.correctCount
+      );
+    },
     markCorrect() {
       const totalFlashcards = this.flashcards.length;
       if (this.correctCount < this.flashcards.length) {
@@ -120,7 +121,7 @@ export default {
 
 <style scoped>
 .studysession {
-background-image: linear-gradient(to bottom, #555b6e, #faf9f9);
+  background-image: linear-gradient(to bottom, #555b6e, #faf9f9);
   height: 95.3vh;
   color: #89b0ae;
   font-size: 1.5em;
