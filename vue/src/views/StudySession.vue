@@ -23,10 +23,10 @@
         role="link"
         style="vertical-align: middle"
       >
-        <span>Next </span>
+        <span>Correct </span>
       </button>
 
-      <button class="button" @click="markCorrect">Mark Correct</button>
+      <button class="button" @click="markCorrect">Incorrect </button>
 
       <button
         class="button"
