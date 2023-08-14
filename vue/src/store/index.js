@@ -26,6 +26,9 @@ export default new Vuex.Store({
     flashcards: [],
     decks: [],
     selectedFlashcardIds: [],
+    currentIndex: 0,
+    correctCount: 0,
+
   },
 
   mutations: {
@@ -33,6 +36,10 @@ export default new Vuex.Store({
       state.token = token;
       localStorage.setItem('token', token);
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    },
+    SET_DATA_STUDY(state, currentIndex, correctCount) {
+      state.currentIndex = currentIndex;
+      state.correctCount = correctCount;
     },
     SET_USER(state, user) {
       state.user = user;

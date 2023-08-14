@@ -10,7 +10,7 @@ import CreateCard from '../views/CreateCard.vue'
 import FlashcardsPage from '../views/FlashcardsPage.vue'
 import StudySession from '../views/StudySession.vue'
 import CreateDeck from '../views/CreateDeck.vue'
-import CompleteSession from '../views/CompleteSession.vue'
+
 
 Vue.use(Router)
 
@@ -99,15 +99,7 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
-    },
-    {
-      path: "/sessioncomplete",
-      name: "sessioncomplete",
-      component: CompleteSession,
-      meta: {
-        requiresAuth: true
-      }
-    },
+    }
 
 
   ]
