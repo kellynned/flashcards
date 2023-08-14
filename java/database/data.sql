@@ -16,30 +16,48 @@ VALUES
   ('History', 'Who was the first President of the United States?', 'George Washington', 2),
   ('Trivia', 'What is the largest mammal on Earth?', 'Blue whale', 2),
   ('Trivia', 'What is the capital of Australia?', 'Canberra', 2),
-  ('Trivia', 'What is the tallest mountain in the world?', 'Mount Everest', 2);
+  ('Trivia', 'What is the tallest mountain in the world?', 'Mount Everest', 2),
 
- 
-  insert into deck (deckname, user_id)
-  values ('Science', 1);
+  ('Math', 'What is the formula for the area of a circle?', 'A = πr^2', 2),
+  ('Math', 'What is the quadratic formula?', 'x = (-b ± √(b^2 - 4ac)) / 2a', 2),
+  ('Math', 'What is the Pythagorean theorem?', 'In a right triangle, the square of the length of the hypotenuse is equal to the sum of the squares of the lengths of the other two sides.', 2),
+  ('Math', 'What is the value of π (pi)?', 'Approximately 3.14159', 2),
+  ('Science', 'What is Newton''s first law of motion?', 'An object at rest will stay at rest, and an object in motion will stay in motion unless acted upon by an external force.', 2),
+  ('Science', 'What is the chemical symbol for gold?', 'Au', 2),
+  ('Science', 'What is photosynthesis?', 'The process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll.', 2);
+
   insert into deck (deckname, user_id)
   values ('Math', 1);
+  insert into deck (deckname, user_id)
+  values ('Science', 1);
   insert into deck (deckname, user_id)
   values ('History', 2);
   insert into deck (deckname, user_id)
   values ('Trivia', 2);
+  insert into deck (deckname, user_id)
+  values ('Math', 2);
+  insert into deck (deckname, user_id)
+  values ('Science', 2);
 
-insert into flashcard_deck (flashcard_id, deck_id) values (1, 2);
-insert into flashcard_deck (flashcard_id, deck_id) values (2, 2);
-insert into flashcard_deck (flashcard_id, deck_id) values (3, 2);
-insert into flashcard_deck (flashcard_id, deck_id) values (4, 2);
-insert into flashcard_deck (flashcard_id, deck_id) values (5, 1);
-insert into flashcard_deck (flashcard_id, deck_id) values (6, 1);
-insert into flashcard_deck (flashcard_id, deck_id) values (7, 1);
+insert into flashcard_deck (flashcard_id, deck_id) values (1, 1);
+insert into flashcard_deck (flashcard_id, deck_id) values (2, 1);
+insert into flashcard_deck (flashcard_id, deck_id) values (3, 1);
+insert into flashcard_deck (flashcard_id, deck_id) values (4, 1);
+insert into flashcard_deck (flashcard_id, deck_id) values (5, 2);
+insert into flashcard_deck (flashcard_id, deck_id) values (6, 2);
+insert into flashcard_deck (flashcard_id, deck_id) values (7, 2);
 insert into flashcard_deck (flashcard_id, deck_id) values (8, 3);
 insert into flashcard_deck (flashcard_id, deck_id) values (9, 3);
 insert into flashcard_deck (flashcard_id, deck_id) values (10, 4);
 insert into flashcard_deck (flashcard_id, deck_id) values (11, 4);
 insert into flashcard_deck (flashcard_id, deck_id) values (12, 4);
+insert into flashcard_deck (flashcard_id, deck_id) values (13, 5);
+insert into flashcard_deck (flashcard_id, deck_id) values (14, 5);
+insert into flashcard_deck (flashcard_id, deck_id) values (15, 5);
+insert into flashcard_deck (flashcard_id, deck_id) values (16, 5);
+insert into flashcard_deck (flashcard_id, deck_id) values (17, 6);
+insert into flashcard_deck (flashcard_id, deck_id) values (18, 6);
+insert into flashcard_deck (flashcard_id, deck_id) values (19, 6);
 
 
 COMMIT TRANSACTION;
