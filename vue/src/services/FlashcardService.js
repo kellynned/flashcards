@@ -7,6 +7,10 @@ export default {
         return http.get('/flashcards');
     },
 
+    getFiltered(input) {
+        return http.get(`/flashcards/${input}`);
+    },
+
     get(id) {
         return http.get(`/flashcards/${id}`);
     },

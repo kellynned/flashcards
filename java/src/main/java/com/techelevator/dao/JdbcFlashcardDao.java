@@ -70,4 +70,17 @@ public class JdbcFlashcardDao {
         flashcard.setAnswer(rs.getString("answer"));
         return flashcard;
     }
+
+    public List<Flashcard> findFiltered(User creator, String input) {
+        List<Flashcard> flashcards = new ArrayList<>();
+        input = "%" + input + "%";
+
+        String sql = "SELECT * FROM flashcard WHERE flashcard.subject ILIKE ? AND user_id = ?;";
+
+        SqlRowSet results = jdbcTemplate.queryForRowSet(sql, input, creator.getId());
+        while (results.next()) {
+            flashcards.add(mapRowToFlashcard(results));
+        }
+
+        return flashcards;    }
 }

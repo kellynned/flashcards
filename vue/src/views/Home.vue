@@ -1,16 +1,35 @@
 <template>
   <div class="home">
     <div class="header">
+      <p>{{ searchInput }}</p>
       <h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1>
     </div>
     <div class="container">
       <div class="flashcardsContainer">
         <h2>Flashcards</h2>
-        <input type="text" class="search" />
-        <div>
+        <div class="form-input-group">
+          <label for="search">Search</label>
+          <input
+            type="text"
+            id="search"
+            v-model="searchInput"
+            required
+            autofocus
+            @keypress.enter="getFilteredFlashcards"
+          />
+        </div>
+        <div v-if="(this.searchInput = '')">
           <Flashcard
             class="flashcard"
             v-for="flashcard in flashcards"
+            :key="flashcard.id"
+            :flashcard="flashcard"
+          />
+        </div>
+        <div v-else>
+          <Flashcard
+            class="flashcard"
+            v-for="flashcard in this.$store.filteredList"
             :key="flashcard.id"
             :flashcard="flashcard"
           />
@@ -65,6 +84,11 @@ export default {
     Flashcard,
     Deck,
   },
+  data() {
+    return {
+      searchInput: "",
+    };
+  },
   computed: {
     flashcards() {
       return this.$store.state.flashcards;
@@ -80,6 +104,13 @@ export default {
     FlashcardService.list().then((response) =>
       this.$store.commit("SET_FLASHCARDS", response.data)
     );
+  },
+  methods: {
+    getFilteredFlashcards() {
+      FlashcardService.getFiltered(this.searchInput).then((response) =>
+        this.$store.commit("SET_FILTERED_LIST", response.data)
+      );
+    },
   },
 };
 </script>
@@ -98,7 +129,23 @@ export default {
   align-self: center;
   color: #faf9f9;
 }
+.form-input-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+label {
+  margin-bottom: 0.25rem;
+  text-align: left;
+  color: #faf9f9;
+}
+
+input {
+  width: 45%;
+  padding: 0.5rem;
+}
 .container {
   display: flex;
   gap: 100px;
@@ -115,7 +162,6 @@ export default {
   height: 750px;
   text-align: center;
   overflow: auto;
-  border: 4px solid #64949283;
 }
 .flashcardsContainer {
   color: #89b0ae;
