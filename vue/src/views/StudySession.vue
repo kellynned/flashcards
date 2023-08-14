@@ -30,12 +30,31 @@
         <span class="rightanswer">Correct </span>
       </button>
 
-      <button class="button" role="link" @click="isComplete = true">
+      <button class="button" role="link" @click="isCompleted">
         <span>Complete Session </span>
       </button>
     </div>
-    <div v-else class="flashcardsContainer">
-      <h1>Is complete is true</h1>
+    <div class="resultsContainer" v-else>
+      <div class = "results">
+        <div v-if="this.correctCount > 0">
+          <h1>Nice job!</h1>
+        </div>
+        <div v-else>
+          <h1>Better luck next time!</h1>
+        </div>
+        <p>
+          You answered {{ this.correctCount }} questions correctly out of
+          {{ this.currentIndex }}.
+        </p>
+        <button class="sameDeck" onClick="window.location.reload();">
+          <span>Study Same Deck</span>
+        </button>
+        <router-link v-bind:to="{ name: 'DecksPage' }"
+          ><button class="diffDeck">
+            <span>Study Another Deck</span>
+          </button>
+        </router-link>
+      </div>
     </div>
   </div>
 </template>
@@ -93,6 +112,12 @@ export default {
         // You can display a message or implement a wrap-around behavior.
       }
     },
+    isCompleted() {
+      if (this.correctCount > this.currentIndex || this.correctCount == 0) {
+        this.currentIndex++;
+      }
+      this.isComplete = true;
+    },
     sendData() {
       this.$store.commit(
         "SET_DATA_STUDY",
@@ -101,23 +126,13 @@ export default {
       );
     },
     markCorrect() {
-      const totalFlashcards = this.flashcards.length;
       if (this.correctCount < this.flashcards.length) {
         this.correctCount++;
       }
       console.log("Working" + this.correctCount);
       if (this.currentIndex < this.flashcards.length - 1) {
         this.currentIndex++;
-      } else {
-        const completionMessage = `You answered ${this.correctCount} questions correctly out of ${totalFlashcards}.`;
-        alert(completionMessage);
       }
-    },
-
-    completeSession() {
-      const totalFlashcards = this.flashcards.length;
-      const completionMessage = `You answered ${this.correctCount} questions correctly out of ${totalFlashcards}.`;
-      alert(completionMessage);
     },
   },
 };
@@ -140,7 +155,6 @@ export default {
 
 .flashcardsContainer {
   margin-top: 50px;
-  color: #89b0ae;
   border-radius: 25px;
   margin-right: 25%;
   margin-left: 25%;
@@ -149,6 +163,21 @@ export default {
   overflow: auto;
   align-content: center;
   height: 500px;
+}
+
+.resultsContainer {
+  margin-top: 50px;
+  color: #faf9f9;
+  border-radius: 25px;
+  margin-right: 25%;
+  margin-left: 25%;
+  background-color: #89b0ae;
+  text-align: center;
+  overflow: auto;
+  align-content: center;
+  height: 500px;
+  justify-content: center;
+  position: relative;
 }
 
 .flashcard {
@@ -313,6 +342,89 @@ h2 {
   opacity: 1;
   right: 0;
 }
+
+.sameDeck {
+  display: inline-block;
+  border-radius: 15px;
+  background-color: transparent;
+  border: none;
+  color: #faf9f9;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.sameDeck span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.sameDeck span:after {
+  content: "\27F3";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -30px;
+  transition: 0.5s;
+  transform: translateY(-6%);
+}
+
+.sameDeck:hover span {
+  padding-right: 25px;
+}
+
+.sameDeck:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+.diffDeck {
+  display: inline-block;
+  border-radius: 15px;
+  background-color: transparent;
+  border: none;
+  color: #faf9f9;
+  text-align: center;
+  font-size: 20px;
+  padding: 20px;
+  width: 250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.diffDeck span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.diffDeck span:after {
+  content: "\21E5";
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -30px;
+  transition: 0.5s;
+  transform: translateY(-6%);
+}
+
+.diffDeck:hover span {
+  padding-right: 25px;
+}
+
+.diffDeck:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
 .search {
   width: 40%;
   height: 20px;
@@ -331,5 +443,13 @@ h2 {
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+}
+
+.results {
+  position: relative;
+  top: 100px;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
 }
 </style>
