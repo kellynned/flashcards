@@ -29,7 +29,8 @@
         v-bind:to="{ name: 'FlashcardsPage' }"
         v-if="$store.state.token != ''"
         class="nav-option"
-        >Flashcards <i class="fa-brands fa-pagelines"></i></router-link>
+        >Flashcards <i class="fa-brands fa-pagelines"></i
+      ></router-link>
       <span
         v-bind:to="{ name: 'separator' }"
         v-if="$store.state.token != ''"
@@ -89,7 +90,6 @@ export default {
   background-color: #70a8a6;
 }
 
-/* Optional: Add an icon to the Logout link */
 .nav-option.logout::before {
   content: "\f2f5";
   font-family: "Font Awesome"; /* Include the Font Awesome font family */

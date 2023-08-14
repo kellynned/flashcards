@@ -38,11 +38,19 @@ public class FlashcardController {
 
         return jdbcFlashcardDao.findAll(creator);
     }
+    @RequestMapping(value = "/flashcards/{input}", method = RequestMethod.GET)
+    public List<Flashcard> getFilteredFlashcards(@PathVariable String input, Principal principal){
+        User creator = userDao.getUserByUsername(principal.getName());
+
+
+        return jdbcFlashcardDao.findFiltered(creator, input);
+    }
 
     @RequestMapping(value = "/flashcard/{id}", method = RequestMethod.PUT)
     public void removeFlashcard(@PathVariable int id, Principal principal){
         jdbcFlashcardDao.removeFlashcardFromDeck(id);
     }
+
 
 
     @RequestMapping(value = "/decks/{id}", method = RequestMethod.GET)
