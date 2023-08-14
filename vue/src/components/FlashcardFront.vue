@@ -1,7 +1,7 @@
 <template>
   <div class="flashcard-front" @click="flip">
     <h3>{{ flashcard.subject }}</h3>
-    <p>{{ flashcard.question }}</p>
+    <p class = "question">{{ flashcard.question }}</p>
   </div>
 </template>
 
@@ -26,7 +26,13 @@ export default {
   height: 15%;
   position: relative;
   left: 25px;
+  top: 7px;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.question {
+  position: relative;
+  bottom: 17px;
 }
 </style>

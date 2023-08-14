@@ -1,6 +1,6 @@
 <template>
   <div class="flashcard-back" @click="flip()">
-    <p>{{ flashcard.answer }}</p>
+    <p class ="answer">{{ flashcard.answer }}</p>
     
   </div>
 </template>
@@ -30,5 +30,12 @@ export default {
   left: 25px;
   margin-top: 15px;
   margin-bottom: 15px;
+}
+
+.answer {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  top: 40px;
 }
 </style>

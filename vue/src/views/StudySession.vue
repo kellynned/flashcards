@@ -26,9 +26,7 @@
         <span>Next </span>
       </button>
 
-      <button class="button" @click="markCorrect">
-        Mark Correct 
-      </button>
+      <button class="button" @click="markCorrect">Mark Correct</button>
 
       <button
         class="button"
@@ -76,7 +74,7 @@ export default {
 
   services: {
     FlashcardService,
-    DeckService
+    DeckService,
   },
   methods: {
     async fetchFlashcards() {
