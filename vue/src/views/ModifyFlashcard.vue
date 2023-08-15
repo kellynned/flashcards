@@ -36,6 +36,7 @@
             autofocus
           />
         </div>
+
         <button type="submit">Update Card!</button>
       </form>
     </div>
@@ -76,6 +77,7 @@ export default {
             this.card.question = "";
             this.card.answer = "";
             this.card.deck_id = null;
+            this.$router.push("/");
           }
         }
       );
