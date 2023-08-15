@@ -6,9 +6,7 @@
 
     <div class="flashcardsContainer" v-if="isComplete == false">
       <h2>Study Time!</h2>
-      <p class="counter">
-        Card {{ currentIndex }} / {{ flashcards.length }}
-      </p>
+      <p class="counter">Card {{ currentIndex }} / {{ flashcards.length }}</p>
       <div>
         <Flashcard
           class="flashcard"
@@ -35,7 +33,7 @@
       </button>
     </div>
     <div class="resultsContainer" v-else>
-      <div class = "results">
+      <div class="results">
         <div v-if="this.correctCount > 0">
           <h1>Nice job!</h1>
         </div>
@@ -115,7 +113,7 @@ export default {
       if (this.correctCount > this.currentIndex) {
         this.currentIndex++;
       }
-      if(this.correctCount == 0) {
+      if (this.correctCount == 0) {
         this.currentIndex == this.currentIndex;
       }
       this.isComplete = true;
@@ -128,7 +126,10 @@ export default {
       );
     },
     markCorrect() {
-      if (this.correctCount < this.flashcards.length && this.currentIndex <= this.flashcards.length - 1) {
+      if (
+        this.correctCount < this.flashcards.length &&
+        this.currentIndex <= this.flashcards.length - 1
+      ) {
         this.correctCount++;
         this.currentIndex++;
       }
@@ -162,6 +163,7 @@ export default {
   overflow: auto;
   align-content: center;
   height: 500px;
+  border: 4px solid #64949283;
 }
 
 .resultsContainer {
@@ -177,6 +179,7 @@ export default {
   height: 500px;
   justify-content: center;
   position: relative;
+  border: 4px solid #64949283;
 }
 
 .flashcard {
