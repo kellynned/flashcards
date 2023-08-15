@@ -51,7 +51,14 @@ public class FlashcardController {
         jdbcFlashcardDao.updateFlashcard(id);
     }
 
+    @RequestMapping(value = "/deck/{id}", method = RequestMethod.POST)
+    public void updateDeckId(@PathVariable int id, Principal principal, @RequestBody Flashcard flashcard){
+        User creator = userDao.getUserByUsername(principal.getName());
 
+        flashcard.setUserId(creator.getId());
+
+        jdbcFlashcardDao.createFlashcardFromDeck(flashcard, id);
+    }
 
     @RequestMapping(value = "/decks/{id}", method = RequestMethod.GET)
     public  List<Flashcard> getDecks(@PathVariable int id, Principal principal){
