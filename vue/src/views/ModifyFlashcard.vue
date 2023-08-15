@@ -1,7 +1,7 @@
 <template >
   <body>
-    <div id="login">
-      <form @submit.prevent="create">
+    <div id="modify-flashcard">
+      <form @submit.prevent="updateCard">
         <h1>Edit Flashcard</h1>
         <div class="form-input-group">
           <label for="card-subject">Card Subject</label>
@@ -48,6 +48,7 @@ export default {
   data() {
     return {
       card: {
+        id: null,
         subject: "",
         question: "",
         answer: "",
@@ -56,10 +57,11 @@ export default {
     };
   },
   methods: {
-    create() {
-      FlashcardService.create(this.card).then((response) => {
-        if (response.status == 201) {
-          this.$store.commit("SET_FLASHCARDS", response.data.card);
+    updateCard() {
+      FlashcardService.update(this.card.id, this.card).then((response) => {
+        if (response.status === 201) {
+          this.$store.commit("UPDATE_FLASHCARD", response.data.card);
+          this.card.id = null;
           this.card.subject = "";
           this.card.question = "";
           this.card.answer = "";
@@ -88,7 +90,7 @@ input {
   padding: 0.5rem;
 }
 
-#login {
+#modify-flashcard {
   display: flex;
   justify-content: center;
   align-self: center;
