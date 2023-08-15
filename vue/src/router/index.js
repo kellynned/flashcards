@@ -12,7 +12,7 @@ import StudySession from '../views/StudySession.vue'
 import CreateDeck from '../views/CreateDeck.vue'
 import ModifyFlashcard from '../views/ModifyFlashcard.vue'
 import ViewDeckFlashcards from '../views/ViewDeckFlashcards.vue'
-
+import AddCardToDeck from '../views/AddCardToDeck.vue'
 
 Vue.use(Router)
 
@@ -114,6 +114,14 @@ const router = new Router({
       path: "/viewdeck/:deckId",
       name: "ViewDeckFlashcards",
       component: ViewDeckFlashcards,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/addcard/:deckId",
+      name: "addcard",
+      component: AddCardToDeck,
       meta: {
         requiresAuth: true
       }

@@ -20,13 +20,10 @@
         />
       </div>
 
-      <router-link to="/createcard" custom v-slot="{ navigate }">
-        <button
-          class="button"
-          @click="navigate"
-          role="link"
-          style="vertical-align: middle"
-        >
+      <router-link
+        :to="{ name: 'addcard', params: { deckId: this.$route.params.deckId } }"
+      >
+        <button class="button" role="link" style="vertical-align: middle">
           <span>Add Card </span>
         </button>
       </router-link>

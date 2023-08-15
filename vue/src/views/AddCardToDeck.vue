@@ -2,7 +2,7 @@
   <body>
     <div id="login">
       <form @submit.prevent="create">
-        <h1>Create a Flashcard</h1>
+        <h1>Add To Deck</h1>
         <div class="form-input-group">
           <label for="card-subject">Card Subject</label>
           <select v-model="card.subject" class="dropdown">
@@ -57,15 +57,17 @@ export default {
   },
   methods: {
     create() {
-      FlashcardService.create(this.card).then((response) => {
-        if (response.status == 201) {
-          this.$store.commit("SET_FLASHCARDS", response.data.card);
-          this.card.subject = "";
-          this.card.question = "";
-          this.card.answer = "";
-          this.card.deck_id = null;
+      FlashcardService.addFromDeck(this.$route.params.deckId, this.card).then(
+        (response) => {
+          if (response.status == 200) {
+            this.$store.commit("SET_FLASHCARDS", response.data.card);
+            this.card.subject = "";
+            this.card.question = "";
+            this.card.answer = "";
+            this.card.deck_id = null;
+          }
         }
-      });
+      );
     },
   },
 };
