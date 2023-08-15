@@ -111,7 +111,7 @@ const router = new Router({
       }
     },
     {
-      path: "/viewdeck",
+      path: "/viewdeck/:deckId",
       name: "ViewDeckFlashcards",
       component: ViewDeckFlashcards,
       meta: {

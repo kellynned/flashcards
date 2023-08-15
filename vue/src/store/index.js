@@ -66,6 +66,10 @@ export default new Vuex.Store({
     SET_DECKS(state, decks) {
       state.decks = decks;
     },
+    SET_DECK_FLASHCARDS(state, flashcards) {
+      state.flashcards = flashcards;
+    },
+
     SET_FLASHCARDS(state, flashcards) {
       state.flashcards = flashcards;
     },

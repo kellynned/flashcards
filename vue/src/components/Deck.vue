@@ -1,15 +1,20 @@
 <template>
   <div class="deck">
-
     <div id="tester">
-      <router-link to="/viewdeck" class="deck"> 
+      <router-link
+        class="deck"
+        :to="{ name: 'ViewDeckFlashcards', params: { deckId: deck.deck_id } }"
+      >
         <h1 class="subjectName">
-        {{ deck.deckname }}
-      </h1>
+          {{ deck.deckname }}
+        </h1>
       </router-link>
-      <router-link class="study-button" :to="{ name: 'StudySession', params: { deckId: deck.deck_id } }">
-  Study Deck!
-</router-link>
+      <router-link
+        class="study-button"
+        :to="{ name: 'StudySession', params: { deckId: deck.deck_id } }"
+      >
+        Study Deck!
+      </router-link>
     </div>
   </div>
 </template>
@@ -35,7 +40,6 @@ export default {
   display: flex;
   position: relative;
   top: 35px;
-  
 }
 h3 {
   display: flex;

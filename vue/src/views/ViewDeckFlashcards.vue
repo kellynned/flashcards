@@ -6,20 +6,19 @@
 
     <div class="flashcardsContainer">
       <h2>Flashcards</h2>
-     
 
       <button class="button">
         Save <i class="fa-solid fa-floppy-disk"></i>
       </button>
 
-       <div>
-          <Flashcard
-            class="flashcard"
-            v-for="flashcard in $store.state.filteredList"
-            :key="flashcard.id"
-            :flashcard="flashcard"
-          />
-        </div>
+      <div>
+        <Flashcard
+          class="flashcard"
+          v-for="flashcard in flashcards"
+          :key="flashcard.id"
+          :flashcard="flashcard"
+        />
+      </div>
 
       <router-link to="/createcard" custom v-slot="{ navigate }">
         <button
@@ -38,7 +37,7 @@
 <script>
 import Flashcard from "@/components/Flashcard.vue";
 import FlashcardService from "@/services/FlashcardService";
-
+import DeckService from "../services/DeckService";
 export default {
   data() {
     return {
@@ -58,18 +57,17 @@ export default {
     },
   },
   mounted() {
-    this.getFilteredFlashcards();
+    this.getDeckFlashcards();
   },
   services: {
     FlashcardService,
+    DeckService,
   },
   methods: {
-    async fetchFlashcards() {
-      try {
-        await this.$store.dispatch("fetchFlashcards");
-      } catch (error) {
-        console.error("Error fetching flashcards:", error);
-      }
+    getDeckFlashcards() {
+      DeckService.get(this.$route.params.deckId).then((response) =>
+        this.$store.commit("SET_FLASHCARDS", response.data)
+      );
     },
   },
 };
@@ -191,6 +189,4 @@ h2 {
   cursor: pointer;
   margin: 5px;
 }
-
-
 </style>

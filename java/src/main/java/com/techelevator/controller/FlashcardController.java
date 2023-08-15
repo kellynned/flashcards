@@ -56,7 +56,7 @@ public class FlashcardController {
     @RequestMapping(value = "/decks/{id}", method = RequestMethod.GET)
     public  List<Flashcard> getDecks(@PathVariable int id, Principal principal){
 
-        return jdbcFlashcardDao.findAllByDeck(id);
+        return jdbcFlashcardDao.findAllByDeck( id);
     }
 
 }
