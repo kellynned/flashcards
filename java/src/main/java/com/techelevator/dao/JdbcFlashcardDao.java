@@ -37,7 +37,7 @@ public class JdbcFlashcardDao {
 
     public List<Flashcard> findAll(User user) {
         List<Flashcard> flashcards = new ArrayList<>();
-        String sql = "SELECT * FROM flashcard where user_id = ?";
+        String sql = "SELECT * FROM flashcard where user_id = ? ORDER BY subject;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, user.getId());
         while (results.next()) {
@@ -90,7 +90,7 @@ public class JdbcFlashcardDao {
         List<Flashcard> flashcards = new ArrayList<>();
         input = "%" + input + "%";
 
-        String sql = "SELECT * FROM flashcard WHERE flashcard.subject ILIKE ? AND user_id = ?;";
+        String sql = "SELECT * FROM flashcard WHERE flashcard.subject ILIKE ? AND user_id = ? ORDER BY subject;";
 
         SqlRowSet results = jdbcTemplate.queryForRowSet(sql, input, creator.getId());
         while (results.next()) {
