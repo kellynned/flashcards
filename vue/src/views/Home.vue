@@ -93,14 +93,13 @@ export default {
     DeckService.list().then((response) =>
       this.$store.commit("SET_DECKS", response.data)
     );
-    FlashcardService.list().then((response) =>
-      this.$store.commit("SET_FLASHCARDS", response.data)
-    );
+    this.getFilteredFlashcards();
   },
   methods: {
     getFilteredFlashcards() {
       FlashcardService.getFiltered(this.searchInput).then((response) =>
-        this.$store.commit("SET_FILTERED_FLASHCARDS", response.data)
+        this.$store.commit("SET_FILTERED_FLASHCARDS", response.data),
+        console.log("Testing")
       );
     },
   },
