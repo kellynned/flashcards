@@ -1,7 +1,12 @@
 <template>
   <div class="flashcard-front" @click="flip">
-    <h3>{{ flashcard.subject }}</h3>
-    <p class = "question">{{ flashcard.question }}</p>
+    <h3>
+      {{ flashcard.subject }}
+      <router-link v-bind:to="{ name: 'DecksPage' }" class="edit-button"
+        ><i class="fa-solid fa-pen-to-square"></i
+      ></router-link>
+    </h3>
+    <p class="question">{{ flashcard.question }}</p>
   </div>
 </template>
 
@@ -34,5 +39,20 @@ export default {
 .question {
   position: relative;
   bottom: 17px;
+}
+
+.edit-button {
+  display: inline-block;
+  border-radius: 15px;
+  background-color: transparent;
+  border: none;
+  color: #555b6e;
+  text-align: center;
+  font-size: 15px;
+  padding: 7px;
+  width: 40px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
 }
 </style>
