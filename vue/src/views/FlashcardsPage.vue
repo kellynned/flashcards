@@ -115,13 +115,14 @@ export default {
   color: #89b0ae;
   border-radius: 10px;
   margin-right: 25%;
-  margin-left: 25%;
+  margin-left: 29%;
   background-color: #89b0ae;
   text-align: center;
   overflow: auto;
   align-content: center;
   height: 750px;
   border: 4px solid #64949283;
+  width: 800px;
 }
 
 .flashcard {
