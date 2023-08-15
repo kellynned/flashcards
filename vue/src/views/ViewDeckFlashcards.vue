@@ -1,18 +1,34 @@
 <template>
-  <div class="decks-page">
+  <div class="flashcards-page">
     <div class="header">
       <h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1>
     </div>
 
-    <div class="decksContainer">
-      <h2>Decks</h2>
+    <div class="flashcardsContainer">
+      <h2>Flashcards</h2>
+     
 
-      <div>
-        <Deck class="deck" v-for="deck in decks" :key="deck.id" :deck="deck" />
-      </div>
-      <router-link to="/createdeck">
-        <button class="button" style="vertical-align: middle">
-          <span>Add Deck </span>
+      <button class="button">
+        Save <i class="fa-solid fa-floppy-disk"></i>
+      </button>
+
+       <div>
+          <Flashcard
+            class="flashcard"
+            v-for="flashcard in $store.state.filteredList"
+            :key="flashcard.id"
+            :flashcard="flashcard"
+          />
+        </div>
+
+      <router-link to="/createcard" custom v-slot="{ navigate }">
+        <button
+          class="button"
+          @click="navigate"
+          role="link"
+          style="vertical-align: middle"
+        >
+          <span>Add Card </span>
         </button>
       </router-link>
     </div>
@@ -20,34 +36,39 @@
 </template>
 
 <script>
-import Deck from "@/components/Deck.vue";
-import DeckService from "@/services/DeckService";
+import Flashcard from "@/components/Flashcard.vue";
+import FlashcardService from "@/services/FlashcardService";
 
 export default {
-  name: "DecksPage",
+  data() {
+    return {
+      searchInput: "",
+      decks: [],
+      selectedDeck: null,
+    };
+  },
+
+  name: "ViewDeckFlashcards",
   components: {
-    Deck,
+    Flashcard,
   },
   computed: {
-    decks() {
-      return this.$store.state.decks;
+    flashcards() {
+      return this.$store.state.flashcards;
     },
   },
   mounted() {
-    DeckService.list().then((response) =>
-      this.$store.commit("SET_DECKS", response.data)
-    );
+    this.getFilteredFlashcards();
   },
-
   services: {
-    DeckService,
+    FlashcardService,
   },
   methods: {
-    async fetchDecks() {
+    async fetchFlashcards() {
       try {
-        await this.$store.dispatch("fetchDecks");
+        await this.$store.dispatch("fetchFlashcards");
       } catch (error) {
-        console.error("Error fetching decks:", error);
+        console.error("Error fetching flashcards:", error);
       }
     },
   },
@@ -55,7 +76,7 @@ export default {
 </script>
 
 <style scoped>
-.decks-page {
+.flashcards-page {
   background-image: linear-gradient(to bottom, #555b6e, #faf9f9);
   height: 95.3vh;
   color: #89b0ae;
@@ -69,29 +90,27 @@ export default {
   color: #faf9f9;
 }
 
-.decksContainer {
+.flashcardsContainer {
   color: #89b0ae;
   border-radius: 10px;
   margin-right: 25%;
   margin-left: 25%;
-  height: 750px;
-  overflow: auto;
   background-color: #89b0ae;
-  border: 4px solid #64949283;
   text-align: center;
   overflow: auto;
   align-content: center;
+  height: 750px;
+  border: 4px solid #64949283;
 }
 
-.deck {
+.flashcard {
   border-radius: 25px;
   background-color: #faf9f9;
   width: 90%;
   height: 112px;
-  left: 25px;
+  left: 43px;
   position: relative;
   align-content: center;
-  margin: 20px;
 }
 
 h2 {
@@ -158,11 +177,6 @@ h2 {
   right: 0;
 }
 
-.search {
-  width: 40%;
-  height: 20px;
-}
-
 .edit-button {
   display: inline-block;
   border-radius: 15px;
@@ -177,4 +191,6 @@ h2 {
   cursor: pointer;
   margin: 5px;
 }
+
+
 </style>

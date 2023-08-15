@@ -11,6 +11,7 @@ import FlashcardsPage from '../views/FlashcardsPage.vue'
 import StudySession from '../views/StudySession.vue'
 import CreateDeck from '../views/CreateDeck.vue'
 import ModifyFlashcard from '../views/ModifyFlashcard.vue'
+import ViewDeckFlashcards from '../views/ViewDeckFlashcards.vue'
 
 
 Vue.use(Router)
@@ -108,9 +109,15 @@ const router = new Router({
       meta: {
         requiresAuth: true
       }
+    },
+    {
+      path: "/viewdeck",
+      name: "ViewDeckFlashcards",
+      component: ViewDeckFlashcards,
+      meta: {
+        requiresAuth: true
+      }
     }
-
-
   ]
 })
 

@@ -11,6 +11,10 @@ export default {
         return http.get(`/flashcards/${input}`);
     },
 
+    getDeckCards(id) {
+        return http.get(`/deck/${id}`)
+    },
+
     get(id) {
         return http.get(`/flashcards/${id}`);
     },

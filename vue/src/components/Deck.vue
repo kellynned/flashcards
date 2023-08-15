@@ -1,15 +1,12 @@
 <template>
   <div class="deck">
-    <h3 style = "color:#faf9f9">
-      .
-      <router-link v-bind:to="{ name: 'DecksPage' }" class="edit-button"
-        ><i class="fa-solid fa-pen-to-square"></i
-      ></router-link>
-    </h3>
+
     <div id="tester">
-      <h1 class="subjectName">
+      <router-link to="/viewdeck" class="deck"> 
+        <h1 class="subjectName">
         {{ deck.deckname }}
       </h1>
+      </router-link>
       <router-link class="study-button" :to="{ name: 'StudySession', params: { deckId: deck.deck_id } }">
   Study Deck!
 </router-link>
@@ -36,6 +33,9 @@ export default {
 <style scoped>
 #tester {
   display: flex;
+  position: relative;
+  top: 35px;
+  
 }
 h3 {
   display: flex;
@@ -56,14 +56,14 @@ h3 {
   padding-right: 7px;
   margin: auto;
   position: relative;
-  left: 50px;
+  left: 30px;
 }
 .deck {
   border-radius: 25px;
   background-color: #faf9f9;
   width: 90%;
   height: 15%;
-
+  text-decoration: none;
   position: relative;
   left: 25px;
   right: 25px;
@@ -99,6 +99,6 @@ h3 {
   text-decoration: none;
   position: relative;
   right: 10px;
-  top: 5px;
+  bottom: 5px;
 }
 </style>
