@@ -27,11 +27,12 @@ public class JdbcFlashcardDao {
 
     }
 
-    public void updateFlashcard(int id) {
+    public void updateFlashcard(Flashcard flashcard, int id) {
         String sql = "update flashcard \n" +
+                "set subject = ?, question = ?, answer = ? " +
                 "where flashcard_id = ?;";
 
-        jdbcTemplate.update(sql, id);
+        jdbcTemplate.update(sql,flashcard.getSubject(), flashcard.getQuestion(), flashcard.getAnswer(), id);
     }
 
     public List<Flashcard> findAll(User user) {
@@ -45,6 +46,8 @@ public class JdbcFlashcardDao {
 
         return flashcards;
     }
+
+
 
     public List<Flashcard> findAllByDeck( int id) {
         List<Flashcard> flashcards = new ArrayList<>();

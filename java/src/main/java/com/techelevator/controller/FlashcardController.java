@@ -38,6 +38,8 @@ public class FlashcardController {
 
         return jdbcFlashcardDao.findAll(creator);
     }
+
+
     @RequestMapping(value = "/flashcards/{input}", method = RequestMethod.GET)
     public List<Flashcard> getFilteredFlashcards(@PathVariable String input, Principal principal){
         User creator = userDao.getUserByUsername(principal.getName());
@@ -46,9 +48,13 @@ public class FlashcardController {
         return jdbcFlashcardDao.findFiltered(creator, input);
     }
 
-    @RequestMapping(value = "/flashcard/{id}", method = RequestMethod.PUT)
-    public void updateFlashcard(@PathVariable int id, Principal principal){
-        jdbcFlashcardDao.updateFlashcard(id);
+
+    @RequestMapping(value = "/flashcards/{id}", method = RequestMethod.PUT)
+    public void updateFlashcard(@RequestBody Flashcard flashcard, @PathVariable int id, Principal principal){
+        User creator = userDao.getUserByUsername(principal.getName());
+
+        flashcard.setUserId(creator.getId());
+        jdbcFlashcardDao.updateFlashcard(flashcard, id);
     }
 
 

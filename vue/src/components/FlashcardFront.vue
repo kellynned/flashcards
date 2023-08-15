@@ -2,7 +2,17 @@
   <div class="flashcard-front" @click="flip">
     <h3>
       {{ flashcard.subject }}
-      <router-link v-bind:to="{ name: 'modifyflashcard' }" class="edit-button"
+      <router-link
+        :to="{
+          name: 'modifyflashcard',
+          params: {
+            flashcardId: flashcard.flashcardId,
+            subject: flashcard.subject,
+            question: flashcard.question,
+            answer: flashcard.answer,
+          },
+        }"
+        class="edit-button"
         ><i class="fa-solid fa-pen-to-square"></i
       ></router-link>
     </h3>

@@ -103,7 +103,7 @@ const router = new Router({
       }
     },
     {
-      path: "/modifyflashcard",
+      path: "/modifyflashcard/:flashcardId",
       name: "modifyflashcard",
       component: ModifyFlashcard,
       meta: {

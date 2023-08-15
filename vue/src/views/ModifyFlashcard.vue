@@ -12,6 +12,7 @@
             <option>Geography</option>
             <option>History</option>
             <option>Politics</option>
+            <option>Trivia</option>
           </select>
         </div>
         <div class="form-input-group">
@@ -24,6 +25,7 @@
             autofocus
           />
         </div>
+
         <div class="form-input-group">
           <label for="answer">Answer</label>
           <input
@@ -49,26 +51,42 @@ export default {
     return {
       card: {
         id: null,
-        subject: "",
-        question: "",
-        answer: "",
+        subject: this.$route.params.subject,
+        question: this.$route.params.question,
+        answer: this.$route.params.answer,
         deck_id: null,
       },
     };
   },
   methods: {
-    updateCard() {
-      FlashcardService.update(this.card.id, this.card).then((response) => {
-        if (response.status === 201) {
-          this.$store.commit("UPDATE_FLASHCARD", response.data.card);
-          this.card.id = null;
-          this.card.subject = "";
-          this.card.question = "";
-          this.card.answer = "";
-          this.card.deck_id = null;
+    fetchFlashcardInfo(id) {
+      FlashcardService.get(id).then((response) => {
+        if (response.status === 200) {
+          this.card = response.data; // Populate the card data
         }
       });
     },
+    updateCard() {
+      FlashcardService.update(this.$route.params.flashcardId, this.card).then(
+        (response) => {
+          if (response.status === 200) {
+            this.$store.commit("UPDATE_FLASHCARD", this.card);
+            this.card.id = this.card;
+            this.card.subject = "";
+            this.card.question = "";
+            this.card.answer = "";
+            this.card.deck_id = null;
+          }
+        }
+      );
+    },
+  },
+  mounted() {
+    // const flashcardId = this.$route.params.id; // Assuming you're using Vue Router
+    // this.fetchFlashcardInfo(flashcardId);
+    // this.card.question = this.$route.params.question;
+    // this.card.answer = this.$route.params.answer;
+    this.card.id = this.$route.params.flashcardId;
   },
 };
 </script>
