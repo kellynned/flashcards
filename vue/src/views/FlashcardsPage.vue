@@ -12,20 +12,27 @@
           {{ deck.deckName }}
         </option>
       </select>
-      <input type="text" class="search" />
+      <input
+            type="text"
+            id="search"
+            v-model="searchInput"
+            required
+            autofocus
+            @keypress.enter="getFilteredFlashcards"
+          />
 
       <button class="button">
         Save <i class="fa-solid fa-floppy-disk"></i>
       </button>
 
-      <div>
-        <Flashcard
-          class="flashcard"
-          v-for="flashcard in flashcards"
-          :key="flashcard.id"
-          :flashcard="flashcard"
-        />
-      </div>
+       <div>
+          <Flashcard
+            class="flashcard"
+            v-for="flashcard in $store.state.filteredList"
+            :key="flashcard.id"
+            :flashcard="flashcard"
+          />
+        </div>
 
       <router-link to="/createcard" custom v-slot="{ navigate }">
         <button
@@ -49,6 +56,7 @@ import FlashcardService from "@/services/FlashcardService";
 export default {
   data() {
     return {
+      searchInput: "",
       decks: [],
       selectedDeck: null,
     };
@@ -64,15 +72,8 @@ export default {
     },
   },
   mounted() {
-    FlashcardService.list().then((response) =>
-      this.$store.commit("SET_FLASHCARDS", response.data)
-    );
-    // DeckService.list().then((response) =>
-    //   this.deck = response.data,
-    //   this.selectedDeck = this.decks[0].deck_id
-    // );
+    this.getFilteredFlashcards();
   },
-
   services: {
     FlashcardService,
     DeckService,
@@ -80,15 +81,16 @@ export default {
   methods: {
     async fetchFlashcards() {
       try {
-        // const response = await DeckService.list();
-        // const decks = response.data;
-        // this.$store.commit("SET_DECKS", decks);
-        // this.deck = decks;
         await this.$store.dispatch("fetchFlashcards");
-        // Update your Vuex store or component data with fetched decks
       } catch (error) {
         console.error("Error fetching flashcards:", error);
       }
+    },
+     getFilteredFlashcards() {
+      FlashcardService.getFiltered(this.searchInput).then((response) =>
+        this.$store.commit("SET_FILTERED_FLASHCARDS", response.data),
+        console.log("Testing")
+      );
     },
   },
 };
@@ -221,5 +223,9 @@ h2 {
   right: 100px;
   height: 30px;
   width: 100px;
+}
+#search {
+  width: 40%;
+  height: 20px;
 }
 </style>

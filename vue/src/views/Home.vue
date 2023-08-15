@@ -7,7 +7,7 @@
       <div class="flashcardsContainer">
         <h2>Flashcards</h2>
         <div class="form-input-group">
-          <label for="search">Search</label>
+          <label for="search">Search For {{ searchInput }}</label>
           <input
             type="text"
             id="search"
@@ -93,14 +93,13 @@ export default {
     DeckService.list().then((response) =>
       this.$store.commit("SET_DECKS", response.data)
     );
-    FlashcardService.list().then((response) =>
-      this.$store.commit("SET_FLASHCARDS", response.data)
-    );
+    this.getFilteredFlashcards();
   },
   methods: {
     getFilteredFlashcards() {
       FlashcardService.getFiltered(this.searchInput).then((response) =>
-        this.$store.commit("SET_FILTERED_FLASHCARDS", response.data)
+        this.$store.commit("SET_FILTERED_FLASHCARDS", response.data),
+        console.log("Testing")
       );
     },
   },
@@ -154,6 +153,7 @@ input {
   height: 750px;
   text-align: center;
   overflow: auto;
+  border: 4px solid #64949283;
 }
 .flashcardsContainer {
   color: #89b0ae;
