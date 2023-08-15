@@ -64,6 +64,18 @@ public class JdbcFlashcardDao {
         return flashcards;
     }
 
+    public void createFlashcardFromDeck(Flashcard flashcard, int id){
+        String sql = "INSERT INTO flashcard (answer, question, subject, user_id)" +
+                "VALUES (?, ?, ?, ?) RETURNING flashcard_id;";
+
+        Integer flashcardId = jdbcTemplate.queryForObject(sql, Integer.class, flashcard.getAnswer(), flashcard.getQuestion(), flashcard.getSubject(), flashcard.getUserId());
+
+        String addToDeck = "insert into flashcard_deck (flashcard_id, deck_id)\n" +
+                "values (?, ?)";
+
+        jdbcTemplate.update(addToDeck, flashcardId, id);
+    }
+
     private Flashcard mapRowToFlashcard(SqlRowSet rs){
         Flashcard flashcard = new Flashcard();
         flashcard.setFlashcardId(rs.getInt("flashcard_id"));
