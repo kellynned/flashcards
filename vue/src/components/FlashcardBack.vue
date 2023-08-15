@@ -35,7 +35,8 @@ export default {
 .answer {
   display: flex;
   justify-content: center;
+  text-align: center;
   position: relative;
-  top: 40px;
+  top: 15px;
 }
 </style>
