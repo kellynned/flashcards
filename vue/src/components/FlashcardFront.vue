@@ -1,6 +1,7 @@
 <template>
   <div class="flashcard-front" @click="flip">
-    <h3>
+    <h3 class = "cardHead">
+      
       {{ flashcard.subject }}
       <router-link
         :to="{
@@ -48,7 +49,7 @@ export default {
 
 .question {
   position: relative;
-  bottom: 17px;
+  bottom: 25px;
 }
 
 .edit-button {
@@ -64,5 +65,16 @@ export default {
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+}
+
+.cardHead {
+  position: relative;
+  left: 30px;
+}
+
+i {
+  position: relative;
+  left: 135px;
+  bottom: 10px;
 }
 </style>
