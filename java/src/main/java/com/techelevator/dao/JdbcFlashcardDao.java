@@ -27,7 +27,7 @@ public class JdbcFlashcardDao {
 
     }
 
-    public void removeFlashcardFromDeck(int id) {
+    public void updateFlashcard(int id) {
         String sql = "update flashcard \n" +
                 "where flashcard_id = ?;";
 

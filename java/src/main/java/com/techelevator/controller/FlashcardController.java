@@ -47,8 +47,8 @@ public class FlashcardController {
     }
 
     @RequestMapping(value = "/flashcard/{id}", method = RequestMethod.PUT)
-    public void removeFlashcard(@PathVariable int id, Principal principal){
-        jdbcFlashcardDao.removeFlashcardFromDeck(id);
+    public void updateFlashcard(@PathVariable int id, Principal principal){
+        jdbcFlashcardDao.updateFlashcard(id);
     }
 
 

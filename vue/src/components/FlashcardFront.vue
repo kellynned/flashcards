@@ -2,7 +2,7 @@
   <div class="flashcard-front" @click="flip">
     <h3>
       {{ flashcard.subject }}
-      <router-link v-bind:to="{ name: 'DecksPage' }" class="edit-button"
+      <router-link v-bind:to="{ name: 'modifyflashcard' }" class="edit-button"
         ><i class="fa-solid fa-pen-to-square"></i
       ></router-link>
     </h3>

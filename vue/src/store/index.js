@@ -73,19 +73,14 @@ export default new Vuex.Store({
     SET_FLASHCARDS(state, flashcards) {
       state.flashcards = flashcards;
     },
+    UPDATE_FLASHCARD(state, updatedFlashcard) {
+      const index = state.flashcards.findIndex((card) => card.id === updatedFlashcard.id);
+      if (index !== -1) {
+        state.flashcards[index] = updatedFlashcard;
+      }
+    },
   },
-  // actions: {
-  //   async fetchDecks({ commit }) {
-  //     try {
-  //       const response = await axios.get('/decks');
-  //       const decks = response.data;
-  //       commit('SET_DECKS', decks);
-  //     } catch (error) {
-  //       console.error('Error fetching decks:', error);
-  //     }
-  //   },
 
-  // },
   getters: {
     getFlashcards(state) {
       return state.flashcards;
