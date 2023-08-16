@@ -1,6 +1,13 @@
 <template>
-  <div class="flashcard-front" @click="flip">
-    <h3 class="cardHead">
+  <div class="flashcard-front">
+    <h1><input
+      class ="checkbox"
+      type="checkbox"
+      v-bind:id="flashcard.flashcardId"
+      v-bind:value="flashcard.flashcardId"
+      v-model="selectedId"
+    /></h1>
+    <h3 class="cardHead" @click="flip">
       {{ flashcard.subject }}
       <router-link
         :to="{
@@ -16,13 +23,7 @@
         ><i class="fa-solid fa-pen-to-square"></i
       ></router-link>
     </h3>
-    <input
-      type="checkbox"
-      v-bind:id="flashcard.flashcardId"
-      v-bind:value="flashcard.flashcardId"
-      v-model="selectedId"
-    />
-    <p class="question">{{ flashcard.question }}</p>
+    <p class="question" @click="flip">{{ flashcard.question }}</p>
   </div>
 </template>
 
@@ -59,7 +60,7 @@ export default {
 
 .question {
   position: relative;
-  bottom: 25px;
+  bottom: 115px;
 }
 
 .edit-button {
@@ -75,16 +76,25 @@ export default {
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+
 }
 
 .cardHead {
   position: relative;
   left: 30px;
+  bottom: 80px;
 }
 
 i {
   position: relative;
   left: 135px;
   bottom: 10px;
+}
+
+.checkbox {
+  position: relative;
+  right: 320px;
+  bottom: 20px;
+
 }
 </style>
