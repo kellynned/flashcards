@@ -6,8 +6,8 @@
     <div class="flashcardsContainer">
       <h2>Flashcards</h2>
       <label for="deck-names">Choose a deck:</label>
-      <select name="deck-names" id="deck-names" v-model="selectedDeck">
-        <option v-for="deck in decks" :key="deck.deck_id" :deck="deck">
+      <select name="deck-names" id="deck-names" v-model="selectedDeckId">
+        <option v-for="deck in decks" :key="deck.deck_id" :value="deck.deck_id">
           {{ deck.deckname }}
         </option>
       </select>
@@ -55,7 +55,7 @@ export default {
   data() {
     return {
       searchInput: "",
-      selectedDeck: null,
+      selectedDeckId: 0,
       selectedId: [],
     };
   },
