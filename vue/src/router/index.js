@@ -13,6 +13,7 @@ import CreateDeck from '../views/CreateDeck.vue'
 import ModifyFlashcard from '../views/ModifyFlashcard.vue'
 import ViewDeckFlashcards from '../views/ViewDeckFlashcards.vue'
 import AddCardToDeck from '../views/AddCardToDeck.vue'
+import EditDeckName from '../views/EditDeckName.vue'
 
 Vue.use(Router)
 
@@ -122,6 +123,14 @@ const router = new Router({
       path: "/addcard/:deckId",
       name: "addcard",
       component: AddCardToDeck,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: "/editdeckname/:deckId",
+      name: "EditDeckName",
+      component: EditDeckName,
       meta: {
         requiresAuth: true
       }
