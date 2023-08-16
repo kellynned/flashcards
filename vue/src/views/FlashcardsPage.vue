@@ -19,19 +19,19 @@
         autofocus
         @keypress.enter="getFilteredFlashcards"
       />
-      <button class="button">
+      <button class="button" @click="saveToDeck">
         Save <i class="fa-solid fa-floppy-disk"></i>
       </button>
       <ul v-for="flashcard in $store.state.filteredList" :key="flashcard.id">
         <li>
-          <input
-            class="checkbox"
-            type="checkbox"
-            v-bind:id="flashcard.flashcardId"
-            v-bind:value="flashcard.flashcardId"
-            v-model="selectedId"
-          />
           <Flashcard class="flashcard" :flashcard="flashcard" />
+           <input
+      class ="checkbox"
+      type="checkbox"
+      v-bind:id="flashcard.flashcardId"
+      v-bind:value="flashcard.flashcardId"
+      v-model="selectedId"
+    />
         </li>
       </ul>
       <router-link to="/createcard" custom v-slot="{ navigate }">
@@ -55,7 +55,7 @@ export default {
   data() {
     return {
       searchInput: "",
-      selectedDeckId: 0,
+      selectedDeckId: null,
       selectedId: [],
     };
   },
@@ -90,13 +90,17 @@ export default {
       FlashcardService.getFiltered(this.searchInput).then(
         (response) =>
           this.$store.commit("SET_FILTERED_FLASHCARDS", response.data),
-        console.log("Testing")
+        console.log("Getting cards")
       );
     },
+    saveToDeck() {
+      console.log(this.selectedDeckId);
+    }
   },
 };
 </script>
 <style scoped>
+
 .flashcards-page {
   background-image: linear-gradient(to bottom, #555b6e, #faf9f9);
   height: 95.3vh;
@@ -130,6 +134,7 @@ export default {
   left: 43px;
   position: relative;
   align-content: center;
+  margin-bottom: -30px;
 }
 h2 {
   font-size: 1.75em;
@@ -212,5 +217,11 @@ h2 {
 #search {
   width: 40%;
   height: 20px;
+}
+
+.checkbox {
+position: relative;
+right: 360px;
+bottom: 45px;
 }
 </style>
