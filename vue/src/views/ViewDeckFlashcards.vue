@@ -82,7 +82,8 @@ export default {
     },
     removeFromDeck() {
       DeckService.removeCards(this.selectedDeckId, this.selectedId);
-      console.log(this.selectedId);
+      window.location.reload();
+      console.log(this.selectedDeckId);
     },
   },
 };
