@@ -4,7 +4,7 @@
       <h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1>
     </div>
     <div class="flashcardsContainer">
-      <h2>Deck</h2>
+      <h2>Flashcards</h2>
       <label for="deck-names">Choose a deck:</label>
       <select name="deck-names" id="deck-names" v-model="selectedDeckId">
         <option v-for="deck in decks" :key="deck.deck_id" :value="deck.deck_id">
@@ -95,6 +95,7 @@ export default {
     },
     saveToDeck() {
       DeckService.addCards(this.selectedDeckId, this.selectedId);
+      window.location.reload();
       console.log(this.selectedDeckId);
     },
   },
