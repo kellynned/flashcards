@@ -6,8 +6,8 @@
     <div class="flashcardsContainer">
       <h2>Flashcards</h2>
       <label for="deck-names">Choose a deck:</label>
-      <select name="deck-names" id="deck-names" v-model="selectedDeck">
-        <option v-for="deck in decks" :key="deck.deck_id" :deck="deck">
+      <select name="deck-names" id="deck-names" v-model="selectedDeckId">
+        <option v-for="deck in decks" :key="deck.deck_id" :value="deck.deck_id">
           {{ deck.deckname }}
         </option>
       </select>
@@ -19,7 +19,7 @@
         autofocus
         @keypress.enter="getFilteredFlashcards"
       />
-      <button class="button">
+      <button class="button" @click="saveToDeck">
         Save <i class="fa-solid fa-floppy-disk"></i>
       </button>
       <ul v-for="flashcard in $store.state.filteredList" :key="flashcard.id">
@@ -55,7 +55,7 @@ export default {
   data() {
     return {
       searchInput: "",
-      selectedDeck: null,
+      selectedDeckId: null,
       selectedId: [],
     };
   },
@@ -90,9 +90,12 @@ export default {
       FlashcardService.getFiltered(this.searchInput).then(
         (response) =>
           this.$store.commit("SET_FILTERED_FLASHCARDS", response.data),
-        console.log("Testing")
+        console.log("Getting cards")
       );
     },
+    saveToDeck() {
+      console.log(this.selectedDeckId);
+    }
   },
 };
 </script>
