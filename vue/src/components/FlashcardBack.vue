@@ -18,7 +18,6 @@ export default {
 </script>
 
 <style scoped>
-/* Add styles for the back side of the flashcard here */
 .flashcard-back {
   background-color: #faf9f9;
   border-radius: 25px;
