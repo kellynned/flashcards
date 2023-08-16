@@ -1,24 +1,15 @@
 <template>
-<<<<<<< HEAD
-  <div class="flashcard-front" @click="flip">
-    <h3 class="cardHead">
+  <div class="flashcard-front">
+    <h1>
       <input
+        class="checkbox"
         type="checkbox"
         v-bind:id="flashcard.flashcardId"
         v-bind:value="flashcard.flashcardId"
         v-model="selectedId"
       />
-=======
-  <div class="flashcard-front">
-    <h1><input
-      class ="checkbox"
-      type="checkbox"
-      v-bind:id="flashcard.flashcardId"
-      v-bind:value="flashcard.flashcardId"
-      v-model="selectedId"
-    /></h1>
+    </h1>
     <h3 class="cardHead" @click="flip">
->>>>>>> 7bbccdb85b88037b1895052a8599e0c9aeb6b3d9
       {{ flashcard.subject }}
       <router-link
         :to="{
@@ -34,12 +25,7 @@
         ><i class="fa-solid fa-pen-to-square"></i
       ></router-link>
     </h3>
-<<<<<<< HEAD
-
-    <p class="question">{{ flashcard.question }}</p>
-=======
     <p class="question" @click="flip">{{ flashcard.question }}</p>
->>>>>>> 7bbccdb85b88037b1895052a8599e0c9aeb6b3d9
   </div>
 </template>
 
@@ -92,7 +78,6 @@ export default {
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
-
 }
 
 .cardHead {
@@ -111,6 +96,5 @@ i {
   position: relative;
   right: 320px;
   bottom: 20px;
-
 }
 </style>
