@@ -1,7 +1,6 @@
 <template>
   <div class="flashcard-front" @click="flip">
-    <h3 class = "cardHead">
-      
+    <h3 class="cardHead">
       {{ flashcard.subject }}
       <router-link
         :to="{
@@ -17,6 +16,12 @@
         ><i class="fa-solid fa-pen-to-square"></i
       ></router-link>
     </h3>
+    <input
+      type="checkbox"
+      v-bind:id="flashcard.flashcardId"
+      v-bind:value="flashcard.flashcardId"
+      v-model="selectedId"
+    />
     <p class="question">{{ flashcard.question }}</p>
   </div>
 </template>
@@ -27,6 +32,11 @@ export default {
   props: {
     flashcard: Object,
     flip: Function,
+  },
+  data() {
+    return {
+      selectedId: [],
+    };
   },
 };
 </script>
