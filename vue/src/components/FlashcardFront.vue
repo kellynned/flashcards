@@ -29,7 +29,6 @@ export default {
 };
 </script>
 <style scoped>
-/* Add styles for the front side of the flashcard here */
 .flashcard-front {
   background-color: #faf9f9;
   border-radius: 25px;

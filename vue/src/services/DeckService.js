@@ -17,6 +17,9 @@ export default {
     },
     delete(id) {
         return http.delete(`/decks/${id}`);
+    },
+    addCards(id, flashcardIds) {
+        return http.post(`/decks/${id}/addFlashcards`, flashcardIds)
     }
 
 }

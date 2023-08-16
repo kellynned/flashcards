@@ -45,19 +45,15 @@
         <i class="fa-solid fa-arrow-right-from-bracket" id="logout-arrow"></i
       ></router-link>
     </div>
-    <!-- <div v-for="flashcard in flashcards" :key="flashcard.id">
-      <Flashcard :flashcard="flashcard" />
-    </div> -->
     <router-view />
   </div>
 </template>
 
 <script>
-// import Flashcard from "./components/Flashcard.vue";
+
 
 export default {
   components: {
-    // Flashcard,
   },
   computed: {
     totalCorrect() {
@@ -92,7 +88,7 @@ export default {
 
 .nav-option.logout::before {
   content: "\f2f5";
-  font-family: "Font Awesome"; /* Include the Font Awesome font family */
+  font-family: "Font Awesome"; 
   margin-right: 6px;
 }
 .separator {

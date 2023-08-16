@@ -46,4 +46,12 @@ public class DeckController {
 
         jdbcDeckDao.editDeck(deck, id);
     }
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(value = "/decks/{id}/addFlashcards", method = RequestMethod.POST)
+    public void addCardsToDeck(@PathVariable int id, @RequestBody int flashcardIds[], Principal principal){
+
+        User creator = userDao.getUserByUsername(principal.getName());
+
+        jdbcDeckDao.addCards(id, flashcardIds);
+    }
 }
