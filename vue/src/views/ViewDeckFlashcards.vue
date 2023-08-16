@@ -5,7 +5,17 @@
     </div>
 
     <div class="flashcardsContainer">
-      <h2>Deck</h2>
+      <h2>
+        {{ this.$route.params.deckname }}
+       <router-link
+        :to="{
+          name: 'EditDeckName', params: { deckId: this.$route.params.deckId } 
+        }"
+        class="edit-button"
+        ><i class="fa-solid fa-pen-to-square"></i
+      ></router-link>
+        
+      </h2>
 
       <button class="button" @click="removeFromDeck">
         Remove <i class="fa-solid fa-trash-can"></i>
@@ -122,6 +132,8 @@ h2 {
   font-size: 1.75em;
   margin: 10px;
   color: #faf9f9;
+  position: relative;
+  left: 60px;
 }
 
 .overflowScroll {
@@ -185,7 +197,7 @@ h2 {
 .edit-button {
   display: inline-block;
   border-radius: 15px;
-  background-color: #fde8da;
+  background-color: transparent;
   border: none;
   color: #555b6e;
   text-align: center;
@@ -195,6 +207,9 @@ h2 {
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+  position: relative;
+  right: 40px;
+  bottom: 7px;
 }
 
 .checkbox {

@@ -3,7 +3,7 @@
     <div id="tester">
       <router-link
         class="deck"
-        :to="{ name: 'ViewDeckFlashcards', params: { deckId: deck.deck_id } }"
+        :to="{ name: 'ViewDeckFlashcards', params: { deckId: deck.deck_id, deckname: deck.deckname } }"
       >
         <h1 class="subjectName">
           {{ deck.deckname }}

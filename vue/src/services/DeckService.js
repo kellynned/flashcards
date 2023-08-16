@@ -23,5 +23,8 @@ export default {
     },
     removeCards(id, flashcardIds) {
         return http.post(`/decks/${id}/removeFlashcards`, flashcardIds);
+    },
+    renameDeck(id, deckname) {
+        return http.post(`/deck/${id}/test`, deckname)
     }
 }
