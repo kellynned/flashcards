@@ -19,7 +19,6 @@
     <p class="question">{{ flashcard.question }}</p>
   </div>
 </template>
-
 <script>
 export default {
   name: "FlashcardFront",
@@ -29,7 +28,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 /* Add styles for the front side of the flashcard here */
 .flashcard-front {
@@ -45,16 +43,10 @@ export default {
   margin-top: 15px;
   margin-bottom: 15px;
 }
-
 .question {
   position: relative;
-<<<<<<< HEAD
-  bottom: 25px;
-=======
   bottom: 30px;
->>>>>>> 8a9260877d3d1928955cb54d1f16fd5df01801a2
 }
-
 .edit-button {
   display: inline-block;
   border-radius: 15px;
@@ -69,24 +61,13 @@ export default {
   cursor: pointer;
   margin: 5px;
 }
-
 .cardHead {
   position: relative;
   left: 30px;
-<<<<<<< HEAD
-=======
- 
->>>>>>> 8a9260877d3d1928955cb54d1f16fd5df01801a2
 }
-
 i {
   position: relative;
   left: 135px;
   bottom: 10px;
 }
-<<<<<<< HEAD
-=======
-
-
->>>>>>> 8a9260877d3d1928955cb54d1f16fd5df01801a2
 </style>
