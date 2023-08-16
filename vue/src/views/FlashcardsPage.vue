@@ -95,6 +95,7 @@ export default {
     },
     saveToDeck() {
       DeckService.addCards(this.selectedDeckId, this.selectedId);
+      window.location.reload();
       console.log(this.selectedDeckId);
     },
   },
