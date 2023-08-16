@@ -3,7 +3,6 @@
     <div class="header">
       <h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1>
     </div>
-
     <div class="flashcardsContainer">
       <h2>Flashcards</h2>
       <label for="deck-names">Choose a deck:</label>
@@ -20,27 +19,21 @@
         autofocus
         @keypress.enter="getFilteredFlashcards"
       />
-
       <button class="button">
         Save <i class="fa-solid fa-floppy-disk"></i>
       </button>
-
-      <div
-        class="flashcard"
-        v-for="flashcard in $store.state.filteredList"
-        :key="flashcard.id"
-        :flashcard="flashcard"
-      >
-        <input
-          class="checkbox"
-          type="checkbox"
-          v-bind:id="flashcard.id"
-          v-bind:value="flashcard.id"
-          v-model="selectedId"
-        />
-        <Flashcard />
-      </div>
-
+      <ul v-for="flashcard in $store.state.filteredList" :key="flashcard.id">
+        <li>
+          <input
+            class="checkbox"
+            type="checkbox"
+            v-bind:id="flashcard.flashcardId"
+            v-bind:value="flashcard.flashcardId"
+            v-model="selectedId"
+          />
+          <Flashcard class="flashcard" :flashcard="flashcard" />
+        </li>
+      </ul>
       <router-link to="/createcard" custom v-slot="{ navigate }">
         <button
           class="button"
@@ -54,12 +47,10 @@
     </div>
   </div>
 </template>
-
 <script>
 import DeckService from "@/services/DeckService";
 import Flashcard from "@/components/Flashcard.vue";
 import FlashcardService from "@/services/FlashcardService";
-
 export default {
   data() {
     return {
@@ -69,7 +60,6 @@ export default {
       selectedId: [],
     };
   },
-
   name: "FlashcardsPage",
   components: {
     Flashcard,
@@ -104,7 +94,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 .flashcards-page {
   background-image: linear-gradient(to bottom, #555b6e, #faf9f9);
@@ -112,14 +101,12 @@ export default {
   color: #89b0ae;
   font-size: 1.5em;
 }
-
 .header {
   display: flex;
   justify-content: center;
   align-self: center;
   color: #faf9f9;
 }
-
 .flashcardsContainer {
   color: #89b0ae;
   border-radius: 10px;
@@ -133,7 +120,6 @@ export default {
   border: 4px solid #64949283;
   width: 800px;
 }
-
 .flashcard {
   border-radius: 25px;
   background-color: #faf9f9;
@@ -143,31 +129,25 @@ export default {
   position: relative;
   align-content: center;
 }
-
 h2 {
   font-size: 1.75em;
   margin: 10px;
   color: #faf9f9;
 }
-
 .overflowScroll {
   height: 250px;
 }
-
 ::-webkit-scrollbar {
   width: 10px;
 }
-
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey;
   border-radius: 10px;
 }
-
 ::-webkit-scrollbar-thumb {
   background: #b3b3b3;
   border-radius: 10px;
 }
-
 .button {
   display: inline-block;
   border-radius: 15px;
@@ -182,14 +162,12 @@ h2 {
   cursor: pointer;
   margin: 5px;
 }
-
 .button span {
   cursor: pointer;
   display: inline-block;
   position: relative;
   transition: 0.5s;
 }
-
 .button span:after {
   content: "\002B";
   position: absolute;
@@ -198,21 +176,17 @@ h2 {
   right: -30px;
   transition: 0.5s;
 }
-
 .button:hover span {
   padding-right: 25px;
 }
-
 .button:hover span:after {
   opacity: 1;
   right: 0;
 }
-
 .search {
   width: 40%;
   height: 20px;
 }
-
 .edit-button {
   display: inline-block;
   border-radius: 15px;
@@ -227,7 +201,6 @@ h2 {
   cursor: pointer;
   margin: 5px;
 }
-
 #deck-names {
   position: relative;
   right: 100px;

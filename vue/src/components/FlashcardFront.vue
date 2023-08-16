@@ -1,15 +1,6 @@
 <template>
-  <div class="flashcard-front">
-    <h1>
-      <input
-        class="checkbox"
-        type="checkbox"
-        v-bind:id="flashcard.flashcardId"
-        v-bind:value="flashcard.flashcardId"
-        v-model="selectedId"
-      />
-    </h1>
-    <h3 class="cardHead" @click="flip">
+  <div class="flashcard-front" @click="flip">
+    <h3 class="cardHead">
       {{ flashcard.subject }}
       <router-link
         :to="{
@@ -25,10 +16,9 @@
         ><i class="fa-solid fa-pen-to-square"></i
       ></router-link>
     </h3>
-    <p class="question" @click="flip">{{ flashcard.question }}</p>
+    <p class="question">{{ flashcard.question }}</p>
   </div>
 </template>
-
 <script>
 export default {
   name: "FlashcardFront",
@@ -43,7 +33,6 @@ export default {
   },
 };
 </script>
-
 <style scoped>
 /* Add styles for the front side of the flashcard here */
 .flashcard-front {
@@ -59,12 +48,10 @@ export default {
   margin-top: 15px;
   margin-bottom: 15px;
 }
-
 .question {
   position: relative;
   bottom: 30px;
 }
-
 .edit-button {
   display: inline-block;
   border-radius: 15px;
@@ -79,21 +66,13 @@ export default {
   cursor: pointer;
   margin: 5px;
 }
-
 .cardHead {
   position: relative;
   left: 30px;
 }
-
 i {
   position: relative;
   left: 135px;
   bottom: 10px;
-}
-
-.checkbox {
-  position: relative;
-  right: 320px;
-  bottom: 20px;
 }
 </style>
