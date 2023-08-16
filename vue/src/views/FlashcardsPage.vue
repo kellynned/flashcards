@@ -27,14 +27,14 @@
 
       <ul v-for="flashcard in $store.state.filteredList" :key="flashcard.id">
         <li>
-          <input
+          <Flashcard class="flashcard" :flashcard="flashcard" />
+           <input
       class ="checkbox"
       type="checkbox"
       v-bind:id="flashcard.flashcardId"
       v-bind:value="flashcard.flashcardId"
       v-model="selectedId"
     />
-          <Flashcard class="flashcard" :flashcard="flashcard" />
         </li>
       </ul>
 
@@ -103,6 +103,7 @@ export default {
 </script>
 
 <style scoped>
+
 .flashcards-page {
   background-image: linear-gradient(to bottom, #555b6e, #faf9f9);
   height: 95.3vh;
@@ -139,6 +140,7 @@ export default {
   left: 43px;
   position: relative;
   align-content: center;
+  margin-bottom: -30px;
 }
 
 h2 {
@@ -234,5 +236,11 @@ h2 {
 #search {
   width: 40%;
   height: 20px;
+}
+
+.checkbox {
+position: relative;
+right: 360px;
+bottom: 45px;
 }
 </style>
