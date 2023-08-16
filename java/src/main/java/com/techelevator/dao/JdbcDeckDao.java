@@ -44,6 +44,14 @@ public class JdbcDeckDao {
         return decks;
     }
 
+    public void editDeck(Deck deck, int id) {
+        String sql = "update deck\n" +
+                "set deckname = ?\n" +
+                "where deck_id = ?";
+
+        jdbcTemplate.update(sql, deck.getDeckName(), id);
+    }
+
     private Deck mapRowToDeck(SqlRowSet rs) {
         Deck deck = new Deck();
         deck.setDeck_id(rs.getInt("deck_id"));

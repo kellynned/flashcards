@@ -38,4 +38,12 @@ public class DeckController {
 
         return jdbcDeckDao.findAll(creator);
     }
+
+    @RequestMapping(value = "/deck/{id}", method = RequestMethod.PUT)
+    public void editDeck(@RequestBody Deck deck, @PathVariable int id, Principal principal){
+        User creator = userDao.getUserByUsername(principal.getName());
+
+
+        jdbcDeckDao.editDeck(deck, id);
+    }
 }
