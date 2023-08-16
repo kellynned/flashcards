@@ -19,7 +19,9 @@ export default {
         return http.delete(`/decks/${id}`);
     },
     addCards(id, flashcardIds) {
-        return http.post(`/decks/${id}/addFlashcards`, flashcardIds)
+        return http.post(`/decks/${id}/addFlashcards`, flashcardIds);
+    },
+    removeCards(id, flashcardIds) {
+        return http.delete(`/decks/${id}/removeFlashcards`, flashcardIds);
     }
-
 }

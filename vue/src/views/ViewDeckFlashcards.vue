@@ -5,20 +5,24 @@
     </div>
 
     <div class="flashcardsContainer">
-      <h2>Flashcards</h2>
+      <h2>Deck</h2>
 
-      <button class="button">
-        Save <i class="fa-solid fa-floppy-disk"></i>
+      <button class="button" @click="removeFromDeck">
+        Remove <i class="fa-solid fa-trash-can"></i>
       </button>
 
-      <div>
-        <Flashcard
-          class="flashcard"
-          v-for="flashcard in flashcards"
-          :key="flashcard.id"
-          :flashcard="flashcard"
-        />
-      </div>
+      <ul v-for="flashcard in flashcards" :key="flashcard.id">
+        <li>
+          <Flashcard class="flashcard" :flashcard="flashcard" />
+          <input
+            class="checkbox"
+            type="checkbox"
+            v-bind:id="flashcard.flashcardId"
+            v-bind:value="flashcard.flashcardId"
+            v-model="selectedId"
+          />
+        </li>
+      </ul>
 
       <router-link
         :to="{ name: 'addcard', params: { deckId: this.$route.params.deckId } }"
@@ -39,8 +43,8 @@ export default {
   data() {
     return {
       searchInput: "",
-      decks: [],
-      selectedDeck: null,
+      selectedDeckId: this.$route.params.deckId,
+      selectedId: [],
     };
   },
 
@@ -63,8 +67,12 @@ export default {
   methods: {
     getDeckFlashcards() {
       DeckService.get(this.$route.params.deckId).then((response) =>
-        this.$store.commit("SET_FLASHCARDS", response.data)
+        this.$store.commit("SET_FLASHCARDS", response.data),
       );
+    },
+    removeFromDeck() {
+      DeckService.removeCards(this.selectedDeckId, this.selectedId);
+      console.log(this.selectedDeckId);
     },
   },
 };
@@ -89,13 +97,14 @@ export default {
   color: #89b0ae;
   border-radius: 10px;
   margin-right: 25%;
-  margin-left: 25%;
+  margin-left: 29%;
   background-color: #89b0ae;
   text-align: center;
   overflow: auto;
   align-content: center;
   height: 750px;
   border: 4px solid #64949283;
+  width: 800px;
 }
 
 .flashcard {
@@ -106,6 +115,7 @@ export default {
   left: 43px;
   position: relative;
   align-content: center;
+  margin-bottom: -30px;
 }
 
 h2 {
@@ -185,5 +195,11 @@ h2 {
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
+}
+
+.checkbox {
+  position: relative;
+  right: 360px;
+  bottom: 45px;
 }
 </style>

@@ -54,4 +54,12 @@ public class DeckController {
 
         jdbcDeckDao.addCards(id, flashcardIds);
     }
+
+    @RequestMapping(value = "/decks/{id}/removeFlashcards", method = RequestMethod.DELETE)
+    public void removeCardFromDeck(@PathVariable int id, @RequestBody int flashcardIds[], Principal principal){
+
+        User creator = userDao.getUserByUsername(principal.getName());
+
+        jdbcDeckDao.removeCards(id, flashcardIds);
+    }
 }
