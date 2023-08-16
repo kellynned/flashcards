@@ -63,7 +63,7 @@ export default {
     fetchFlashcardInfo(id) {
       FlashcardService.get(id).then((response) => {
         if (response.status === 200) {
-          this.card = response.data; // Populate the card data
+          this.card = response.data; 
         }
       });
     },
