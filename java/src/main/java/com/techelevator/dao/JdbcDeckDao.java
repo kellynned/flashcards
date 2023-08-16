@@ -63,14 +63,19 @@ public class JdbcDeckDao {
     public void addCards(int id, int[] flashcardIds) {
         for (int num : flashcardIds){
 
-
             String sql = "INSERT INTO flashcard_deck (flashcard_id, deck_id)\n" +
                     "VALUES (?, ?);";
 
             jdbcTemplate.update(sql, num, id);
         }
+    }
 
+    public void removeCards(int id, int[] flashcardIds) {
+        for (int num : flashcardIds){
 
+            String sql = "delete from flashcard_deck where flashcard_id = ? AND deck_id = ?";
 
+            jdbcTemplate.update(sql, num, id);
+        }
     }
 }
