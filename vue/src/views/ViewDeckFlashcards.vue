@@ -67,12 +67,12 @@ export default {
   methods: {
     getDeckFlashcards() {
       DeckService.get(this.$route.params.deckId).then((response) =>
-        this.$store.commit("SET_FLASHCARDS", response.data),
+        this.$store.commit("SET_FLASHCARDS", response.data)
       );
     },
     removeFromDeck() {
       DeckService.removeCards(this.selectedDeckId, this.selectedId);
-      console.log(this.selectedDeckId);
+      console.log(this.selectedId);
     },
   },
 };
