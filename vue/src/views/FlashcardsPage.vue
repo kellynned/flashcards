@@ -13,26 +13,26 @@
         </option>
       </select>
       <input
-            type="text"
-            id="search"
-            v-model="searchInput"
-            required
-            autofocus
-            @keypress.enter="getFilteredFlashcards"
-          />
+        type="text"
+        id="search"
+        v-model="searchInput"
+        required
+        autofocus
+        @keypress.enter="getFilteredFlashcards"
+      />
 
       <button class="button">
         Save <i class="fa-solid fa-floppy-disk"></i>
       </button>
 
-       <div>
-          <Flashcard
-            class="flashcard"
-            v-for="flashcard in $store.state.filteredList"
-            :key="flashcard.id"
-            :flashcard="flashcard"
-          />
-        </div>
+      <div>
+        <Flashcard
+          class="flashcard"
+          v-for="flashcard in $store.state.filteredList"
+          :key="flashcard.id"
+          :flashcard="flashcard"
+        />
+      </div>
 
       <router-link to="/createcard" custom v-slot="{ navigate }">
         <button
@@ -86,9 +86,10 @@ export default {
         console.error("Error fetching flashcards:", error);
       }
     },
-     getFilteredFlashcards() {
-      FlashcardService.getFiltered(this.searchInput).then((response) =>
-        this.$store.commit("SET_FILTERED_FLASHCARDS", response.data),
+    getFilteredFlashcards() {
+      FlashcardService.getFiltered(this.searchInput).then(
+        (response) =>
+          this.$store.commit("SET_FILTERED_FLASHCARDS", response.data),
         console.log("Testing")
       );
     },
