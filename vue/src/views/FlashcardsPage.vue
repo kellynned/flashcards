@@ -55,11 +55,7 @@ export default {
   data() {
     return {
       searchInput: "",
-<<<<<<< HEAD
       selectedDeckId: null,
-=======
-      selectedDeckId: 0,
->>>>>>> main
       selectedId: [],
     };
   },
