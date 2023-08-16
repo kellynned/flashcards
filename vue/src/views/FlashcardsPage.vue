@@ -25,14 +25,18 @@
         Save <i class="fa-solid fa-floppy-disk"></i>
       </button>
 
-      <div>
-        <Flashcard
-          class="flashcard"
-          v-for="flashcard in $store.state.filteredList"
-          :key="flashcard.id"
-          :flashcard="flashcard"
-        />
-      </div>
+      <ul v-for="flashcard in $store.state.filteredList" :key="flashcard.id">
+        <li>
+          <input
+            class="checkbox"
+            type="checkbox"
+            v-bind:id="flashcard.flashcardId"
+            v-bind:value="flashcard.flashcardId"
+            v-model="selectedId"
+          />
+          <Flashcard class="flashcard" :flashcard="flashcard" />
+        </li>
+      </ul>
 
       <router-link to="/createcard" custom v-slot="{ navigate }">
         <button
@@ -59,6 +63,7 @@ export default {
       searchInput: "",
       decks: [],
       selectedDeck: null,
+      selectedId: [],
     };
   },
 

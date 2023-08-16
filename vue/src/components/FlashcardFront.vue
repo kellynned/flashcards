@@ -48,7 +48,11 @@ export default {
 
 .question {
   position: relative;
+<<<<<<< HEAD
   bottom: 25px;
+=======
+  bottom: 30px;
+>>>>>>> 8a9260877d3d1928955cb54d1f16fd5df01801a2
 }
 
 .edit-button {
@@ -69,6 +73,10 @@ export default {
 .cardHead {
   position: relative;
   left: 30px;
+<<<<<<< HEAD
+=======
+ 
+>>>>>>> 8a9260877d3d1928955cb54d1f16fd5df01801a2
 }
 
 i {
@@ -76,4 +84,9 @@ i {
   left: 135px;
   bottom: 10px;
 }
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 8a9260877d3d1928955cb54d1f16fd5df01801a2
 </style>
