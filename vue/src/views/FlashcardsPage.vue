@@ -25,13 +25,13 @@
       <ul v-for="flashcard in $store.state.filteredList" :key="flashcard.id">
         <li>
           <Flashcard class="flashcard" :flashcard="flashcard" />
-           <input
-      class ="checkbox"
-      type="checkbox"
-      v-bind:id="flashcard.flashcardId"
-      v-bind:value="flashcard.flashcardId"
-      v-model="selectedId"
-    />
+          <input
+            class="checkbox"
+            type="checkbox"
+            v-bind:id="flashcard.flashcardId"
+            v-bind:value="flashcard.flashcardId"
+            v-model="selectedId"
+          />
         </li>
       </ul>
       <router-link to="/createcard" custom v-slot="{ navigate }">
@@ -94,13 +94,13 @@ export default {
       );
     },
     saveToDeck() {
+      DeckService.addCards(this.selectedDeckId, this.selectedId);
       console.log(this.selectedDeckId);
-    }
+    },
   },
 };
 </script>
 <style scoped>
-
 .flashcards-page {
   background-image: linear-gradient(to bottom, #555b6e, #faf9f9);
   height: 95.3vh;
@@ -220,8 +220,8 @@ h2 {
 }
 
 .checkbox {
-position: relative;
-right: 360px;
-bottom: 45px;
+  position: relative;
+  right: 360px;
+  bottom: 45px;
 }
 </style>

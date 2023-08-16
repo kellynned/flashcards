@@ -59,4 +59,18 @@ public class JdbcDeckDao {
         deck.setUser_id(rs.getInt("user_id"));
         return deck;
     }
+
+    public void addCards(int id, int[] flashcardIds) {
+        for (int num : flashcardIds){
+
+
+            String sql = "INSERT INTO flashcard_deck (flashcard_id, deck_id)\n" +
+                    "VALUES (?, ?);";
+
+            jdbcTemplate.update(sql, num, id);
+        }
+
+
+
+    }
 }
