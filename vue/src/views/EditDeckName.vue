@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     renameDeck() {
-        DeckService.renameDeck(this.$route.params.deckId, this.deckname);
+        DeckService.renameDeck(this.$route.params.deckId, this.deck);
         console.log(this.$route.params.deckId)
     }
   },
