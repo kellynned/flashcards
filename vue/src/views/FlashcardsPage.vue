@@ -8,7 +8,7 @@
       <label for="deck-names">Choose a deck:</label>
       <select name="deck-names" id="deck-names" v-model="selectedDeck">
         <option v-for="deck in decks" :key="deck.deck_id" :deck="deck">
-          {{ deck.deckName }}
+          {{ deck.deckname }}
         </option>
       </select>
       <input
@@ -55,7 +55,6 @@ export default {
   data() {
     return {
       searchInput: "",
-      decks: [],
       selectedDeck: null,
       selectedId: [],
     };
@@ -67,6 +66,9 @@ export default {
   computed: {
     flashcards() {
       return this.$store.state.flashcards;
+    },
+    decks() {
+      return this.$store.state.decks;
     },
   },
   mounted() {
