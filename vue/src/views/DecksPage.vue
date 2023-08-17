@@ -1,7 +1,8 @@
 <template>
   <div class="decks-page">
     <div class="header">
-      <h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1>
+      <h1>Decks <i class="fa-solid fa-layer-group"></i
+      ></h1>
     </div>
 
     <div class="decksContainer">
