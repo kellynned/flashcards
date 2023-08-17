@@ -4,7 +4,7 @@
       <h1>Flashcards <i class="fa-brands fa-pagelines"></i></h1>
     </div>
     <div class="flashcardsContainer">
-      <label for="deck-names">Choose a deck:</label>
+      <label for="deck-names" class="choosedeck">Decks</label>
       <select name="deck-names" id="deck-names" v-model="selectedDeckId">
         <option v-for="deck in decks" :key="deck.deck_id" :value="deck.deck_id">
           {{ deck.deckname }}
@@ -210,9 +210,9 @@ h2 {
 }
 #deck-names {
   position: relative;
-  right: 100px;
+  right: 75px;
   height: 30px;
-  width: 100px;
+  width: 125px;
 }
 #search {
   width: 40%;
@@ -223,5 +223,12 @@ h2 {
   position: relative;
   right: 360px;
   bottom: 45px;
+}
+
+.choosedeck {
+  color: #faf9f9;
+  position: relative;
+  bottom: 23px;
+  left: 17px;
 }
 </style>
