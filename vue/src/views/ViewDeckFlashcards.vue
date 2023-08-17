@@ -6,7 +6,7 @@
 
     <div class="flashcardsContainer">
       <h2>
-        {{ this.$route.params.deckname }}
+        {{deckname}}
        <router-link
         :to="{
           name: 'EditDeckName', params: { deckId: this.$route.params.deckId } 
@@ -35,7 +35,7 @@
       </ul>
 
       <router-link
-        :to="{ name: 'addcard', params: { deckId: this.$route.params.deckId } }"
+        :to="{ name: 'addcard', params: { deckId: this.$route.params.deckId} }"
       >
         <button class="button" role="link" style="vertical-align: middle">
           <span>Add Card </span>
@@ -55,6 +55,7 @@ export default {
       searchInput: "",
       selectedDeckId: this.$route.params.deckId,
       selectedId: [],
+      deckname: this.$route.params.deckname
     };
   },
 
