@@ -18,7 +18,7 @@
         autofocus
         @keypress.enter="getFilteredFlashcards"
       />
-      <button class="button" @click="saveToDeck">
+      <button class="button save" @click="saveToDeck">
         Save <i class="fa-solid fa-floppy-disk"></i>
       </button>
       <ul v-for="flashcard in $store.state.filteredList" :key="flashcard.id">
@@ -217,6 +217,8 @@ h2 {
 #search {
   width: 40%;
   height: 20px;
+  position: relative;
+  left: 17px;
 }
 
 .checkbox {
@@ -230,5 +232,10 @@ h2 {
   position: relative;
   bottom: 23px;
   left: 17px;
+}
+
+.save {
+  position: relative;
+  left: 41px;
 }
 </style>
