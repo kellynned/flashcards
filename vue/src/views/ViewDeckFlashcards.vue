@@ -7,14 +7,14 @@
     <div class="flashcardsContainer">
       <h2>
         {{ this.$route.params.deckname }}
-       <router-link
-        :to="{
-          name: 'EditDeckName', params: { deckId: this.$route.params.deckId } 
-        }"
-        class="edit-button"
-        ><i class="fa-solid fa-pen-to-square"></i
-      ></router-link>
-        
+        <router-link
+          :to="{
+            name: 'EditDeckName',
+            params: { deckId: this.$route.params.deckId },
+          }"
+          class="edit-button"
+          ><i class="fa-solid fa-pen-to-square"></i
+        ></router-link>
       </h2>
 
       <button class="button" @click="removeFromDeck">
