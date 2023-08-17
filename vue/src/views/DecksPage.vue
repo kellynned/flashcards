@@ -5,7 +5,7 @@
     </div>
 
     <div class="decksContainer">
-      <h2>{{this.$route.params.deckId}}</h2>
+      <h2>Decks {{ this.$route.params.deckId }}</h2>
 
       <div>
         <Deck class="deck" v-for="deck in decks" :key="deck.id" :deck="deck" />

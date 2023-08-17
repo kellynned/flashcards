@@ -432,21 +432,6 @@ h2 {
   height: 20px;
 }
 
-.edit-button {
-  display: inline-block;
-  border-radius: 15px;
-  background-color: #fde8da;
-  border: none;
-  color: #555b6e;
-  text-align: center;
-  font-size: 15px;
-  padding: 20px;
-  width: 70px;
-  transition: all 0.5s;
-  cursor: pointer;
-  margin: 5px;
-}
-
 .results {
   position: relative;
   top: 100px;

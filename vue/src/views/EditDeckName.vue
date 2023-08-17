@@ -13,7 +13,11 @@
             autofocus
           />
         </div>
-        <button @click.prevent="renameDeck" type="submit">Rename Deck!</button>
+        <router-link v-bind:to="{ name: 'DecksPage' }">
+          <button @click.prevent="renameDeck" type="submit">
+            Rename Deck!
+          </button>
+        </router-link>
       </form>
     </div>
   </body>
@@ -29,15 +33,15 @@ export default {
     return {
       deck: {
         deckname: "",
-        deckId: this.$route.params.deckId
+        deckId: this.$route.params.deckId,
       },
     };
   },
   methods: {
     renameDeck() {
-        DeckService.renameDeck(this.$route.params.deckId, this.deck);
-        console.log(this.$route.params.deckId)
-    }
+      DeckService.renameDeck(this.$route.params.deckId, this.deck);
+      console.log(this.$route.params.deckId);
+    },
   },
 };
 </script>
